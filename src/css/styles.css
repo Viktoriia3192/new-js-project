@@ -1,0 +1,18 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./all_categories_viktoriia.css');
+@import url('./autorization_julia.css');
+@import url('./best_sellers_lipskii.css');
+@import url('./dark_theme_max.css');
+@import url('./header_hrebinchuk.css');
+@import url('./logik_kanter.css');
+@import url('./modal_andrii.css');
+@import url('./pagination_mariia.css');
+@import url('./shopping_list_olexandr.css');
+@import url('./support_daryna.css');
