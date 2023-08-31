@@ -1,0 +1,68 @@
+:root {
+    /* ==Colors== */
+
+    /* -----------------------Light----------------- */
+    --grey-text-color: #b4afaf;
+    --bg-color: #f6f6f6;
+    --black-text-color: #111111;
+    --accent-yellow-color: #eac645;
+    --accent-blue-color: #4f2ee8;
+    --categories-text-color: #11111199;
+    --scroll-color: #e0e0e0;
+    --bagdrop-color: #11111166;
+    --white-color: #ffffff;
+    --logo-color: #000000;
+
+    /* -----------------------Dark----------------- */
+
+    --bg-color-dark: #202024;
+    --logo-dark: #F3F3F3;
+
+    /* ==Fonts== */
+
+    --main-text-font: 'DM Sans', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    background-color: var(--bg-color);
+}
+
+body {
+    color: var(--grey-text-color);
+    font-family: var(--main-text-font);
+}
+
+.container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@media screen and (min-width: 375px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+section {
+    padding-top: 40px;
+}
