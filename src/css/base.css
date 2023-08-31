@@ -36,6 +36,10 @@ body {
     font-family: var(--main-text-font);
 }
 
+section {
+    padding-top: 40px;
+}
+
 .container {
     min-width: 375px;
     padding-left: 20px;
@@ -52,6 +56,7 @@ body {
 
 @media screen and (min-width: 768px) {
     .container {
+
         padding-left: 32px;
         padding-right: 32px;
     }
@@ -59,11 +64,15 @@ body {
 
 @media screen and (min-width: 1440px) {
     .container {
+        display: flex;
         padding-left: 24px;
         padding-right: 24px;
     }
 }
 
-section {
-    padding-top: 40px;
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+    .left-wrapper {
+    display: flex;
 }
+}
+
