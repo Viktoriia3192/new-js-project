@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 
+//  Закриття вікна
 function toggleModal() {
   console.log("Toggle modal called"); 
   refs.modal.classList.toggle("is-hidden");
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
+// Отримання посилань на елементи форм
 const firebaseConfig = {
   authDomain: "project-956258341440.firebaseapp.com", //  домен авторизації
   projectId: "bookshelf-ee661",
