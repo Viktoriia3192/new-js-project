@@ -1,0 +1,31 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(17, 17, 17, 0.4);
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+  width: 100vw;
+  overflow-y: scroll;
+}
+
+.modal {
+  max-width: 580px;
+  max-height: 750px;
+  background-color: rgba(236, 243, 241, 0.911);
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 50px;
+  border-radius: 20px;
+  position: relative;
+}
+
+/* .is-hidden {
+  display: none;
+} */
