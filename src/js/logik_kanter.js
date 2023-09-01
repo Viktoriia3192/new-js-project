@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const refs = {
   categories: document.querySelector('.categories-list'),
+  title: document.querySelector('.category-title'),
   list: document.querySelector('.categories-books'),
 };
 
@@ -25,6 +26,7 @@ function onCategoriesClick(event) {
         throw new Error(arrayError);
         // throw new Error(Notify.info(arrayError));
       }
+      refs.title.textContent = resp.data[0].list_name;
       refs.list.innerHTML = createMarkup(resp.data);
     })
     .catch(function (error) {
@@ -39,7 +41,7 @@ function onCategoriesClick(event) {
 }
 
 async function searchService(categoryValue) {
-  const URL = `https://books-backend.p.goit.global/books/category?category123=${categoryValue}`;
+  const URL = `https://books-backend.p.goit.global/books/category?category=${categoryValue}`;
 
   const data = await axios.get(URL);
   return data;
