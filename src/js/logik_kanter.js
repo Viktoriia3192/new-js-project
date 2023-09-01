@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
+import { Loading } from 'notiflix';
 
 const refs = {
   categories: document.querySelector('.categories-list'),
@@ -23,19 +25,16 @@ function onCategoriesClick(event) {
   searchService(currentCategory)
     .then(resp => {
       if (resp.data.length === 0) {
-        throw new Error(arrayError);
-        // throw new Error(Notify.info(arrayError));
+        throw new Error(Notify.info(arrayError));
       }
       refs.title.textContent = resp.data[0].list_name;
       refs.list.innerHTML = createMarkup(resp.data);
     })
     .catch(function (error) {
       if (error.response) {
-        console.log(fechError);
-        // Notify.failure(fechError);
+        Notify.failure(fechError);
       } else if (error.request) {
-        console.log(fechError);
-        // Notify.failure(fechError);
+        Notify.failure(fechError);
       }
     });
 }
@@ -49,11 +48,13 @@ async function searchService(categoryValue) {
 
 function createMarkup(arr) {
   return arr
-    .map(({ book_image, author, list_name, title }) => {
-      const card = `<li class="book-item">
+    .map(({ book_image, author, list_name, title, _id }) => {
+      const card = `<li class="book-item" data-id="${_id}>
             <a href="#" class="book-link">
-                <img src="${book_image}" alt="${title}"> 
-                <h4 class="book-title">${title}</h4>
+                <img class="book-img" src="${
+                  book_image || '../images/default_image.jpg'
+                }" alt="${title}"> 
+                <h3 class="book-title">${title}</h3>
                 <p class="book-author">${author}</p>
             </a>
         </li>`;
