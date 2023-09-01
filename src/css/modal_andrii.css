@@ -15,11 +15,13 @@
   overflow: hidden;
   overflow-y: y;
 }
+
 /* .is-hidden {
   opacity: 0;
   pointer-events: none;
   scale: 1.25;
 } */
+
 .modal {
   position: relative;
   display: flex;
@@ -36,6 +38,7 @@
     0px 2px 1px rgba(0, 0, 0, 0.2);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .modal__close-btn {
   position: absolute;
   top: 24px;
@@ -48,13 +51,15 @@
 
 .modal__close-btn:hover,
 .modal__close-btn:focus {
-  scale: 1.2;
+  transform: scale(1.2);
 }
+
 .modal__content {
   display: flex;
   gap: 24px;
   margin-bottom: 40px;
 }
+
 .add-bookBtn {
   margin-bottom: 8px;
   padding: 20px;
@@ -71,7 +76,7 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: var(--text-secondary-color);
+  color: #111111;
 
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -123,12 +128,10 @@
   top: -5px;
   right: -5px;
 }
-.an-book-info-modal .modal__close-img,
-.an-book-info-modal .modal__title {
+.an-book-info-modal,
+.modal__close-btn {
   color: #111111;
-  fill: #111111;
 }
-
-.an-book-info-modal .store-link-img {
-  filter: grayscale(100%);
+.modal__close-img {
+  fill: #111111;
 }
