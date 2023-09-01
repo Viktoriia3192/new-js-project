@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const refs = {
   categories: document.querySelector('.categories-list'),
-  title: document.querySelector('.category-title'),
-  list: document.querySelector('.categories-books'),
+  title: document.querySelector('.main-title'),
+  list: document.querySelector('.common-list'),
 };
 
 const arrayError =
