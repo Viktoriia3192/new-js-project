@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 import './js/header_hrebinchuk';
 import './js/all_categories_viktoriia';
