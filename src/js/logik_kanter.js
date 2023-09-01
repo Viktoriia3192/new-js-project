@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const refs = {
   categories: document.querySelector('.categories-list'),
+  list: document.querySelector('.categories-books'),
 };
 
 refs.categories.addEventListener('click', onCategoriesClick);
@@ -13,10 +14,9 @@ function onCategoriesClick(event) {
     return;
   }
   currentCategory = event.target.textContent.replaceAll(' ', '%20');
-  console.log(currentCategory);
 
-  searchService(currentCategory).then(data => {
-    console.log(data);
+  searchService(currentCategory).then(resp => {
+    refs.list.innerHTML = createMarkup(resp.data);
   });
 }
 
@@ -25,4 +25,20 @@ async function searchService(categoryValue) {
 
   const data = await axios.get(URL);
   return data;
+}
+
+function createMarkup(arr) {
+  return arr
+    .map(({ book_image, author, list_name, title }) => {
+      const card = `<li class="book-item">
+            <a href="#" class="book-link">
+                <img src="${book_image}" alt="${title}"> 
+                <h4 class="book-title">${title}</h4>
+                <p class="book-author">${author}</p>
+            </a>
+        </li>`;
+
+      return card;
+    })
+    .join('');
 }
