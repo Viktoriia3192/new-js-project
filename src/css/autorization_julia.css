@@ -1,0 +1,36 @@
+.auth-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: var(--accent-blue-color);
+}
+
+.auth {
+  position: absolute;
+  top: calc(50% - 258px);
+  left: calc(50% - 289.5px);
+  width: 579px;
+  min-height: 516px;
+  padding: 24px;
+  background: var(--bg-color);
+  border-radius: 18px;
+  border: 2px solid #111111;
+}
+
+.auth-btn-close {
+  display: block;
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-form {
+  padding: 80px, 40px;
+  gap: 40px;
+}

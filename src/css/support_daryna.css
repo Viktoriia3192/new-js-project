@@ -1,0 +1,25 @@
+.fond-box{
+    width: 335px;
+    padding: 28px 40px;
+    border-radius: 16px;
+    background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
+    box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.10);
+}
+
+.fond-wrap{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.fonds-title{
+    color:var(--bg-color);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.88px;
+}
+
+
+.fond-img{
+    filter: brightness(0) invert(1);
+}
