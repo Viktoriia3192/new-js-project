@@ -13,8 +13,10 @@ const arrayError =
 const fechError = 'Sorry, something went wrong. Try again!';
 
 refs.categories.addEventListener('click', onCategoriesClick);
+refs.list.addEventListener('click', onSeeMoreBtnClick);
 
 let currentCategory = '';
+let buttonCategory = '';
 
 function onCategoriesClick(event) {
   if (event.target.className !== 'categories-link') {
@@ -62,4 +64,27 @@ function createMarkup(arr) {
       return card;
     })
     .join('');
+}
+
+function onSeeMoreBtnClick(event) {
+  if (event.target.className !== 'showMore-btn') {
+    return;
+  }
+  buttonCategory = event.target.name.replaceAll(' ', '%20');
+  console.log(buttonCategory);
+  searchService(buttonCategory)
+    .then(resp => {
+      if (resp.data.length === 0) {
+        throw new Error(Notify.info(arrayError));
+      }
+      refs.title.textContent = resp.data[0].list_name;
+      refs.list.innerHTML = createMarkup(resp.data);
+    })
+    .catch(function (error) {
+      if (error.response) {
+        Notify.failure(fechError);
+      } else if (error.request) {
+        Notify.failure(fechError);
+      }
+    });
 }
