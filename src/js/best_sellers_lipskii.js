@@ -14,7 +14,7 @@ fetchBooksData()
   renderMarkup(data);
 
 })
-.catch(error => console.error(error));
+.catch(error => console.log(error));
 
 function checkResize() {  // Check wether we should render markup or not.
          
