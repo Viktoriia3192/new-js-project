@@ -11,7 +11,7 @@ const removeNotification = document.querySelector('.removeNotification');
 const notification = document.querySelector('.notification');
 
 commonListRef.addEventListener('click', onClick);
-console.log(commonListRef);
+// console.log(commonListRef);
 
 function onClick(e) {
   if (e.target.className !== 'book-img') {
