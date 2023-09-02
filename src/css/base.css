@@ -27,13 +27,10 @@ html {
     scroll-behavior: smooth;
 }
 
-main {
-    background-color: var(--bg-color);
-}
-
 body {
     color: var(--grey-text-color);
     font-family: var(--main-text-font);
+    background-color: var(--bg-color);
 }
 
 section {
@@ -56,7 +53,6 @@ section {
 
 @media screen and (min-width: 768px) {
     .container {
-
         padding-left: 32px;
         padding-right: 32px;
     }
