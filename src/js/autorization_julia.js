@@ -1,6 +1,15 @@
+<<<<<<< Updated upstream
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+=======
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from "firebase/analytics";
+
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { ref, set, getDatabase } from "firebase/database";
+
+>>>>>>> Stashed changes
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
@@ -24,7 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// Авторизація
 
+<<<<<<< Updated upstream
 
 // Отримуємо посилання на кнопку за допомогою класу js
 
@@ -34,13 +45,33 @@ closeButton = document.querySelector('.js_auth-button-signup');
 closeButton.addEventListener('click', closeButton);
 
 // Оголошуємо параметри конфігурації Firebase
+=======
+>>>>>>> Stashed changes
 const firebaseConfig = {
-  databaseURL: "https://bookshelf-ee661-default-rtdb.europe-west1.firebasedatabase.app/"
+  apiKey: "AIzaSyBbyJ1YQ4-GD4N0lhO_z3BVagmCNn0IKFk",
+  authDomain: "bookshelf-ee661.firebaseapp.com",
+  databaseURL: "https://bookshelf-ee661-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "bookshelf-ee661",
+  storageBucket: "bookshelf-ee661.appspot.com",
+  messagingSenderId: "956258341440",
+  appId: "1:956258341440:web:ca611f9dfc8a224323c5a5",
+  measurementId: "G-WDP0VVBWDK"
 };
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
+<<<<<<< Updated upstream
 // Ініціалізація Firebase з використанням конфігурації
 firebase.initializeApp(firebaseConfig);
+=======
+// Отримуємо посилання на кнопку за допомогою класу js
+const closeButtonup = document.querySelector('.js_auth-button-signup');
+
+// Додаємо обробник події для кнопки
+closeButtonup.addEventListener('click', closeButtonup);
+>>>>>>> Stashed changes
 
 document.addEventListener("DOMContentLoaded", function () {
   const refs = {
@@ -71,10 +102,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const userEmail = userEmailInput.value;
     const userPassword = userPasswordInput.value;
 
+    // Отримуємо посилання на об'єкт авторизації та бази даних
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
     // Реєстрація користувача за допомогою Firebase
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(userEmail, userPassword)
+    createUserWithEmailAndPassword(auth, userEmail, userPassword)
       .then((userCredential) => {
         // Реєстрація успішна
         const user = userCredential.user;
@@ -82,22 +115,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Збереження інформації про користувача в базі даних Firebase
         const userId = user.uid;
-        const userRef = firebase.database().ref('users/' + userId); // Шлях до користувача у базі даних
-        userRef.set({
+        const userRef = ref(database, 'users/' + userId); // Шлях до користувача у базі даних
+        const userData = {
           name: userName,
           email: userEmail,
-        }).then(() => {
-          console.log('User data saved in the database.');
-        }).catch((error) => {
-          console.error('Error saving user data:', error);
-        });
+        };
+
+        set(userRef, userData)
+          .then(() => {
+            console.log('User data saved in the database.');
+          })
+          .catch((error) => {
+            console.error('Error saving user data:', error);
+          });
 
       })
       .catch((error) => {
         // Реєстрація не вдалася, обробка помилки
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error("Registration failed:", errorMessage);
+        // console.error("Registration failed:", errorMessage);
       });
   });
 });
