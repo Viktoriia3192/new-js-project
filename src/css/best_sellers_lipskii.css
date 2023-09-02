@@ -1,7 +1,15 @@
+@media only screen and (min-width: 1440px) {
+   .wrapper {
+    
+    padding: 40px;
+  }
+}
+
 
 .main-title {
 
  margin-bottom: 40px;
+
 
  color:var(--black-text-color);
  font-size: 32px;
