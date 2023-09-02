@@ -5,8 +5,14 @@
     background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
     box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.10);
 }
+@media screen and (min-width: 768px){
+    .fond-box{
+        padding: 26px 40px;
+    }
+}
 
 .fond-wrap{
+    margin-bottom: 44px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -18,7 +24,15 @@
     line-height: 1.1;
     letter-spacing: -0.88px;
 }
+@media screen and (min-width: 768px){
+    .fond-wrap{
+        margin-bottom: 42px;
+    }
 
+    .fonds-title{
+        font-size: 24px;
+    }
+}
 
 .fond-img{
     filter: brightness(0) invert(1);
@@ -39,11 +53,22 @@
 }
 
 .fonds-items {
-    min-height: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     gap: 14px;
 
+}
+
+.fond-slider-box{
+    height: 188px;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 768px){
+.fond-slider-box{
+    height: 292px;
+}
 }
 
 .ukr-symbole{
@@ -51,8 +76,17 @@
     
 }
 
-.fond-button{
-    margin: 22px auto 0px auto;
+
+
+
+/**
+  |============================
+  | Button style
+  |============================
+*/
+.fond-scroll-button {
+    position: relative;
+    margin: 16px auto 0px auto;
     display: block;
     width: 32px;
     height: 32px;
@@ -61,8 +95,23 @@
     background-color: var(--bg-color);
 }
 
-.fond-scroll-icon{
-   fill: var(--accent-blue-color);
+@media screen and (min-width: 768px) {
+    .fond-scroll-button {
+        margin-top: 24px;
+    }
 }
 
-.fond-button:hover{}
+.fond-scroll-icon {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    fill: var(--accent-blue-color);
+    transition: transform 0.3s ease;
+
+}
+.fond-scroll-button:hover{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
