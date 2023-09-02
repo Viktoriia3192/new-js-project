@@ -8,9 +8,10 @@
     max-height: 44px;
     }
     
-    /* .pagination-block {
+    .pagination-block {
         display: flex;
-    } */
+        gap: 10px;
+    }
     
     /* .pagination-block-start {
     } */
@@ -49,7 +50,11 @@
     .pagination-btn-previous {
         background-color: var(--black-text-color);
         fill: var(--grey-text-color);
+    }
     
+    .pagination-icon-previous {
+        display: block;
+        margin-left: 0;
     }
     
     .pagination-icon { 
@@ -61,5 +66,25 @@
     
     /* .pagination-block-number {
     } */
+    
+    .pagination-number {
+        color: #111;
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    }
+    
     /* .pagination-block-end {
     } */
+    
+    .pagination-btn-next {
+        background-color: var(--accent-yellow-color);
+        fill: var(--logo-color);
+    }
+    
+    .pagination-icon-next {
+        display: block;
+        margin-right: 0;
+    }
