@@ -23,6 +23,11 @@
   border: none;
   cursor: pointer;
 }
+.auth-icon-close {
+  stroke: #111111;
+  display: flex;
+  margin: 0 auto;
+}
 
 .auth-form {
   display: flex;
@@ -31,7 +36,8 @@
 /* .is-hidden {
   display: none;
 } */
-
+.auth-icon-input {
+}
 .auth-input-container:nth-child(2) {
   position: relative;
 }
