@@ -8,12 +8,17 @@ const addBookBtn = document.querySelector('.add-bookBtn');
 const removeNotification = document.querySelector('.removeNotification');
 const addNotification = document.querySelector('.addNotification');
 const notification = document.querySelector('.notification');
+// const bestSellerRef = document.querySelector('.best-sellers');
+// const categoriesRef = document.querySelector('.category-books-list');
 let modalContent = document.querySelector('.modal__content');
 let idToLocaleStorege = null;
 let arrToLocaleStoreg = [];
 
 addBookBtn.addEventListener('click', onAddBookClick);
 closeBtn.addEventListener('click', onBtnCloseClick);
+
+// bestSellerRef.addEventListener('click', onCardClick);
+// categoriesRef.addEventListener('click', onCardClick);
 
 function fetchCategory(id) {
   return fetch(`https://books-backend.p.goit.global/books/${id}`).then(res =>
@@ -76,11 +81,6 @@ function onCardClick(e) {
   backDrop.addEventListener('click', onBtnCloseClick);
   backDrop.addEventListener('keydown', onBtnCloseClick);
 
-  //   if(!JSON.parse(localStorage.getItem('shopping-list')).includes(id)){
-  //   addNotification.classList.remove('hidden')
-  //   removeNotification.classList.add('hidden')
-  // }
-
   if (card.classList.contains('books-btn')) {
     return;
   }
@@ -98,7 +98,7 @@ function onAddBookClick(res) {
 
   if (addNotification.classList.contains('hidden')) {
     arrToLocaleStoreg.push(idToLocaleStorege);
-    // console.log(arrToLocaleStoreg)
+
     localStorage.setItem('shopping-list', JSON.stringify(arrToLocaleStoreg));
   }
   if (removeNotification.classList.contains('hidden')) {
