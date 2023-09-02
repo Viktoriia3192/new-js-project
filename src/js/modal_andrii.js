@@ -1,15 +1,10 @@
-import amazon from '../images/book-shop/amazon.png';
-import amazon from '../images/book-shop/books-apple.png';
-import amazon from '../images/book-shop/bookshop.png';
-
 const backDrop = document.querySelector('#book-modal');
 const closeBtn = document.querySelector('.modal__close-btn');
 const addBookBtn = document.querySelector('.add-bookBtn');
 const removeNotification = document.querySelector('.removeNotification');
 const addNotification = document.querySelector('.addNotification');
 const notification = document.querySelector('.notification');
-// const bestSellerRef = document.querySelector('.best-sellers');
-// const categoriesRef = document.querySelector('.category-books-list');
+const commonListRef = document.querySelector('.common-list');
 let modalContent = document.querySelector('.modal__content');
 let idToLocaleStorege = null;
 let arrToLocaleStoreg = [];
@@ -17,43 +12,56 @@ let arrToLocaleStoreg = [];
 addBookBtn.addEventListener('click', onAddBookClick);
 closeBtn.addEventListener('click', onBtnCloseClick);
 
-// bestSellerRef.addEventListener('click', onCardClick);
-// categoriesRef.addEventListener('click', onCardClick);
+commonListRef.addEventListener('click', onClick);
+console.log(commonListRef);
 
-function fetchCategory(id) {
-  return fetch(`https://books-backend.p.goit.global/books/${id}`).then(res =>
-    res.json()
-  );
-}
+const commonListRef = document.querySelector('.common-list');
+const modalContent = document.querySelector('.modal__content');
+const backDrop = document.querySelector('#book-modal');
 
-function renderTargetCategory(id) {
-  const markup = `
-    
-      <div class="modal__img-container">
-        <img src="${id.book_image}" alt="${id.title}" class="modal__img">
-      </div>
-      <div class="modal__desc">
-        <h2 class="modal__title">${id.title}</h2>
-        <p class="modal__author">${id.author}</p>
-        <p class="modal__book-desc">${id.description}</p>
-        <ul class="modal__list">
-          <li class="modal__item"><a href="${id.buy_links[0].url}" class="amazon-link"><img class="store-link-img amazon-img" src="${amazon}" alt=""></a></li>
-          <li class="modal__item"><a href="${id.buy_links[1].url}" class="app-book-link"><img class="store-link-img" src="${applebook}" alt=""></a></li>
-          <li class="modal__item"><a href="${id.buy_links[3].url}" class="book-shop-link"><img class="store-link-img" src="${bookshop}" alt=""></a></li>
-        </ul>
-      
-</div>
+commonListRef.addEventListener('click', onClick);
 
-    `;
-
-  modalContent.innerHTML = '';
-  modalContent.innerHTML = markup;
-}
-
-function getCategory(id) {
-  fetchCategory(id).then(res => {
-    renderTargetCategory(res);
+function onClick(e) {
+  if (e.target.className !== 'book-img') {
+    return;
+  }
+  backDrop.classList.remove('is-hidden');
+  let value = e.target.dataset.id;
+  fetchBook(value).then(resp => {
+    modalContent.innerHTML = '';
+    modalContent.insertAdjacentHTML('afterbegin', addModalMarkup(resp.data));
   });
+}
+
+async function fetchBook(bookId) {
+  const URL = `https://books-backend.p.goit.global/books/${bookId}`;
+
+  const data = await axios.get(URL);
+  return data;
+}
+
+function addModalMarkup({
+  author,
+  title,
+  description,
+  book_image,
+  amazon_product_url,
+}) {
+  const card = `<div class="modal__img-container"> 
+        <img src="${book_image}" alt="${title}" class="modal__img"> 
+      </div> 
+      <div class="modal__desc"> 
+        <h2 class="modal__title">${title}</h2> 
+        <p class="modal__author">${author}</p> 
+        <p class="modal__book-desc">${description}</p> 
+        <ul class="modal__list"> 
+          <li class="modal__item"><a href="${amazon_product_url}" class="amazon-link"><img class="store-link-img amazon-img" src="${title}" alt=""></a></li> 
+          <li class="modal__item"><a href="${title}" class="app-book-link"><img class="store-link-img" src="${title}" alt=""></a></li> 
+          <li class="modal__item"><a href="${title}" class="book-shop-link"><img class="store-link-img" src="${title}" alt=""></a></li> 
+        </ul> 
+       
+</div>`;
+  return card;
 }
 
 function onBtnCloseClick(e) {
@@ -70,25 +78,6 @@ function onBtnCloseClick(e) {
   if (e.target.classList.contains('modal__close-img')) {
     backDrop.classList.add('is-hidden');
   }
-}
-
-function onCardClick(e) {
-  const card = e.target;
-  const el = card.closest('[data-id]');
-  const id = el.dataset.id;
-
-  window.addEventListener('keydown', onBtnCloseClick);
-  backDrop.addEventListener('click', onBtnCloseClick);
-  backDrop.addEventListener('keydown', onBtnCloseClick);
-
-  if (card.classList.contains('books-btn')) {
-    return;
-  }
-
-  idToLocaleStorege = id;
-  getCategory(id);
-
-  backDrop.classList.remove('is-hidden');
 }
 
 function onAddBookClick(res) {
