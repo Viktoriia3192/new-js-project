@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Отримуємо посилання на кнопку за допомогою класу js
 
-closeButton = document.querySelector('.js');
+closeButton = document.querySelector('.js_auth-button-signup');
 
 // Додаємо обробник події для кнопки
-closeButton.addEventListener('click', closeWindow);
+closeButton.addEventListener('click', closeButton);
 
 // Оголошуємо параметри конфігурації Firebase
 const firebaseConfig = {
