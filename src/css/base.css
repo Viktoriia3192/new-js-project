@@ -33,6 +33,31 @@ body {
     background-color: var(--bg-color);
 }
 
+/* dark/light */
+body.light{
+    background-color: #F6F6F6;
+    color: #111111;
+}
+
+body.dark {
+    background-color: #202024;
+    color: #ffffff;
+}
+/* Стили для header в светлой теме */
+body.light header {
+    background-color: #FFFFFF;
+    color: #111111;
+}
+
+/* Стили для header в тёмной теме */
+body.dark header {
+    background-color: #111111;
+    color: #FFFFFF;
+}
+
+
+/* dark/light */
+
 section {
     padding-top: 40px;
 }
