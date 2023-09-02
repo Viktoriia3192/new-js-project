@@ -8,9 +8,6 @@
   border-bottom: 1px solid black;
   border-radius: 0 0 8px 8px;
 }
-.header-bookshalf {
-  /* margin-right: 144px; */
-}
 
 .header-burger {
   margin-top: 24px;
@@ -42,9 +39,10 @@
   text-transform: uppercase;
 }
 .header-shopping-lock {
-  stroke: currentColor;
+  stroke: black;
+  fill: white;
 }
-@media only screen and (min-width: 320px) and (max-width: 767px) {
+@media only screen and (min-width: 250px) and (max-width: 767px) {
   .header-bookshalf {
     margin-right: auto;
   }
@@ -175,4 +173,9 @@ label:active:after {
 .header-burger {
   stroke: currentColor;
   color: black;
+}
+.menu-toggle {
+  border: none;
+  background: transparent;
+  text-transform: uppercase;
 }

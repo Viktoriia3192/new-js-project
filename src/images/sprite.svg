@@ -117,13 +117,13 @@
             </path>
         </symbol>
 
-        <symbol id="icon-logo" viewBox="0 0 32 32">
+        <!-- <symbol id="icon-logo" viewBox="0 0 32 32">
             <path d="M0 0l16.343 16.171 15.657 15.829v-32h-32z"></path>
             <path d="M4.457 4.229l11.943 11.829 11.257 11.486h-23.2v-23.314z"></path>
             <path d="M27.733 27.618l-11.943-11.829-11.257-11.486h23.2v23.314z"></path>
             <path d="M9.257 9.029l13.6 13.6h-13.6v-13.6z"></path>
             <path d="M9.257 9.029l13.6 13.6v-13.6h-13.6z"></path>
-        </symbol>
+        </symbol> -->
 
         <symbol id="icon-mail-02" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857"
