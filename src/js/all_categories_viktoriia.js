@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const URL_CATEGORY = 'https://books-backend.p.goit.global/books/category-list';
 const categoryList = document.querySelector('.categories-list');
 
@@ -24,12 +26,17 @@ function createMarkupListCategory(arr) {
 async function getListCategories() {
   try {
     const category = await getCategories();
+    if (!category.length) {
+      Notify.failure('Oops something going wrong.');
+      return;
+    }
     categoryList.insertAdjacentHTML(
       'beforeend',
       createMarkupListCategory(category)
     );
   } catch (err) {
     console.log('TRY-CATCH:', err);
+    Notify.failure('Oops something going wrong.');
   }
 }
 
