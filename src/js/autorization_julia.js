@@ -1,6 +1,5 @@
-import * as firebase from 'firebase/app';
+// import * as firebase from 'firebase/app';
 import { initializeApp } from 'firebase/app';
-// import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import axios from 'axios';
