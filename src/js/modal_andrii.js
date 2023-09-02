@@ -1,109 +1,88 @@
-import amazon from '../images/book-shop/amazon.png';
-import amazon from '../images/book-shop/books-apple.png';
-import amazon from '../images/book-shop/bookshop.png';
-
+const commonListRef = document.querySelector('.common-list');
+const modalContent = document.querySelector('.modal__content');
 const backDrop = document.querySelector('#book-modal');
-const closeBtn = document.querySelector('.modal__close-btn');
-const addBookBtn = document.querySelector('.add-bookBtn');
-const removeNotification = document.querySelector('.removeNotification');
+const modal = document.getElementById('book-modal');
+const closeButton = document.querySelector('.modal__close-btn');
+const addBtn = document.querySelector('.add-bookBtn');
 const addNotification = document.querySelector('.addNotification');
+const removeNotification = document.querySelector('.removeNotification');
 const notification = document.querySelector('.notification');
-// const bestSellerRef = document.querySelector('.best-sellers');
-// const categoriesRef = document.querySelector('.category-books-list');
-let modalContent = document.querySelector('.modal__content');
-let idToLocaleStorege = null;
-let arrToLocaleStoreg = [];
 
-addBookBtn.addEventListener('click', onAddBookClick);
-closeBtn.addEventListener('click', onBtnCloseClick);
+commonListRef.addEventListener('click', onClick);
+console.log(commonListRef);
 
-// bestSellerRef.addEventListener('click', onCardClick);
-// categoriesRef.addEventListener('click', onCardClick);
-
-function fetchCategory(id) {
-  return fetch(`https://books-backend.p.goit.global/books/${id}`).then(res =>
-    res.json()
-  );
-}
-
-function renderTargetCategory(id) {
-  const markup = `
-    
-      <div class="modal__img-container">
-        <img src="${id.book_image}" alt="${id.title}" class="modal__img">
-      </div>
-      <div class="modal__desc">
-        <h2 class="modal__title">${id.title}</h2>
-        <p class="modal__author">${id.author}</p>
-        <p class="modal__book-desc">${id.description}</p>
-        <ul class="modal__list">
-          <li class="modal__item"><a href="${id.buy_links[0].url}" class="amazon-link"><img class="store-link-img amazon-img" src="${amazon}" alt=""></a></li>
-          <li class="modal__item"><a href="${id.buy_links[1].url}" class="app-book-link"><img class="store-link-img" src="${applebook}" alt=""></a></li>
-          <li class="modal__item"><a href="${id.buy_links[3].url}" class="book-shop-link"><img class="store-link-img" src="${bookshop}" alt=""></a></li>
-        </ul>
-      
-</div>
-
-    `;
-
-  modalContent.innerHTML = '';
-  modalContent.innerHTML = markup;
-}
-
-function getCategory(id) {
-  fetchCategory(id).then(res => {
-    renderTargetCategory(res);
+function onClick(e) {
+  if (e.target.className !== 'book-img') {
+    return;
+  }
+  backDrop.classList.remove('is-hidden');
+  let value = e.target.dataset.id;
+  fetchBook(value).then(resp => {
+    modalContent.innerHTML = '';
+    modalContent.insertAdjacentHTML('afterbegin', addModalMarkup(resp.data));
   });
 }
 
-function onBtnCloseClick(e) {
-  console.log(e.code);
-  // console.log(e.currentTarget)
+async function fetchBook(bookId) {
+  const URL = `https://books-backend.p.goit.global/books/${bookId}`;
 
-  if (e.code === 'Escape') {
-    backDrop.removeEventListener('keydown', onBtnCloseClick);
-    backDrop.classList.add('is-hidden');
-  }
-  if (e.currentTarget === e.target) {
-    backDrop.classList.add('is-hidden');
-  }
-  if (e.target.classList.contains('modal__close-img')) {
-    backDrop.classList.add('is-hidden');
-  }
+  const data = await axios.get(URL);
+  return data;
 }
 
-function onCardClick(e) {
-  const card = e.target;
-  const el = card.closest('[data-id]');
-  const id = el.dataset.id;
-
-  window.addEventListener('keydown', onBtnCloseClick);
-  backDrop.addEventListener('click', onBtnCloseClick);
-  backDrop.addEventListener('keydown', onBtnCloseClick);
-
-  if (card.classList.contains('books-btn')) {
-    return;
-  }
-
-  idToLocaleStorege = id;
-  getCategory(id);
-
-  backDrop.classList.remove('is-hidden');
+function addModalMarkup({ author, title, description, book_image }) {
+  const card = `<div class="modal__img-container"> 
+        <img src="${book_image}" alt="${title}" class="modal__img"> 
+      </div> 
+      <div class="modal__desc"> 
+        <h2 class="modal__title">${title}</h2> 
+        <p class="modal__author">${author}</p> 
+        <p class="modal__book-desc">${description}</p> 
+        // <ul class="modal__list"> 
+        //   <li class="modal__item"><a href="${amazon_product_url}" class="amazon-link"><img class="store-link-img amazon-img" src="${title}" alt=""></a></li> 
+        //   <li class="modal__item"><a href="${title}" class="app-book-link"><img class="store-link-img" src="${title}" alt=""></a></li> 
+        //   <li class="modal__item"><a href="${title}" class="book-shop-link"><img class="store-link-img" src="${title}" alt=""></a></li> 
+        // </ul> 
+       
+</div>`;
+  return card;
 }
 
-function onAddBookClick(res) {
-  notification.classList.toggle('hidden');
-  removeNotification.classList.toggle('hidden');
-  addNotification.classList.toggle('hidden');
-
-  if (addNotification.classList.contains('hidden')) {
-    arrToLocaleStoreg.push(idToLocaleStorege);
-
-    localStorage.setItem('shopping-list', JSON.stringify(arrToLocaleStoreg));
+document.addEventListener('DOMContentLoaded', function () {
+  function closeModal() {
+    modal.classList.add('is-hidden');
   }
-  if (removeNotification.classList.contains('hidden')) {
-    const arrTofilter = JSON.parse(localStorage.getItem('shopping-list'));
-    const filtredArr = arrTofilter.filter(id => id !== idToLocaleStorege);
-    localStorage.setItem('shopping-list', JSON.stringify(filtredArr));
+
+  closeButton.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  modal.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  modalContent.addEventListener('click', function (event) {
+    event.stopPropagation();
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  function toggleButtonText() {
+    if (addBtn.textContent === 'Add to shopping list') {
+      addBtn.textContent = 'Remove from the shopping list';
+      removeNotification.classList.remove('hidden');
+      notification.classList.remove('hidden');
+    } else {
+      addBtn.textContent = 'Add to shopping list';
+      removeNotification.classList.add('hidden');
+      notification.classList.add('hidden');
+    }
   }
-}
+  addBtn.addEventListener('click', toggleButtonText);
+});
