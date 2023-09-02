@@ -18,7 +18,7 @@ fetchBooksData()
 
 function checkResize() {  // Check wether we should render markup or not.
          
-   let currentLength = window.innerWidth < 767 ? 1 : window.innerWidth < 1023 ? 3 : 5; 
+   let currentLength = window.innerWidth < 767 ? 1 : window.innerWidth < 1439 ? 3 : 5; 
  
    if (currentLength!=length) {
  
