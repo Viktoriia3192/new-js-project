@@ -1,6 +1,12 @@
 const commonListRef = document.querySelector('.common-list');
 const modalContent = document.querySelector('.modal__content');
 const backDrop = document.querySelector('#book-modal');
+const modal = document.getElementById('book-modal');
+const closeButton = document.querySelector('.modal__close-btn');
+const addBtn = document.querySelector('.add-bookBtn');
+const addNotification = document.querySelector('.addNotification');
+const removeNotification = document.querySelector('.removeNotification');
+const notification = document.querySelector('.notification');
 
 commonListRef.addEventListener('click', onClick);
 console.log(commonListRef);
@@ -43,10 +49,6 @@ function addModalMarkup({ author, title, description, book_image }) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  const modal = document.getElementById('book-modal');
-  const closeButton = document.querySelector('.modal__close-btn');
-  const modalContent = document.querySelector('.modal__content');
-
   function closeModal() {
     modal.classList.add('is-hidden');
   }
@@ -68,4 +70,19 @@ document.addEventListener('DOMContentLoaded', function () {
   modalContent.addEventListener('click', function (event) {
     event.stopPropagation();
   });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  function toggleButtonText() {
+    if (addBtn.textContent === 'Add to shopping list') {
+      addBtn.textContent = 'Remove from the shopping list';
+      removeNotification.classList.remove('hidden');
+      notification.classList.remove('hidden');
+    } else {
+      addBtn.textContent = 'Add to shopping list';
+      removeNotification.classList.add('hidden');
+      notification.classList.add('hidden');
+    }
+  }
+  addBtn.addEventListener('click', toggleButtonText);
 });
