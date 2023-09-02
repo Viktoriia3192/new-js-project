@@ -2,7 +2,7 @@ import {save,load} from './localStorageService';
 import {fetchBooksData} from './best_sellers_api';
 
 const list = document.querySelector(".common-list");
-let length = window.innerWidth < 767 ? 1 : window.innerWidth < 1023 ? 3 : 5;
+let length = window.innerWidth < 767 ? 1 : window.innerWidth < 1439 ? 3 : 5;
 
 window.addEventListener("resize", checkResize);
 
@@ -16,7 +16,7 @@ fetchBooksData()
 })
 .catch(error => console.error(error));
 
-function checkResize () {  // Check wether we should render markup or not.
+function checkResize() {  // Check wether we should render markup or not.
          
    let currentLength = window.innerWidth < 767 ? 1 : window.innerWidth < 1023 ? 3 : 5; 
  
@@ -24,7 +24,8 @@ function checkResize () {  // Check wether we should render markup or not.
  
     length = currentLength;
 
-   
+     const data = load("data");
+
     renderMarkup(data);
    }
 
@@ -43,14 +44,13 @@ function renderMarkup(categories) {  //render categories
         <ul class="book-list">
             ${booksRender(books,length)}
         </ul>
-        <button type="button" class="showMore-btn">see more</button>
+        <button type="button" class="showMore-btn" name=${list_name}>see more</button>
     </li>`
        
     } 
 
     function booksRender(books,length) {  // render books inside the category
       
-      console.log(books);
           let bookMarkup = '';
          
          for(let i =0;i<length;i+=1) {
