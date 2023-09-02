@@ -24,81 +24,80 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// // Отримуємо посилання на кнопку за допомогою класу js
-// var closeButton = document.querySelector('.js');
 
-// // Додаємо обробник події для кнопки
-// closeButton.addEventListener('click', closeWindow);
 
-// // Отримання посилань на елементи форм
-// const firebaseConfig = {
-//   authDomain: "project-956258341440.firebaseapp.com", //  домен авторизації
-//   projectId: "bookshelf-ee661",
-//   storageBucket: "bookshelf-ee661.appspot.com", //  Bucket для збереження даних
-//   messagingSenderId: "956258341440", //   ID відправника повідомлень
-//   appId: "1:956258341440:web:YOUR_APP_ID" //  ID додатку
-// };
+// Отримуємо посилання на кнопку за допомогою класу js
 
-// // Ініціалізація Firebase з використанням конфігурації
-// firebase.initializeApp(firebaseConfig);
+closeButton = document.querySelector('.js');
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const refs = {
-//     closeModalBtn: document.querySelector("[data-modal-close]"),
-//     modal: document.querySelector("[data-modal]"),
-//     closeBtn: document.querySelector(".auth-btn-close"),
-//   };
+// Додаємо обробник події для кнопки
+closeButton.addEventListener('click', closeWindow);
 
-//   refs.closeModalBtn.addEventListener("click", toggleModal);
-//   refs.closeBtn.addEventListener("click", toggleModal);
+// Оголошуємо параметри конфігурації Firebase
+const firebaseConfig = {
+  databaseURL: "https://bookshelf-ee661-default-rtdb.europe-west1.firebasedatabase.app/"
+};
 
-//   function toggleModal() {
-//     refs.modal.classList.toggle("is-hidden");
-//   }
 
-//   // Отримання посилань на елементи форми
-//   const signUpForm = document.querySelector(".auth-form");
-//   const signUpButton = document.querySelector(".auth-button-signup");
-//   const userNameInput = signUpForm.querySelector('input[name="user_name"]');
-//   const userEmailInput = signUpForm.querySelector('input[name="user_email"]');
-//   const userPasswordInput = signUpForm.querySelector('input[name="user_password"]');
+// Ініціалізація Firebase з використанням конфігурації
+firebase.initializeApp(firebaseConfig);
 
-//   // Функція, яка викликається при натисканні кнопки SIGN UP
-//   signUpButton.addEventListener("click", (event) => {
-//     event.preventDefault(); // Зупиняємо стандартну поведінку форми
+document.addEventListener("DOMContentLoaded", function () {
+  const refs = {
+    closeModalBtn: document.querySelector("[data-modal-close]"),
+    modal: document.querySelector("[data-modal]"),
+    closeBtn: document.querySelector(".auth-btn-close"),
+  };
 
-//     const userName = userNameInput.value;
-//     const userEmail = userEmailInput.value;
-//     const userPassword = userPasswordInput.value;
+  refs.closeModalBtn.addEventListener("click", toggleModal);
+  refs.closeBtn.addEventListener("click", toggleModal);
 
-//     // Реєстрація користувача за допомогою Firebase
-//     firebase
-//       .auth()
-//       .createUserWithEmailAndPassword(userEmail, userPassword)
-//       .then((userCredential) => {
-//         // Реєстрація успішна
-//         const user = userCredential.user;
-//         console.log("Successfully registered with UID:", user.uid);
+  function toggleModal() {
+    refs.modal.classList.toggle("is-hidden");
+  }
 
-//         // Збереження інформації про користувача в базі даних Firebase
-//         const userId = user.uid;
-//         const userRef = firebase.database().ref('users/' + userId); // Шлях до користувача у базі даних
-//         userRef.set({
-//           name: userName,
-//           email: userEmail,
-         
-//         }).then(() => {
-//           console.log('User data saved in the database.');
-//         }).catch((error) => {
-//           console.error('Error saving user data:', error);
-//         });
+  // Отримання посилань на елементи форми
+  const signUpForm = document.querySelector(".auth-form");
+  const signUpButton = document.querySelector(".auth-button-signup");
+  const userNameInput = signUpForm.querySelector('input[name="user_name"]');
+  const userEmailInput = signUpForm.querySelector('input[name="user_email"]');
+  const userPasswordInput = signUpForm.querySelector('input[name="user_password"]');
 
-//       })
-//       .catch((error) => {
-//         // Реєстрація не вдалася, обробка помилки
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         console.error("Registration failed:", errorMessage);
-//       });
-//   });
-// });
+  // Функція, яка викликається при натисканні кнопки SIGN UP
+  signUpButton.addEventListener("click", (event) => {
+    event.preventDefault(); // Зупиняємо стандартну поведінку форми
+
+    const userName = userNameInput.value;
+    const userEmail = userEmailInput.value;
+    const userPassword = userPasswordInput.value;
+
+    // Реєстрація користувача за допомогою Firebase
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(userEmail, userPassword)
+      .then((userCredential) => {
+        // Реєстрація успішна
+        const user = userCredential.user;
+        console.log("Successfully registered with UID:", user.uid);
+
+        // Збереження інформації про користувача в базі даних Firebase
+        const userId = user.uid;
+        const userRef = firebase.database().ref('users/' + userId); // Шлях до користувача у базі даних
+        userRef.set({
+          name: userName,
+          email: userEmail,
+        }).then(() => {
+          console.log('User data saved in the database.');
+        }).catch((error) => {
+          console.error('Error saving user data:', error);
+        });
+
+      })
+      .catch((error) => {
+        // Реєстрація не вдалася, обробка помилки
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error("Registration failed:", errorMessage);
+      });
+  });
+});
