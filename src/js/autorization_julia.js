@@ -41,7 +41,7 @@ const firebaseConfig = {
 
 
 // Ініціалізація Firebase з використанням конфігурації
-firebase.initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 document.addEventListener("DOMContentLoaded", function () {
   const refs = {

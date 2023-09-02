@@ -22,29 +22,29 @@ function checkResize() {
     window.innerWidth < 767 ? 1 : window.innerWidth < 1023 ? 3 : 5;
 
 
-function checkResize() {  // Check wether we should render markup or not.
+  function checkResize() {  // Check wether we should render markup or not.
          
-   let currentLength = window.innerWidth < 767 ? 1 : window.innerWidth < 1023 ? 3 : 5; 
+    let currentLength = window.innerWidth < 767 ? 1 : window.innerWidth < 1023 ? 3 : 5;
  
-   if (currentLength!=length) {
+    if (currentLength != length) {
  
-    length = currentLength;
+      length = currentLength;
 
-     const data = load("data");
+      const data = load("data");
 
 
-    renderMarkup(data);
+      renderMarkup(data);
+    }
   }
-}
 
-function renderMarkup(categories) {
-  //render categories
+  function renderMarkup(categories) {
+    //render categories
 
-  let markup = '';
+    let markup = '';
 
-  for (let category of categories) {
-    const { books, list_name } = category;
-    markup += ` 
+    for (let category of categories) {
+      const { books, list_name } = category;
+      markup += ` 
         <li class="common-item">
         <h2 class="common-title">${list_name}</h2>
         <ul class="book-list">
@@ -54,15 +54,15 @@ function renderMarkup(categories) {
         <button type="button" class="showMore-btn" name=${list_name}>see more</button>
     </li>`
        
-    } 
+    }
 
-    function booksRender(books,length) {  // render books inside the category
+    function booksRender(books, length) {  // render books inside the category
       
-          let bookMarkup = '';
+      let bookMarkup = '';
          
-         for(let i =0;i<length;i+=1) {
-            const {book_image,title,author,_id} = books[i];
-              bookMarkup+=`
+      for (let i = 0; i < length; i += 1) {
+        const { book_image, title, author, _id } = books[i];
+        bookMarkup += `
 
               <li class="book-item" data-id="${_id}">
               <a href="#" class="book-link">
@@ -74,10 +74,11 @@ function renderMarkup(categories) {
               </a>
               </li>
             `;
+      }
+
+      return bookMarkup;
     }
 
-    return bookMarkup;
+    list.innerHTML = markup;
   }
-
-  list.innerHTML = markup;
 }
