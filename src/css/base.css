@@ -91,9 +91,25 @@ section {
     }
 }
 
+.left-wrapper{
+display: flex;
+flex-direction: column;
+gap: 40px;
+justify-content: center;
+align-items: center
+}
+
 @media screen and (min-width: 768px) and (max-width: 1439px) {
     .left-wrapper {
-    display: flex;
+    flex-direction: row;
+    gap: 32px;
 }
 }
 
+@media screen and (min-width: 1440px){
+.left-wrapper{
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 86px;
+}
+}
