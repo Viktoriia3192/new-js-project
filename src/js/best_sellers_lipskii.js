@@ -44,7 +44,7 @@ function renderMarkup(categories) {  //render categories
         <ul class="book-list">
             ${booksRender(books,length)}
         </ul>
-        <button type="button" class="showMore-btn" name=${list_name}>see more</button>
+        <button type="button" class="showMore-btn" name="${list_name}">see more</button>
     </li>`
        
     } 
@@ -54,7 +54,7 @@ function renderMarkup(categories) {  //render categories
           let bookMarkup = '';
          
          for(let i =0;i<length;i+=1) {
-
+          
             const {book_image,title,author,_id} = books[i];
               bookMarkup+=`
               <li class="book-item" data-id="${_id}" data-set="book">
@@ -73,5 +73,4 @@ function renderMarkup(categories) {  //render categories
      list.innerHTML=markup;
 
 }
-
 
