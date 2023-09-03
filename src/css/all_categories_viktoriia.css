@@ -1,5 +1,5 @@
 .categories {
-  width: 335px;
+  max-width: 335px;
 }
 @media only screen and (min-width: 768px) {
   .categories {
@@ -31,7 +31,7 @@
 .categories-list-item {
   height: 18px;
   padding-right: 20px;
-  color: var(--categories-text-color);
+  color: var(--light-font-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -54,7 +54,9 @@
 .category-active,
 .categories-link:is(:hover, :focus) {
   text-transform: uppercase;
+  
   color: var(--accent-color-filter);
+  
   font-weight: 700;
 }
 .categories-list::-webkit-scrollbar {
@@ -64,7 +66,7 @@
 .categories-list::-webkit-scrollbar-thumb {
   height: 114px;
   border-radius: 12px;
-  background-color: #e0e0e0;
+  background-color: var(--skroll-color);
 }
 @media only screen and (min-width: 768px) {
   .categories-list::-webkit-scrollbar-thumb {

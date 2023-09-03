@@ -1,9 +1,13 @@
 <header class="header-container">
     <svg class="header-logo" width="24" height="24">
-        <use href="/src/images/sprite.svg#icon-logo"></use>
+        <a class="header-home" href="./index.html">
+            <use href="/src/images/sprite.svg#icon-logo"></use>
+        </a>
     </svg>
     <svg class="header-bookshalf" width="70" height="24">
-        <use href="/src/images/sprite.svg#icon-Bookshelf"></use>
+        <a class="header-home header-bookshalf" href="./index.html">
+            <use href="/src/images/sprite.svg#icon-Bookshelf"></use>
+        </a>
     </svg>
 
     <nav class="header-nav">
@@ -21,17 +25,27 @@
 
         <!-- Switcher -->
 
-    <label for="slider" class="switch">
-        <input type="checkbox" id="slider" />
-        <span class="slider round"></span>
-    </label>
+        <label for="slider" class="switch">
+            <input type="checkbox" id="slider" />
+            <span class="slider round"></span>
+        </label>
 
         <!-- Burger-menu -->
 
-        <button class="menu-toggle js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
+        <button class="burger-btn top-line-btn js-open-menu" type="button" aria-label="mobile menu close button"
+            aria-expanded="false">
             <svg class="header-burger" width="28" height="28">
                 <use href="/src/images/sprite.svg#icon-align-left"></use>
-            </svg> </button>
+            </svg>
+        </button>
+
+        <!-- Button-close -->
+
+        <button class="burger-close-btn  js-close-menu" type="button">
+            <svg class="burger-close-icon " width="24" height="24">
+                <use href="/src/images/sprite.svg#icon-x-close"></use>
+            </svg>
+        </button>
 
         <!-- Auth-btn -->
 
@@ -44,3 +58,6 @@
     </div>
 
 </header>
+<div class="menu-container js-menu-container is-open" id="mobile-menu">
+
+</div>
