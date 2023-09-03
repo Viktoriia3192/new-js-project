@@ -6,7 +6,9 @@ const refs = {
   categories: document.querySelector('.categories-list'),
   title: document.querySelector('.main-title'),
   list: document.querySelector('.common-list'),
+  titleSpan: document.querySelector('.main-title-wrapper'),
 };
+console.log(refs.titleSpan);
 
 const arrayError =
   'Sorry, there are no books matching the selected category. Please select something else.';
@@ -29,9 +31,17 @@ function onCategoriesClick(event) {
       if (resp.data.length === 0) {
         throw new Error(Notify.info(arrayError));
       }
-      refs.title.textContent = resp.data[0].list_name;
+      const listName = resp.data[0].list_name;
+
+      refs.title.textContent = firstPartTitleSplit(listName);
+      refs.title.insertAdjacentHTML(
+        'beforeend',
+        `&nbsp;<span class="main-title main-title-wrapper">${lastPartTitleSplit(
+          listName
+        )}</span>`
+      );
+
       refs.list.innerHTML = createMarkup(resp.data);
-      // refs.list.classList.add('book-list');
     })
     .catch(function (error) {
       if (error.response) {
@@ -78,7 +88,16 @@ function onSeeMoreBtnClick(event) {
       if (resp.data.length === 0) {
         throw new Error(Notify.info(arrayError));
       }
-      refs.title.textContent = resp.data[0].list_name;
+      const listName = resp.data[0].list_name;
+
+      refs.title.textContent = firstPartTitleSplit(listName);
+      refs.title.insertAdjacentHTML(
+        'beforeend',
+        `&nbsp;<span class="main-title main-title-wrapper">${lastPartTitleSplit(
+          listName
+        )}</span>`
+      );
+
       refs.list.innerHTML = createMarkup(resp.data);
     })
     .catch(function (error) {
@@ -88,4 +107,14 @@ function onSeeMoreBtnClick(event) {
         Notify.failure(fechError);
       }
     });
+}
+
+function firstPartTitleSplit(title) {
+  const arr = title.split(' ');
+  return arr.splice(0, arr.length - 1).join(' ');
+}
+
+function lastPartTitleSplit(title) {
+  const arr = title.split(' ');
+  return arr[arr.length - 1];
 }
