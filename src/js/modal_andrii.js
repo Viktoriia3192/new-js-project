@@ -45,8 +45,7 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
         <a href=${getUrl(
           buy_links,
           'Amazon'
-
-        )}><img src="/src/images/book-shop/amazon.png" target= _blank alt="amazon"></a>
+        )} target= _blank><img src="/src/images/book-shop/amazon.png"  alt="amazon"></a>
 
           
         </li>
@@ -54,8 +53,7 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
         <a href=${getUrl(
           buy_links,
           'Book Apple'
-
-        )}><img src="/src/images/book-shop/books-apple.png" target= _blank alt="book-apple"></a>
+        )} target= _blank><img src="/src/images/book-shop/books-apple.png"  alt="book-apple"></a>
 
           
         </li>
@@ -63,8 +61,7 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
         <a href=${getUrl(
           buy_links,
           'Bookshop'
-
-        )}> <img src="/images/book-shop/bookshop.png" target= _blank alt="book-shop"></a>
+        )} target= _blank> <img src="/images/book-shop/bookshop.png"  alt="book-shop"></a>
 
          
         </li>
