@@ -1,0 +1,13 @@
+.common-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .common-list {
+    flex-wrap: wrap;
+    column-gap: 25px;
+    flex-direction: row;
+  }
+}
