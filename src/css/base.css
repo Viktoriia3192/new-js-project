@@ -60,10 +60,23 @@ body.dark header {
 
 section {
     padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+    section {
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    section {
+        padding-bottom: 72px;
+    }
 }
 
 .container {
-    min-width: 375px;
+    max-width: 375px;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
@@ -78,6 +91,7 @@ section {
 
 @media screen and (min-width: 768px) {
     .container {
+        max-width: 768px;
         padding-left: 32px;
         padding-right: 32px;
     }
@@ -85,6 +99,7 @@ section {
 
 @media screen and (min-width: 1440px) {
     .container {
+        max-width: 1440px;
         display: flex;
         padding-left: 24px;
         padding-right: 24px;
