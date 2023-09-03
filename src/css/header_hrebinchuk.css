@@ -8,7 +8,10 @@
   border-bottom: 1px solid black;
   border-radius: 0 0 8px 8px;
 }
-
+.header-bookshalf {
+  fill: currentColor;
+  stroke: currentColor;
+}
 .header-burger {
   margin-top: 24px;
   margin-bottom: 24px;
@@ -31,6 +34,7 @@
   font-weight: 700;
   align-items: center;
   justify-content: center;
+  margin-right: 24px;
 }
 
 .header-shopping-list {
@@ -39,8 +43,8 @@
   text-transform: uppercase;
 }
 .header-shopping-lock {
-  stroke: black;
-  fill: white;
+  stroke: var(--title-color);
+  fill: var(--header-white-color);
 }
 @media only screen and (min-width: 250px) and (max-width: 767px) {
   .header-bookshalf {
@@ -60,9 +64,10 @@
   }
 }
 @media only screen and (min-width: 768px) {
-  .header-container {
-  }
   .header-burger {
+    display: none;
+  }
+  .burger-close-btn {
     display: none;
   }
   .header-nav {
@@ -71,6 +76,9 @@
   }
   .header-logo {
     margin-right: 8px;
+  }
+  .home-div {
+    margin-right: 16px;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -81,8 +89,10 @@
   .header-logo {
     margin-right: 15px;
   }
+  .home-div {
+    margin-right: 24px;
+  }
 }
-
 .header-switcher {
   display: inline-block;
   width: 1em;
@@ -146,16 +156,16 @@
   background-position: center;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
   box-shadow: 1px 1px 2px 0px #0000001a inset;
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
   transform: translateX(20px);
@@ -197,11 +207,18 @@ input:checked+.slider:before {
   fill: currentColor;
 }
 .header-burger {
-  stroke: currentColor;
-  color: black;
+  stroke: var(--title-color);
+  fill: var(--header-white-color);
 }
-.menu-toggle {
+.burger-btn {
   border: none;
   background: transparent;
   text-transform: uppercase;
+}
+.burger-close-btn {
+  border: none;
+  background: transparent;
+  text-transform: uppercase;
+  stroke: var(--title-color);
+  fill: var(--header-white-color);
 }
