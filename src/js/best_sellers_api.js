@@ -1,13 +1,12 @@
 import axios from "axios";
 
-const baseURL = "https://books-backend.p.goit.global/books/top-books";
-export async function fetchBooksData () {
+const baseURL = "https://books-backend.p.goit.global/books/";
 
-  console.log("get api");
+export async function fetchBooksData (data) {
+
+  const additionalData = data;
     try {
-    
-        const response = await axios.get(baseURL);
-        console.log("succsess");
+        const response = await axios.get(baseURL+additionalData);
         return response.data;
 
     } catch(error) {

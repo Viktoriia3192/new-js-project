@@ -10,7 +10,6 @@
 
  margin-bottom: 40px;
 
-
  color:var(--black-text-color);
  font-size: 32px;
  line-height: 1.18;
@@ -75,6 +74,17 @@
 .common-item {
 
   margin-bottom: 14px;
+}
+
+
+@media only screen and (min-width: 768px) {
+   
+  
+  .book-item{
+
+    width: 218px;
+    
+  }
 }
 
 
