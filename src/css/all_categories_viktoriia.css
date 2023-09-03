@@ -54,7 +54,7 @@
 .category-active,
 .categories-link:is(:hover, :focus) {
   text-transform: uppercase;
-  color: #4f2ee8;
+  color: var(--accent-color-filter);
   font-weight: 700;
 }
 .categories-list::-webkit-scrollbar {

@@ -92,7 +92,7 @@
     height: 32px;
     border-radius: 50%;
     border: none;
-    background-color: var(--bg-color);
+    background-color: var(--white-color);
 }
 
 @media screen and (min-width: 768px) {
