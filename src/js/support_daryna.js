@@ -10,11 +10,35 @@ data.forEach(({title, url, img}) => {
 function doMarkUp(title, url, img) {
     number += 1
     console.log("Image Path:", img);
-    const markup = `<li><p>${number}.</p><a href="${url}"><img class="fond-img" src="${img}" alt="${title}"/></a></li>`
+    const markup = `<li class="fonds-items"><p class="fond-num">0${number}</p><a href="${url}"><img class="fond-img" srcset="${img}" alt="${title}"></a></li>`
     fondsList.insertAdjacentHTML("beforeend", markup)
     
 }
 
 
 
+
+const buttonscroll = document.querySelector(".fond-scroll-button")
+
+const slider = tns({
+  axis: 'vertical',
+  nav: false,
+  container: '.my-slider.fonds-list',
+  controls: false,
+  nextButton: '.fond-scroll-button',
+  rewind: true,
+  mouseDrag: true,
+  responsive: {
+    375: {
+      items: 4,
+    },
+    768: {
+      items: 6,
+    },
+  }
+})
+
+buttonscroll.addEventListener("click", () => {
+    slider.goTo('next')
+})
 
