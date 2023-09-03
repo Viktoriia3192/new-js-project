@@ -1,10 +1,4 @@
 :root {
-  /* ==Colors== */
-
-  /* -----------------------Light----------------- */
-
-  /* ==Fonts== */
-
   --main-text-font: 'DM Sans', sans-serif;
 }
 
@@ -51,6 +45,7 @@ body.dark header {
   --title-color: #111111;
   --accent-blue-color: #4f2ee8;
   --accent-yellow-color: #eac645;
+  --skroll-color: #e0e0e0;
 
   --main-font-color: #9a9a9a;
   --font-card-color: #f6f6f6;
@@ -75,6 +70,7 @@ body.dark header {
   --title-color: #ffffff;
   --accent-blue-color: #4f2ee8;
   --accent-yellow-color: #eac645;
+  --skroll-color: rgba(17, 17, 17, 0.6);
 
   --main-font-color: #9a9a9a;
   --font-card-color: #f6f6f6;
