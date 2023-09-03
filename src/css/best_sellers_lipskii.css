@@ -71,10 +71,17 @@
   margin-bottom: 14px;
 }
 
-.book-item:focus,
-.book-item:hover {
+.book-img:focus,
+.book-img:hover {
 
-  
+  transition: 0.2s all ease-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+  position: absolute;
+    height: 235px;
+
 }
 
 
