@@ -2,8 +2,11 @@ import {save,load} from './localStorageService';
 import {fetchBooksData} from './best_sellers_api';
 
 const list = document.querySelector(".common-list");
+const allCategories = document.querySelector(".categories-list");
+
 let length = window.innerWidth < 767 ? 1 : window.innerWidth < 1439 ? 3 : 5;
 
+allCategories.firstElementChild.addEventListener("click",render);
 window.addEventListener("resize", checkResize);
 
 
@@ -29,6 +32,12 @@ function checkResize() {  // Check wether we should render markup or not.
     renderMarkup(data);
    }
 
+}
+
+function render() {
+
+  const data = load("data");
+  renderMarkup(data);
 }
 
 function renderMarkup(categories) {  //render categories
@@ -57,7 +66,8 @@ function renderMarkup(categories) {  //render categories
           
             const {book_image,title,author,_id} = books[i];
               bookMarkup+=`
-              <li class="book-item" data-id="${_id}" data-set="book">
+              <li class="book-item" data-id="${_id}">
+              <a href="#" class="book-link"> 
               <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img"> 
               <h3 class="book-title">${title}</h3>
               <p class="book-author">${author}</p>

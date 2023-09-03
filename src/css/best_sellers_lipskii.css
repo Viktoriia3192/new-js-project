@@ -1,10 +1,3 @@
-@media only screen and (min-width: 1440px) {
-   .wrapper {
-    
-    padding: 40px;
-  }
-}
-
 
 .main-title {
 
@@ -16,6 +9,8 @@
  letter-spacing: -0.04em;
 
 }
+
+
 
 @media only screen and (min-width: 768px) {
 
@@ -74,6 +69,12 @@
 .common-item {
 
   margin-bottom: 14px;
+}
+
+.book-item:focus,
+.book-item:hover {
+
+  
 }
 
 
