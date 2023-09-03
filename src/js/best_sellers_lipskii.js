@@ -1,6 +1,7 @@
 import {save,load} from './localStorageService';
 import {fetchBooksData} from './best_sellers_api';
 
+showLoader();
 const list = document.querySelector(".common-list");
 const allCategories = document.querySelector(".categories-list");
 
@@ -12,12 +13,11 @@ window.addEventListener("resize", checkResize);
 
 fetchBooksData('top-books')
 .then(data => {
-   
-  save("data",data);
+  save("data",data);  // Save data to localStorage
   renderMarkup(data);
-
 })
 .catch(error => console.log(error));
+
 
 function checkResize() {  // Check wether we should render markup or not.
          
@@ -36,12 +36,15 @@ function checkResize() {  // Check wether we should render markup or not.
 
 function render() {
 
+  
   const data = load("data");
+  console.log(data);
   renderMarkup(data);
 }
 
 function renderMarkup(categories) {  //render categories
 
+  hideLoader();
      let markup = '';
        
    for( let category of categories) {
@@ -84,3 +87,18 @@ function renderMarkup(categories) {  //render categories
 
 }
 
+
+function showLoader() {
+
+  const loader = document.querySelector(".loader");
+  loader.style.display="block";
+}
+
+function hideLoader() {
+
+  const loader = document.querySelector(".loader");
+  loader.style.display="none";
+}
+
+
+ 
