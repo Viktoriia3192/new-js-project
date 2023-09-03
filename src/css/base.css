@@ -33,12 +33,36 @@ body {
     background-color: var(--bg-color);
 }
 
+/* dark/light */
+body.light{
+    background-color: #F6F6F6;
+    color: #111111;
+}
+
+body.dark {
+    background-color: #202024;
+    color: #ffffff;
+}
+/* Стили для header в светлой теме */
+body.light header {
+    background-color: #FFFFFF;
+    color: #111111;
+}
+
+/* Стили для header в тёмной теме */
+body.dark header {
+    background-color: #111111;
+    color: #FFFFFF;
+}
+
+
+/* dark/light */
+
 section {
     padding-top: 40px;
 }
 
 .container {
-    display: flex;
     min-width: 375px;
     padding-left: 20px;
     padding-right: 20px;
@@ -54,7 +78,6 @@ section {
 
 @media screen and (min-width: 768px) {
     .container {
-
         padding-left: 32px;
         padding-right: 32px;
     }
@@ -68,9 +91,25 @@ section {
     }
 }
 
+.left-wrapper{
+display: flex;
+flex-direction: column;
+gap: 40px;
+justify-content: center;
+align-items: center
+}
+
 @media screen and (min-width: 768px) and (max-width: 1439px) {
     .left-wrapper {
-    display: flex;
+    flex-direction: row;
+    gap: 32px;
 }
 }
 
+@media screen and (min-width: 1440px){
+.left-wrapper{
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 86px;
+}
+}

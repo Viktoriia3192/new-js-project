@@ -10,6 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" />
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
@@ -21,24 +23,27 @@
   </head>
   <body>
     <div>
-     <include src="./partials/header_hrebinchuk.html"></include> 
+      <include src="./partials/header_hrebinchuk.html"></include>
     </div>
-  <main>
-<section>
-<div class="container">
-  <div class="left-wrapper">
-    <include src="./partials/all_categories_viktoriia.html"></include>
-  <include src="./partials/support_daryna.html"></include>
-  </div>
-  <div class="right-wrap">
-    <include src="./partials/best_sellers_lipskii.html"></include>
-  </div>
-</div>
-    <include src="./partials/modal_andrii.html"></include>
-    <include src="./partials/autorization_julia.html"></include>
-    <include src="./partials/dark_theme_max.html"></include>
-</section>
+    <include src="./partials/btn-go-top.html"></include>
+    <main>
+      <section>
+        <div class="container">
+          <div class="left-wrapper">
+            <include src="./partials/all_categories_viktoriia.html"></include>
+            <include src="./partials/support_daryna.html"></include>
+          </div>
+          <div class="right-wrap">
+            <include src="./partials/best_sellers_lipskii.html"></include>
+          </div>
+        </div>
+        <include src="./partials/modal_andrii.html"></include>
+        <include src="./partials/autorization_julia.html"></include>
+        <include src="./partials/dark_theme_max.html"></include>
+      </section>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script type="module" src="./index.js"></script>
+    <script src="/src/js/dark_theme_max.js"></script>
   </body>
 </html>
