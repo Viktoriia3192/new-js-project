@@ -1,104 +1,102 @@
-// import * as firebase from 'firebase/app';
-import { initializeApp } from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-// Закриття вікна/відкриття вікна
-document.addEventListener("DOMContentLoaded", function () {
-  const openButton = document.querySelector("[data-auth-open]");
-  const closeButton = document.querySelector("[data-modal-close]");
-  const modal = document.querySelector(".auth-backdrop");
 
-  function openModal() {
-    modal.style.display = "block";
-     document.querySelector(".auth").style.visibility = "visible";
-  }
-
-  function closeModal() {
-    modal.style.display = "none";
-  }
-
-  openButton.addEventListener("click", openModal);
-  closeButton.addEventListener("click", closeModal);
-});
-
-
-
-
-// Отримуємо посилання на кнопку за допомогою класу js
-
-const closeButton = document.querySelector('.js_auth-button-signup');
-
-// Додаємо обробник події для кнопки
-closeButton.addEventListener('click', closeButton);
-
-// Оголошуємо параметри конфігурації Firebase
-const firebaseConfig = {
-  databaseURL: "https://bookshelf-ee661-default-rtdb.europe-west1.firebasedatabase.app/"
+ // Отримуємо посилання на об'єкт авторизації та бази даних
+    const firebaseConfig = {
+  apiKey: "AIzaSyBbyJ1YQ4-GD4N0lhO_z3BVagmCNn0IKFk",
+  authDomain: "bookshelf-ee661.firebaseapp.com",
+  databaseURL: "https://bookshelf-ee661-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "bookshelf-ee661",
+  storageBucket: "bookshelf-ee661.appspot.com",
+  messagingSenderId: "956258341440",
+  appId: "1:956258341440:web:ca611f9dfc8a224323c5a5",
+  measurementId: "G-WDP0VVBWDK"
 };
 
+   // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-// Ініціалізація Firebase з використанням конфігурації
-initializeApp(firebaseConfig);
-
-document.addEventListener("DOMContentLoaded", function () {
-  const refs = {
-    closeModalBtn: document.querySelector("[data-modal-close]"),
-    modal: document.querySelector("[data-modal]"),
-    closeBtn: document.querySelector(".auth-btn-close"),
-  };
-
-  refs.closeModalBtn.addEventListener("click", toggleModal);
-  refs.closeBtn.addEventListener("click", toggleModal);
-
-  function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
-  }
-
-  // Отримання посилань на елементи форми
-  const signUpForm = document.querySelector(".auth-form");
-  const signUpButton = document.querySelector(".auth-button-signup");
+// Закриття вікна/відкриття вікна
+document.addEventListener('DOMContentLoaded', function () {
+  const openButton = document.querySelector('[data-auth-open]');
+  const closeButton = document.querySelector('.auth-btn-close');
+  const modal = document.querySelector('.auth-backdrop');
+  const signUpForm = document.querySelector('.auth-form');
+  const signUpButton = document.querySelector('.auth-button-signup');
+  const ButtonUp = document.querySelector('.auth-button-up');
   const userNameInput = signUpForm.querySelector('input[name="user_name"]');
   const userEmailInput = signUpForm.querySelector('input[name="user_email"]');
   const userPasswordInput = signUpForm.querySelector('input[name="user_password"]');
+  const signInButton = document.querySelector('.auth-button-in');
 
-  // Функція, яка викликається при натисканні кнопки SIGN UP
-  signUpButton.addEventListener("click", (event) => {
+
+  // Відкриття/закриття вікна
+  function openModal() {
+    modal.style.display = 'block';
+    document.querySelector('.auth').style.visibility = 'visible';
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  openButton.addEventListener('click', openModal);
+  closeButton.addEventListener('click', closeModal);
+   signInButton.addEventListener('click', signInButton);
+
+  // Функція, яка викликається при натисканні кнопки SIGN UP 
+    signUpButton.addEventListener('click', (event) => {
     event.preventDefault(); // Зупиняємо стандартну поведінку форми
 
     const userName = userNameInput.value;
     const userEmail = userEmailInput.value;
     const userPassword = userPasswordInput.value;
 
+   
     // Реєстрація користувача за допомогою Firebase
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(userEmail, userPassword)
+   createUserWithEmailAndPassword(auth,userName, userEmail, userPassword)
       .then((userCredential) => {
         // Реєстрація успішна
         const user = userCredential.user;
-        console.log("Successfully registered with UID:", user.uid);
+        Notiflix.Notify.Success('Successfully registered with UID: ' + user.uid); 
+
+        // Оновлюємо інтерфейс з ім'ям користувача
+        updateUI(userName);
 
         // Збереження інформації про користувача в базі даних Firebase
         const userId = user.uid;
-        const userRef = firebase.database().ref('users/' + userId); // Шлях до користувача у базі даних
-        userRef.set({
+        const userRef = ref(database, 'users/' + userId); // Шлях до користувача у базі даних
+        const userData = {
           name: userName,
           email: userEmail,
-        }).then(() => {
-          console.log('User data saved in the database.');
-        }).catch((error) => {
-          console.error('Error saving user data:', error);
-        });
+          password: userPassword,
+        };
+
+        set(userRef, userData)
+          .then(() => {
+            console.log('User data saved in the database.');
+          })
+          .catch((error) => {
+            console.error('Error saving user data:', error);
+          });
 
       })
       .catch((error) => {
         // Реєстрація не вдалася, обробка помилки
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error("Registration failed:", errorMessage);
+        console.error('Registration failed:', errorMessage);
       });
   });
+
+  // Оновлення інтерфейсу з іменем користувача
+  function updateUI(userName) {
+    // Знайдіть третю кнопку з ім'ям "Sign up" та оновіть її текст
+    const signUpButtonUp = document.querySelector('[data-auth-open]');
+    signUpButtonUp.textContent = `Sign up\Hello, ${userName}`;
+  }
 });
