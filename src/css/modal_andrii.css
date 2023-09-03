@@ -200,7 +200,7 @@
   border: 3px solid rgb(37, 36, 36);
 }
 
-.modal__list {
+/* .modal-book-image-list {
   display: flex;
   gap: 20px;
   align-items: center;
@@ -208,4 +208,7 @@
   border: none;
   padding: 0;
   margin: 0;
+} */
+.modal-book-image-list {
+  display: flex;
 }
