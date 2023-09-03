@@ -31,6 +31,7 @@ function onCategoriesClick(event) {
       }
       refs.title.textContent = resp.data[0].list_name;
       refs.list.innerHTML = createMarkup(resp.data);
+      // refs.list.classList.add('book-list');
     })
     .catch(function (error) {
       if (error.response) {
@@ -51,7 +52,7 @@ async function searchService(categoryValue) {
 function createMarkup(arr) {
   return arr
     .map(({ book_image, author, list_name, title, _id }) => {
-      const card = `<li class="book-item" data-id="${_id}>
+      const card = `<li class="book-item" data-id="${_id}">
             <a href="#" class="book-link">
                 <img class="book-img" src="${
                   book_image || '../images/default_image.jpg'
@@ -71,7 +72,7 @@ function onSeeMoreBtnClick(event) {
     return;
   }
   buttonCategory = event.target.name.replaceAll(' ', '%20');
-  console.log(buttonCategory);
+
   searchService(buttonCategory)
     .then(resp => {
       if (resp.data.length === 0) {
