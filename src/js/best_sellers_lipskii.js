@@ -7,7 +7,7 @@ let length = window.innerWidth < 767 ? 1 : window.innerWidth < 1439 ? 3 : 5;
 window.addEventListener("resize", checkResize);
 
 
-fetchBooksData()
+fetchBooksData('top-books')
 .then(data => {
    
   save("data",data);
@@ -54,11 +54,11 @@ function renderMarkup(categories) {  //render categories
           let bookMarkup = '';
          
          for(let i =0;i<length;i+=1) {
+
             const {book_image,title,author,_id} = books[i];
               bookMarkup+=`
-              <li class="book-item" data-id="${_id}">
-              <a href="#" class="book-link">
-              <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img" data-id="${_id}"> 
+              <li class="book-item" data-id="${_id}" data-set="book">
+              <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img"> 
               <h3 class="book-title">${title}</h3>
               <p class="book-author">${author}</p>
               </a>
@@ -73,4 +73,5 @@ function renderMarkup(categories) {  //render categories
      list.innerHTML=markup;
 
 }
+
 
