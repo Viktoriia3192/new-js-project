@@ -20,12 +20,6 @@
   display: none;
 }
 
-/* .is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1.2);
-} */
-
 .modal {
   position: relative;
   display: flex;
@@ -49,8 +43,8 @@
   align-items: center;
 
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 15px;
+  right: 15px;
   background: inherit;
 
   width: 28px;
@@ -206,7 +200,7 @@
   border: 3px solid rgb(37, 36, 36);
 }
 
-.modal__list {
+.modal-book-image-list {
   display: flex;
   gap: 20px;
   align-items: center;
