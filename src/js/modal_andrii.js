@@ -39,7 +39,18 @@ function addModalMarkup({ author, title, description, book_image }) {
       <div class="modal__desc"> 
         <h2 class="modal__title">${title}</h2> 
         <p class="modal__author">${author}</p> 
-        <p class="modal__book-desc">${description}</p> 
+        <p class="modal__book-desc">${description}</p>
+        <ul class="image-list">
+        <li>
+          <img src="./images/book-shop/amazon.png" alt="amazon">
+        </li>
+        <li>
+          <img src="./images/book-shop/books-apple.png" alt="book-apple">
+        </li>
+        <li>
+          <img src="./images/book-shop/bookshop.png" alt="book-shop">
+        </li>
+      </ul> 
 </div>`;
   return card;
 }
