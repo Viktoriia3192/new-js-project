@@ -6,9 +6,7 @@ const refs = {
   categories: document.querySelector('.categories-list'),
   title: document.querySelector('.main-title'),
   list: document.querySelector('.common-list'),
-  titleSpan: document.querySelector('.main-title-wrapper'),
 };
-console.log(refs.titleSpan);
 
 const arrayError =
   'Sorry, there are no books matching the selected category. Please select something else.';
@@ -19,11 +17,13 @@ refs.list.addEventListener('click', onSeeMoreBtnClick);
 
 let currentCategory = '';
 let buttonCategory = '';
+let activeCategory = null;
 
 function onCategoriesClick(event) {
   if (event.target.className !== 'categories-link') {
     return;
   }
+  categoryActiveColorChange(event.target);
   currentCategory = event.target.textContent.replaceAll(' ', '%20');
 
   searchService(currentCategory)
@@ -61,7 +61,7 @@ async function searchService(categoryValue) {
 
 function createMarkup(arr) {
   return arr
-    .map(({ book_image, author, list_name, title, _id }) => {
+    .map(({ book_image, author, title, _id }) => {
       const card = `<li class="book-item" data-id="${_id}">
             <a href="#" class="book-link">
                 <img class="book-img" src="${
@@ -117,4 +117,12 @@ function firstPartTitleSplit(title) {
 function lastPartTitleSplit(title) {
   const arr = title.split(' ');
   return arr[arr.length - 1];
+}
+
+function categoryActiveColorChange(category) {
+  if (activeCategory) {
+    activeCategory.classList.remove('category-active');
+  }
+  category.classList.add('category-active');
+  activeCategory = category;
 }
