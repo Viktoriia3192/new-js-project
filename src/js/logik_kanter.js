@@ -8,10 +8,10 @@ const refs = {
   list: document.querySelector('.common-list'),
 };
 
-// let categoriesArr = refs.categories.childNodes;
-// const a = Array.from([...categoriesArr]);
-// console.log(categoriesArr);
-// console.log(a);categories-list-item
+// let categoriesArr = refs.categories.children;
+// const b = [...refs.categories.children];
+// console.log(b);
+// console.log(refs.categories.children);
 
 const arrayError =
   'Sorry, there are no books matching the selected category. Please select something else.';
@@ -19,8 +19,6 @@ const fechError = 'Sorry, something went wrong. Try again!';
 
 refs.categories.addEventListener('click', onCategoriesClick);
 refs.list.addEventListener('click', onSeeMoreBtnClick);
-
-// console.dir(refs.categories.firstElementChild.firstElementChild);
 
 let currentCategory = '';
 let buttonCategory = '';
