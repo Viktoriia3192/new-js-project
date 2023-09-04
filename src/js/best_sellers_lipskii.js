@@ -70,8 +70,12 @@ function renderMarkup(categories) {  //render categories
             const {book_image,title,author,_id} = books[i];
               bookMarkup+=`
               <li class="book-item" data-id="${_id}">
+             
               <a href="#" class="book-link"> 
-              <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img"> 
+              <div class="thumb">
+              <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img">
+              <p class="notification">quick view</p>
+              </div> 
               <h3 class="book-title">${title}</h3>
               <p class="book-author">${author}</p>
               </a>
