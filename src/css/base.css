@@ -10,7 +10,7 @@ body {
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   color: var(--title-color);
-  background-color: var(--main-bgr-color);
+  background-color: var(--bg-color);
   font-display: optional;
 }
 
@@ -64,7 +64,7 @@ body.dark header {
 
 /* Стилі для темної теми */
 [data-theme='dark'] {
-  --main-bgr-color: #202024;
+  --bg-color: #202024;
   --header-white-color: #111111;
   --black-text-color: #111111;
 

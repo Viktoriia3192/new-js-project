@@ -52,9 +52,6 @@
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.an-book-info-modal {
-  color: #111111;
-}
 .modal__close-img {
   stroke: #111111;
 }
@@ -92,7 +89,7 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: #111111;
+  color: var(--title-color);
 
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -135,7 +132,7 @@
   display: none;
 }
 .an-book-info-modal {
-  background-color: #ffffff;
+  background-color: var(--bg-color);
   position: relative;
 }
 
@@ -153,7 +150,7 @@
 
   letter-spacing: -0.04em;
 
-  color: #111111;
+  color: var(--title-color);
 }
 
 .modal__author {
@@ -176,6 +173,7 @@
   max-height: 70px;
   overflow-y: hidden;
 
+  color: var(--title-color);
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
