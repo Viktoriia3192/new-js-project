@@ -24,7 +24,9 @@ refs.list.addEventListener('click', onSeeMoreBtnClick);
 
 let currentCategory = '';
 let buttonCategory = '';
-let activeCategory = null;
+let activeCategory = refs.categories.firstElementChild.firstElementChild;
+
+categoryActiveColorChange(activeCategory);
 
 function onCategoriesClick(event) {
   if (event.target.className !== 'categories-link') {
