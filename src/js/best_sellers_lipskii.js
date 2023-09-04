@@ -46,8 +46,6 @@ function render() {
 
 function renderMarkup(categories) {  //render categories
 
-  title.textContent="Best Sellers";
-
   hideLoader();
      let markup = '';
        
