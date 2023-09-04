@@ -187,6 +187,7 @@ input:checked + .slider:before {
   margin-top: 12px;
   margin-bottom: 12px;
 }
+
 .menu-btn-start-tab {
   display: flex;
   align-items: center;
@@ -227,16 +228,23 @@ input:checked + .slider:before {
   position: relative;
   background-color: var(--accent-blue-color);
   height: 100vh;
-
+  width: inherit;
   z-index: 1;
+
+  background-image: url(/src/images/Group\ 6.png);
+  background-repeat: no-repeat;
+  background-size: contain, auto;
+  background-position: bottom, center;
 }
 
 @media only screen and (min-width: 768px) {
-    .header-modal {
-      display: none;
-    }
-   }
-   
+  .header-modal {
+    display: none;
+  }
+}
+.burger-close-btn {
+  display: none;
+}
 .modal-content {
   border: 1px solid #888;
 
@@ -265,4 +273,51 @@ input:checked + .slider:before {
 }
 .mobile {
   color: white;
+}
+.header-mob-log {
+  display: flex;
+  align-items: center;
+  width: 184px;
+  height: 45px;
+  /* font-size: 22px;
+  font-weight: 700; */
+  /* color: var(--white-color); */
+  /* gap: 8px; */
+}
+.menu-container {
+  padding-top: 126px;
+  padding-bottom: 40vh;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.menu-login {
+  min-width: 118px;
+  min-height: 48px;
+  padding: 14px 24px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  /* color: var(--black1-color);
+  background-color: var(--white-color);
+  border: 1px solid var(--black1-color); */
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.header-modal {
+  display: none;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
