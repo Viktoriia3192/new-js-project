@@ -46,8 +46,6 @@ function render() {
 
 function renderMarkup(categories) {  //render categories
 
-  title.innerHTML(`Best Sellers <span class="main-title main-title-wrapper">Books</span>`);
-
   hideLoader();
      let markup = '';
        
