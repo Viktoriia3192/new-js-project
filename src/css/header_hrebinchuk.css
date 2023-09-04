@@ -8,7 +8,7 @@
   border-bottom: 1px solid black;
   border-radius: 0 0 8px 8px;
 }
-.header-bookshalf {
+.header-bookshelf {
   fill: currentColor;
   stroke: currentColor;
 }
@@ -43,11 +43,10 @@
   text-transform: uppercase;
 }
 .header-shopping-lock {
-  stroke: var(--title-color);
-  fill: var(--header-white-color);
+  fill: currentColor;
 }
 @media only screen and (min-width: 250px) and (max-width: 767px) {
-  .header-bookshalf {
+  .header-bookshelf {
     margin-right: auto;
   }
   .header-logo {
@@ -221,4 +220,42 @@ input:checked + .slider:before {
   text-transform: uppercase;
   stroke: var(--title-color);
   fill: var(--header-white-color);
+}
+/* Modal */
+.header-modal {
+  position: relative;
+  background-color: var(--accent-blue-color);
+  height: 100vh;
+
+  z-index: 1;
+}
+
+.modal-content {
+  border: 1px solid #888;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:focus,
+.close:hover {
+  color: var(--accent-blue-color);
+}
+
+.mobil-shopping {
+  color: white;
+}
+.dark {
+  color: black;
+}
+.mobile {
+  color: white;
 }
