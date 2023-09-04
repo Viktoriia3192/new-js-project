@@ -12,6 +12,8 @@
           type="text"
           name="user_name"
           placeholder="NAME"
+          pattern="[a-zA-Z]*"
+          title="Use only symbols"
           required
         />
       </div>
@@ -22,6 +24,8 @@
           name="user_email"
           placeholder="EMAIL"
           required
+          pattern="[^@\s]+@[^@\s]+"
+          title="The number of characters should not be less than 10 and should not exceed 40"
         />
         <svg class="auth-icon-input" width="23" height="18">
           <use href="/src/images/sprite.svg#icon-mail-02"></use>
@@ -34,6 +38,9 @@
           name="user_password"
           placeholder="PASSWORD"
           required
+          minlength="8"
+          required
+          title="The password length must be not less thn 8"
         />
         <svg class="auth-icon-input" width="21" height="21">
           <use href="/src/images/sprite.svg#icon-lock-02"></use>
