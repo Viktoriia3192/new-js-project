@@ -4,20 +4,20 @@
             <use href="/src/images/sprite.svg#icon-logo"></use>
         </a>
     </svg>
-    <svg class="header-bookshalf" width="70" height="24">
-        <a class="header-home header-bookshalf" href="./index.html">
+    <svg class="header-bookshelf" width="70" height="24">
+        <a class="header-home header-bookshelf" href="./index.html">
             <use href="/src/images/sprite.svg#icon-Bookshelf"></use>
         </a>
     </svg>
 
     <nav class="header-nav">
         <div class="home-div">
-            <a class="header-home" href="./index.html">Home</a>
+            <a class="header-home dark" href="./index.html">Home</a>
 
         </div>
         <a class="header-shopping-list" href="/src/shopping_list_olexandr.html">Shopping list</a>
-        <svg class="header-shopping-lock" width="21" height="21">
-            <use href="/src/images/sprite.svg#icon-lock-02"></use>
+        <svg class="header-shopping-lock " width="21" height="21">
+            <use href="/src/images/sprite.svg#icon-Vector-2"></use>
         </svg>
     </nav>
 
@@ -31,18 +31,18 @@
         </label>
 
         <!-- Burger-menu -->
+        <button class="burger-btn" id="showModalBtn" type="button" aria-label="Menu" aria-expanded="false"
+            aria-controls="mobile-menu">
 
-        <button class="burger-btn top-line-btn js-open-menu" type="button" aria-label="mobile menu close button"
-            aria-expanded="false">
-            <svg class="header-burger" width="28" height="28">
+            <svg class="header-burger burger-btn" width="28" height="28">
                 <use href="/src/images/sprite.svg#icon-align-left"></use>
-            </svg>
-        </button>
+            </svg></button>
+
 
         <!-- Button-close -->
 
-        <button class="burger-close-btn  js-close-menu" type="button">
-            <svg class="burger-close-icon " width="24" height="24">
+        <button class="close burger-close-btn" type="button">
+            <svg class="close" width="24" height="24">
                 <use href="/src/images/sprite.svg#icon-x-close"></use>
             </svg>
         </button>
@@ -53,11 +53,37 @@
             <button data-auth-open="" class="menu-btn-start-tab" type="button">Sign up
                 <svg class="header-btn-start-icon" width="20" height="20">
                     <use href="/src/images/sprite.svg#icon-arrow-narrow-right"></use>
-                </svg></button>
+                </svg>
+            </button>
         </div>
     </div>
 
 </header>
-<div class="menu-container js-menu-container is-open" id="mobile-menu">
+<!-- Button -->
 
+<div id="myModal" class="header-modal">
+
+    <div class="menu-container">
+        <ul class="mobil-nav-list list">
+            <li class="mobil-nav-item-home">
+                <div class="home-div">
+                    <a class="header-home dark" href="./index.html">Home</a>
+
+                </div>
+            </li>
+            <li class="mobil-nav-item-shopping">
+                <a class="header-shopping-list mobil-shopping" href="/src/shopping_list_olexandr.html">Shopping list</a>
+                <svg class="header-shopping-lock mobil-shopping " width="21" height="21">
+                    <use href="/src/images/sprite.svg#icon-Vector-2"></use>
+                </svg>
+
+            </li>
+        </ul>
+    </div>
+    <button class="menu-login" type="button">
+        Log out
+        <svg class="header-btn-start-icon" width="20" height="20">
+            <use href="/src/images/sprite.svg#icon-arrow-narrow-right"></use>
+        </svg>
+    </button>
 </div>

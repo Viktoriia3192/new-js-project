@@ -3,6 +3,8 @@ import { fetchBooksData } from './best_sellers_api';
 
 showLoader();
 const list = document.querySelector(".common-list");
+const container = document.querySelector(".title-container");
+
 const allCategories = document.querySelector(".categories-list");
 
 let length = window.innerWidth < 767 ? 1 : window.innerWidth < 1439 ? 3 : 5;
@@ -46,6 +48,8 @@ function render() {
 
 function renderMarkup(categories) {  //render categories
 
+  container.innerHTML='<h1 class="main-title">Best Sellers <span class="main-title main-title-wrapper">Books</span></h1>';
+  
   hideLoader();
      let markup = '';
        
@@ -75,8 +79,12 @@ function renderMarkup(categories) {  //render categories
             const {book_image,title,author,_id} = books[i];
               bookMarkup+=`
               <li class="book-item" data-id="${_id}">
+             
               <a href="#" class="book-link"> 
-              <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img"> 
+
+              <div class="thumb">
+              <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img">
+              <p class="notification">quick view</p>
 
               <h3 class="book-title">${title}</h3>
               <p class="book-author">${author}</p>

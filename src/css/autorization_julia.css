@@ -37,7 +37,9 @@
   display: none;
 } */
 .auth-icon-input {
-  stroke: #111111;
+  background-color: var(--bg-color);
+  stroke: var(--bg-color);
+  fill: var(--header-white-color);
 }
 .auth-input-container:nth-child(2) {
   position: relative;

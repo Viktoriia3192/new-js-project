@@ -10,7 +10,7 @@ body {
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   color: var(--title-color);
-  background-color: var(--main-bgr-color);
+  background-color: var(--bg-color);
   font-display: optional;
 }
 
@@ -45,6 +45,7 @@ body.dark header {
   --title-color: #111111;
   --accent-blue-color: #4f2ee8;
   --accent-yellow-color: #eac645;
+  
   --skroll-color: #e0e0e0;
 
   --main-font-color: #9a9a9a;
@@ -52,7 +53,7 @@ body.dark header {
   --light-font-color: rgba(17, 17, 17, 0.6);
   --border-color: rgba(79, 46, 232, 0.4);
   --grey-text-color: #b4afaf;
-  --accent-color: #4f2ee8;
+  --accent-color-filter: #4f2ee8;
   --amazon-image-filter: grayscale(100%);
   --loader-book-color: #4f2ee8;
   --pagination-btn-text: #000;
@@ -63,13 +64,15 @@ body.dark header {
 
 /* Стилі для темної теми */
 [data-theme='dark'] {
-  --main-bgr-color: #202024;
+  --bg-color: #202024;
   --header-white-color: #111111;
-  --header-title-color: #111111;
+  --black-text-color: #111111;
+
   --white-color: #ffffff;
   --title-color: #ffffff;
   --accent-blue-color: #4f2ee8;
   --accent-yellow-color: #eac645;
+  
   --skroll-color: rgba(17, 17, 17, 0.6);
 
   --main-font-color: #9a9a9a;
@@ -84,6 +87,7 @@ body.dark header {
   --pagination-btn-bcg: #202024;
   --pagination-btn-border: #000;
   --pagination-arrow-left: #fff;
+
 }
 
 /* dark/light */

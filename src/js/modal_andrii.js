@@ -1,4 +1,7 @@
 import axios from 'axios';
+import amazon from '../images/book-shop/amazon.png';
+import applebooks from '../images/book-shop/apple-books.png';
+import bookshop from '../images/book-shop/bookshop.png';
 
 const commonListRef = document.querySelector('.common-list');
 const modalContent = document.querySelector('.modal__content');
@@ -17,6 +20,7 @@ function onClick(e) {
   if (e.target.className !== 'book-img') {
     return;
   }
+  document.body.style.overflow = 'hidden';
   backDrop.classList.remove('is-hidden');
   let value = e.target.dataset.id;
   fetchBook(value).then(resp => {
@@ -45,21 +49,26 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
         <a href=${getUrl(
           buy_links,
           'Amazon'
-        )} target= _blank><img src="../images/book-shop/amazon.png"  alt="amazon"></a>
 
+        )} target= _blank><img src="${amazon}" alt="Amazon"></a>
+          
         </li>
         <li>
         <a href=${getUrl(
           buy_links,
-          'Book Apple'
-        )} target= _blank><img src="../images/book-shop/books-apple.png"  alt="book-apple"></a>
+
+          'Apple Books'
+        )} target= _blank><img src="${applebooks}" alt="Apple-Books"></a>
+          
 
         </li>
         <li>
         <a href=${getUrl(
           buy_links,
           'Bookshop'
-        )} target= _blank> <img src="../images/book-shop/bookshop.png"  alt="book-shop"></a>
+
+        )} target= _blank> <img src="${bookshop}" alt="Book-Shop"></a>
+         
 
         </li>
       </ul> 
@@ -77,6 +86,7 @@ function getUrl(buy_links, market) {
 
 document.addEventListener('DOMContentLoaded', function () {
   function closeModal() {
+    document.body.style.overflow = 'auto';
     modal.classList.add('is-hidden');
   }
 
