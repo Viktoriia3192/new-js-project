@@ -41,6 +41,7 @@
   border: none;
   background: transparent;
   text-transform: uppercase;
+  margin-right: 4px;
 }
 .header-shopping-lock {
   fill: currentColor;
@@ -230,6 +231,12 @@ input:checked + .slider:before {
   z-index: 1;
 }
 
+@media only screen and (min-width: 768px) {
+    .header-modal {
+      display: none;
+    }
+   }
+   
 .modal-content {
   border: 1px solid #888;
 
