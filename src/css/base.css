@@ -1,49 +1,120 @@
 :root {
-    /* ==Colors== */
-
-    /* -----------------------Light----------------- */
-    --grey-text-color: #b4afaf;
-    --bg-color: #f6f6f6;
-    --black-text-color: #111111;
-    --accent-yellow-color: #eac645;
-    --accent-blue-color: #4f2ee8;
-    --categories-text-color: #11111199;
-    --scroll-color: #e0e0e0;
-    --bagdrop-color: #11111166;
-    --white-color: #ffffff;
-    --logo-color: #000000;
-
-    /* -----------------------Dark----------------- */
-
-    --bg-color-dark: #202024;
-    --logo-dark: #F3F3F3;
-
-    /* ==Fonts== */
-
-    --main-text-font: 'DM Sans', sans-serif;
+  --main-text-font: 'DM Sans', sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    color: var(--grey-text-color);
-    font-family: var(--main-text-font);
-    background-color: var(--bg-color);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--title-color);
+  background-color: var(--bg-color);
+  font-display: optional;
 }
 
+/* dark/light */
+body.light {
+  background-color: #f6f6f6;
+  color: #111111;
+}
+
+body.dark {
+  background-color: #202024;
+  color: #ffffff;
+}
+/* Стили для header в светлой теме */
+body.light header {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+/* Стили для header в тёмной теме */
+body.dark header {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+/* Стилі для світлої теми */
+[data-theme='light'] {
+  --bg-color: #f6f6f6;
+  --header-white-color: #ffffff;
+  --black-text-color: #111111;
+  --white-color: #ffffff;
+  --title-color: #111111;
+  --accent-blue-color: #4f2ee8;
+  --accent-yellow-color: #eac645;
+  
+  --skroll-color: #e0e0e0;
+
+  --main-font-color: #9a9a9a;
+  --font-card-color: #f6f6f6;
+  --light-font-color: rgba(17, 17, 17, 0.6);
+  --border-color: rgba(79, 46, 232, 0.4);
+  --grey-text-color: #b4afaf;
+  --accent-color-filter: #4f2ee8;
+  --amazon-image-filter: grayscale(100%);
+  --loader-book-color: #4f2ee8;
+  --pagination-btn-text: #000;
+  --pagination-btn-bcg: #fff;
+  --pagination-btn-border: #111;
+  --pagination-arrow-left: #b4afaf;
+}
+
+/* Стилі для темної теми */
+[data-theme='dark'] {
+  --bg-color: #202024;
+  --header-white-color: #111111;
+  --black-text-color: #111111;
+
+  --white-color: #ffffff;
+  --title-color: #ffffff;
+  --accent-blue-color: #4f2ee8;
+  --accent-yellow-color: #eac645;
+  
+  --skroll-color: rgba(17, 17, 17, 0.6);
+
+  --main-font-color: #9a9a9a;
+  --font-card-color: #f6f6f6;
+  --light-font-color: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(79, 46, 232, 0.4);
+  --second-text-color: #b4afaf;
+  --accent-color-filter: #eac645;
+  --amazon-image-filter: grayscale(100%) invert(1);
+  --loader-book-color: #4f2ee8;
+  --pagination-btn-text: #fff;
+  --pagination-btn-bcg: #202024;
+  --pagination-btn-border: #000;
+  --pagination-arrow-left: #fff;
+
+}
+
+/* dark/light */
+
 section {
-    padding-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  section {
+    padding-bottom: 72px;
+  }
 }
 
 .container {
-    display: flex;
-    min-width: 375px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* @media screen and (min-width: 375px) {
@@ -53,24 +124,53 @@ section {
 } */
 
 @media screen and (min-width: 768px) {
-    .container {
-
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .container {
-        display: flex;
-        padding-left: 24px;
-        padding-right: 24px;
-    }
+  .container {
+    max-width: 1440px;
+    display: flex;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.left-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .left-wrapper {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .left-wrapper {
+    margin-right: 40px;
+    margin-left: 0;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
-    .left-wrapper {
-    display: flex;
-}
+  .left-wrapper {
+    flex-direction: row;
+    gap: 32px;
+  }
 }
 
+@media screen and (min-width: 1440px) {
+  .left-wrapper {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 86px;
+  }
+}
