@@ -10,10 +10,7 @@
   padding: 24px;
   background: rgba(17, 17, 17, 0.4);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  scale: 1;
   overflow: hidden;
-  overflow-y: y;
 }
 
 .is-hidden {
@@ -177,7 +174,7 @@
   margin: 0 0 20px 0;
   max-width: 279px;
   max-height: 70px;
-  overflow-y: scroll;
+  overflow-y: hidden;
 
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
