@@ -152,6 +152,7 @@ section {
 @media screen and (min-width: 1440px) {
   .left-wrapper {
     margin-right: 40px;
+    margin-left: 0;
   }
 }
 

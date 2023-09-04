@@ -21,16 +21,25 @@
         <include src="./partials/header_hrebinchuk.html"></include>
     </div>
     <main>
-        <section>
-            <div class="container">
+        <section class="shop-list-section">
+            <!-- <div class="shop-list-section"> -->
+                <div class="container left-wrapper">
                     <div class="left-wrapper">
                         <include src="./partials/support_daryna.html"></include>
                     </div>
-            </div>
-            <include src="./partials/modal_andrii.html"></include>
-            <include src="./partials/dark_theme_max.html"></include>
-            <include src="./partials/pagination_mariia.html"></include>
+                </div>
+                <div class="shop-list-right-wrap">
+                    <p class="shop-list-text">Shopping <span class="shop-list-last-word">List</span></p>
+                    <div class="shop-list-empty">
+                        <p class="shop-list-empty-text">This page is empty, add some books and proceed to order.</p>
+                        <img class="shop-list-empty-img" src="./images/default_image.jpg" alt="">
+                    </div>
+                    <include src="./partials/modal_andrii.html"></include>
+                    <include src="./partials/dark_theme_max.html"></include>
+                </div>
+                
         </section>
+        <include src="./partials/pagination_mariia.html"></include>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script type="module" src="./shopping_list_olexandr.js"></script>
