@@ -16,6 +16,14 @@ const notification = document.querySelector('.notification');
 commonListRef.addEventListener('click', onClick);
 // console.log(commonListRef);
 
+//!----------
+let book = {
+  
+
+}
+
+//!------------------
+
 function onClick(e) {
   if (e.target.className !== 'book-img') {
     return;
@@ -24,10 +32,20 @@ function onClick(e) {
   backDrop.classList.remove('is-hidden');
   let value = e.target.dataset.id;
   fetchBook(value).then(resp => {
+   //!-------
+   const {author, title, description, book_image, buy_links,list_name} = resp.data;
+
+   book = {author,title,description,book_image,buy_links,list_name};
+    
+  
+   console.log(book);
+
+   //!--------------------
     modalContent.innerHTML = '';
     modalContent.insertAdjacentHTML('afterbegin', addModalMarkup(resp.data));
   });
 }
+
 
 async function fetchBook(bookId) {
   const URL = `https://books-backend.p.goit.global/books/${bookId}`;
@@ -123,3 +141,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   addBtn.addEventListener('click', toggleButtonText);
 });
+
+//!--------------------------------
+addBtn.addEventListener("click", addToBasket);
+
+function addToBasket()
+ {
+
+  
+ 
+
+ }
+
+
+ //!--------------------------------
