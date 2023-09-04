@@ -3,6 +3,8 @@ import { fetchBooksData } from './best_sellers_api';
 
 showLoader();
 const list = document.querySelector(".common-list");
+const container = document.querySelector(".title-container");
+
 const allCategories = document.querySelector(".categories-list");
 
 let length = window.innerWidth < 767 ? 1 : window.innerWidth < 1439 ? 3 : 5;
@@ -46,6 +48,8 @@ function render() {
 
 function renderMarkup(categories) {  //render categories
 
+  container.innerHTML='<h1 class="main-title">Best Sellers <span class="main-title main-title-wrapper">Books</span></h1>';
+  
   hideLoader();
      let markup = '';
        

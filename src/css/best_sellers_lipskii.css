@@ -45,11 +45,6 @@
 
 .main-title-wrapper {
 
-   font-size: 14px;
-    font-weight: 400;
-    line-height: 1.28;
-    letter-spacing: -0.04em;
-
  color:var(--accent-blue-color);
 
 }
@@ -94,26 +89,6 @@
 
   position: relative;
 }
-
-.book-item .hover-container {
-  display: none;
-  background-color: #EAC645; 
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40%; /* Covers about 40% of the image */
-  text-align: center; /* Center the text */
-  padding: 10px; /* Adjust padding as needed */
-  opacity: 0; /* Initially transparent */
-  transition: opacity 0.3s ease; /* Smooth transition for opacity */
-}
-
-.book-item .book-link:hover .hover-container {
-  display: block;
-  opacity: 1; /* Make the hover-container fully visible */
-}
-
 
 
 @media only screen and (min-width: 768px) {
