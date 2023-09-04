@@ -8,12 +8,19 @@ const refs = {
   list: document.querySelector('.common-list'),
 };
 
+// let categoriesArr = refs.categories.childNodes;
+// const a = Array.from([...categoriesArr]);
+// console.log(categoriesArr);
+// console.log(a);categories-list-item
+
 const arrayError =
   'Sorry, there are no books matching the selected category. Please select something else.';
 const fechError = 'Sorry, something went wrong. Try again!';
 
 refs.categories.addEventListener('click', onCategoriesClick);
 refs.list.addEventListener('click', onSeeMoreBtnClick);
+
+// console.dir(refs.categories.firstElementChild.firstElementChild);
 
 let currentCategory = '';
 let buttonCategory = '';
@@ -23,33 +30,36 @@ function onCategoriesClick(event) {
   if (event.target.className !== 'categories-link') {
     return;
   }
+
   categoryActiveColorChange(event.target);
   currentCategory = event.target.textContent.replaceAll(' ', '%20');
 
-  searchService(currentCategory)
-    .then(resp => {
-      if (resp.data.length === 0) {
-        throw new Error(Notify.info(arrayError));
-      }
-      const listName = resp.data[0].list_name;
+  if (event.target !== refs.categories.firstElementChild.firstElementChild) {
+    searchService(currentCategory)
+      .then(resp => {
+        if (resp.data.length === 0) {
+          throw new Error(Notify.info(arrayError));
+        }
+        const listName = resp.data[0].list_name;
 
-      refs.title.textContent = firstPartTitleSplit(listName);
-      refs.title.insertAdjacentHTML(
-        'beforeend',
-        `&nbsp;<span class="main-title main-title-wrapper">${lastPartTitleSplit(
-          listName
-        )}</span>`
-      );
+        refs.title.textContent = firstPartTitleSplit(listName);
+        refs.title.insertAdjacentHTML(
+          'beforeend',
+          `&nbsp;<span class="main-title main-title-wrapper">${lastPartTitleSplit(
+            listName
+          )}</span>`
+        );
 
-      refs.list.innerHTML = createMarkup(resp.data);
-    })
-    .catch(function (error) {
-      if (error.response) {
-        Notify.failure(fechError);
-      } else if (error.request) {
-        Notify.failure(fechError);
-      }
-    });
+        refs.list.innerHTML = createMarkup(resp.data);
+      })
+      .catch(function (error) {
+        if (error.response) {
+          Notify.failure(fechError);
+        } else if (error.request) {
+          Notify.failure(fechError);
+        }
+      });
+  }
 }
 
 async function searchService(categoryValue) {
@@ -81,6 +91,8 @@ function onSeeMoreBtnClick(event) {
   if (event.target.className !== 'showMore-btn') {
     return;
   }
+
+  console.log(event.target);
   buttonCategory = event.target.name.replaceAll(' ', '%20');
 
   searchService(buttonCategory)
