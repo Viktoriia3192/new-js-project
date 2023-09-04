@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAnalytics } from "firebase/analytics";
 
 import axios from 'axios';
 import Notiflix from 'notiflix';
@@ -27,12 +28,14 @@ const auth = getAuth();
 document.addEventListener('DOMContentLoaded', function () {
   const openButton = document.querySelector('[data-auth-open]');
   const closeButton = document.querySelector('.auth-btn-close');
+  const burgerButton = document.querySelector('.js-open-menu');
   const modal = document.querySelector('.auth-backdrop');
   const signUpForm = document.querySelector('.auth-form');
   const signUpButton = document.querySelector('.auth-button-signup');
   const userNameInput = signUpForm.querySelector('input[name="user_name"]');
   const userEmailInput = signUpForm.querySelector('input[name="user_email"]');
   const userPasswordInput = signUpForm.querySelector('input[name="user_password"]');
+  
   
   
   // Відкриття/закриття вікна
@@ -50,6 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   openButton.addEventListener('click', openModal);
   closeButton.addEventListener('click', closeModal);
+  burgerButton.addEventListener('click', openModal);
+  
+  
 
   // Реєстрація користувача при натисканні кнопки SIGN UP
   signUpButton.addEventListener('click', (event) => {
