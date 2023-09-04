@@ -1,13 +1,7 @@
-import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
-const URL_CATEGORY = 'https://books-backend.p.goit.global/books/category-list';
+import { getCategories } from './best_sellers_api';
 const categoryList = document.querySelector('.categories-list');
 
-async function getCategories() {
-  const { data } = await axios.get(URL_CATEGORY);
-  return data;
-}
 getListCategories();
 
 function createMarkupListCategory(arr) {
@@ -16,7 +10,7 @@ function createMarkupListCategory(arr) {
       ({ list_name }) =>
         `
     <li class="categories-list-item">
-      <a href="" class="categories-link">${list_name}</a>
+      <a href="#" class="categories-link">${list_name}</a>
     </li>
   `
     )
