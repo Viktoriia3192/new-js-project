@@ -117,11 +117,11 @@ section {
   margin-right: auto;
 }
 
-/* @media screen and (min-width: 375px) {
+@media screen and (max-width: 374px) {
     .container {
-        
+        max-width: 320px;
     }
-} */
+}
 
 @media screen and (min-width: 768px) {
   .container {
