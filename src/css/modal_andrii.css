@@ -133,7 +133,7 @@
   display: none;
 }
 .an-book-info-modal {
-  background-color: #ffffff;
+  background-color: var(--bg-color);
   position: relative;
 }
 

@@ -27,7 +27,7 @@
 
   margin-bottom: 40px;
 
-  color: var(--black-text-color);
+  color: var(--title-color);
   font-size: 32px;
   line-height: 1.18;
   letter-spacing: -0.04em;
@@ -56,12 +56,12 @@
 .common-title {
 
   margin-bottom: 18px;
-  
-  color: var(--grey-text-color);
+
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
   letter-spacing: 0.03em;
+  color: var(--grey-text-color);
 
   text-transform: uppercase;
 }
@@ -151,7 +151,7 @@
 
   margin-bottom: 4px;
 
-  color: var(--black-text-color);
+  color: var(--title-color);
   font-size: 16px;
   line-height: 1.12;
   letter-spacing: -0.04em;
@@ -169,14 +169,13 @@ p.book-author {
   font-size: 12px;
   letter-spacing: -0.04em;
   line-height: 1.17;
-   
-  color: var(--grey-text-color);
+
   font-style: italic;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 
-
+  color: var(--grey-text-color);
 }
 
 
@@ -185,11 +184,13 @@ p.book-author {
 
   display: flex;
   margin-top: 8px;
+  margin-bottom: 40px;
   margin-right: 0;
   margin-left: auto;
   padding: 14px 28px;
   border-radius: 40px;
 
+  color: var(--title-color);
   border: 2px solid var(--accent-blue-color);
   background-color: transparent;
   font-size: 14px;

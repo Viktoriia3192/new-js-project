@@ -45,7 +45,7 @@
     
     .pagination-btn-previous {
         background-color: var(--black-text-color);
-        fill: var(--grey-text-color);
+        fill: var(--pagination-arrow-left);
     }
     
     .pagination-icon-previous {
