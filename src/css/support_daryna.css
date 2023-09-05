@@ -1,5 +1,5 @@
 .fond-box {
-    width: 335px;
+    max-width: 335px;
     padding: 28px 40px;
     border-radius: 16px;
     background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, var(--accent-blue-color) 18.03%, var(--white-color) 100%);
@@ -10,6 +10,12 @@
     .fond-box {
         padding: 26px 40px;
     }
+}
+
+@media screen and (min-width: 1440px) {
+.fond-box{
+    width: 356px;
+}
 }
 
 .fond-wrap {
