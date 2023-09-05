@@ -315,7 +315,7 @@ input:checked + .slider:before {
 }
 .menu-container {
   padding-top: 126px;
-  padding-bottom: 45vh;
+  padding-bottom: 43vh;
   display: flex;
   justify-content: center;
   font-size: 14px;
@@ -335,6 +335,8 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   gap: 4px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 .header-modal {
   display: none;
@@ -349,4 +351,35 @@ input:checked + .slider:before {
   to {
     transform: translateX(0);
   }
+}
+
+.mobil-nav-item-home {
+  margin-bottom: 17px;
+}
+
+.header-mob-log {
+  /* margin-left: 20px;
+  margin-top: 20px; */
+}
+
+.stephenImg {
+  display: flex;
+  width: 37px;
+  height: 37px;
+  background-color: #f6f6f6;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.stephen-text {
+  color: #fff;
+  font-family: DM Sans;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.44px;
+  margin-top: 20px;
+  margin-left: 9px;
 }
