@@ -113,8 +113,7 @@ section {
   max-width: 320px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  
 }
 
 @media screen and (min-width: 375px) {
@@ -122,6 +121,9 @@ section {
         max-width: 375px;
         padding-left: 20px;
         padding-right: 20px;
+        margin-left: auto;
+        margin-right: auto;
+
     }
 }
 
