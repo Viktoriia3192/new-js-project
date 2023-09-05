@@ -29,7 +29,7 @@ const slider = tns({
   rewind: true,
   mouseDrag: true,
   responsive: {
-    375: {
+    320: {
       items: 4,
     },
     768: {
