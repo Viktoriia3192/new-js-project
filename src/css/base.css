@@ -110,16 +110,16 @@ section {
 }
 
 .container {
-  max-width: 375px;
+  max-width: 320px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
 }
 
-@media screen and (max-width: 374px) {
+@media screen and (min-width: 375px) {
     .container {
-        max-width: 320px;
+        max-width: 375px;
     }
 }
 
