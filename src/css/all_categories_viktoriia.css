@@ -1,6 +1,8 @@
+
+@media only screen and (max-width: 767px){
 .categories {
   max-width: 335px;
-}
+}}
 @media only screen and (min-width: 768px) {
   .categories {
     width: 339px;
@@ -8,7 +10,7 @@
 }
 @media only screen and (min-width: 1440px) {
   .categories {
-    width: 356px;
+    width: 372px;
   }
 }
 .categories-list {
