@@ -46,8 +46,10 @@ function render() {
   renderMarkup(data);
 }
 
-function renderMarkup(categories) {  //render categories
+function renderMarkup(data) {  //render categories
 
+     const categories = shuffleCategories(data);
+    
   hideLoader();
      let markup = '';
 
@@ -106,4 +108,17 @@ function hideLoader() {
 
   const loader = document.querySelector(".loader");
   loader.style.display="none";
+}
+
+
+function shuffleCategories(categories) {
+
+    const shuffledArray = [...categories];
+    
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+   
+  return shuffledArray;
 }
