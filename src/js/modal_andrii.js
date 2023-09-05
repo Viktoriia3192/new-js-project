@@ -1,8 +1,12 @@
-import axios from 'axios';
+import axios, { formToJSON } from 'axios';
 import amazon from '../images/book-shop/amazon.png';
 import applebooks from '../images/book-shop/apple-books.png';
 import bookshop from '../images/book-shop/bookshop.png';
+//!------------------------------------
 
+import {save,load} from './localStorageService';
+
+//!------------------------------------------
 const commonListRef = document.querySelector('.common-list');
 const modalContent = document.querySelector('.modal__content');
 const backDrop = document.querySelector('#book-modal');
@@ -31,7 +35,7 @@ function onClick(e) {
   backDrop.classList.remove('is-hidden');
   let value = e.target.dataset.id;
   fetchBook(value).then(resp => {
-    //!-------
+
     const {
       author,
       title,
@@ -57,8 +61,11 @@ function onClick(e) {
     //!--------------------
     modalContent.innerHTML = '';
     modalContent.insertAdjacentHTML('afterbegin', addModalMarkup(resp.data));
+    addBtn.textContent = `${check(resp.data._id)}`;
   });
 }
+
+
 
 async function fetchBook(bookId) {
   const URL = `https://books-backend.p.goit.global/books/${bookId}`;
@@ -98,7 +105,7 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
           'Bookshop'
         )} target= _blank> <img src="${bookshop}" alt="Book-Shop"></a>
          
-
+       
         </li>
       </ul> 
 </div>`;
@@ -138,6 +145,8 @@ document.addEventListener('DOMContentLoaded', function () {
     event.stopPropagation();
   });
 });
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
   function toggleButtonText() {
@@ -193,3 +202,25 @@ function removeFromBasket({ id }) {
   localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(productsArr));
 }
 //!--------------------------------
+
+
+//! Check if the book has alredy been in LS
+//!-------------------------------------------------------
+
+function check(id) {
+     
+      
+  const booksStorage = load(PRODUCTS_LS_KEY);
+     
+   if(!booksStorage) {
+
+    return "Add to shopping list";
+
+   }
+
+   const index = booksStorage.findIndex(book => book.id === id);
+   
+    return index === -1 ? "Add to shopping list" : "Remove from shopping list";
+
+}
+//!--------------------------------------------------------
