@@ -10,15 +10,16 @@
 }
 
 .shop-list-text {
-  color: var(--black-text-color);
+  color: var(--title-color);
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
   line-height: 52px;
   letter-spacing: -1.92px;
 }
+
 .shop-list-last-word {
-  color: #4f2ee8;
+  color: #4F2EE8;
 }
 
 .shop-list-empty {
@@ -33,7 +34,7 @@
 }
 
 .shop-list-empty-text {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--pagination-btn-text);
   text-align: center;
   font-family: DM Sans;
   font-size: 18px;
@@ -41,6 +42,7 @@
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.36px;
+  opacity: 60%;
 }
 
 .shoping-hidden {

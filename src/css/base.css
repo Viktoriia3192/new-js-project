@@ -45,9 +45,11 @@ body.dark header {
   --title-color: #111111;
   --accent-blue-color: #4f2ee8;
   --accent-yellow-color: #eac645;
-  
+
   --skroll-color: #e0e0e0;
 
+  --modal-signup-color: #F3F3F3;
+  --modal-font-color: #111111;
   --main-font-color: #9a9a9a;
   --font-card-color: #f6f6f6;
   --light-font-color: rgba(17, 17, 17, 0.6);
@@ -72,14 +74,16 @@ body.dark header {
   --title-color: #ffffff;
   --accent-blue-color: #4f2ee8;
   --accent-yellow-color: #eac645;
-  
+
   --skroll-color: rgba(17, 17, 17, 0.6);
 
+  --modal-signup-color: #202024;
+  --modal-font-color: #F6F6F6;
   --main-font-color: #9a9a9a;
   --font-card-color: #f6f6f6;
   --light-font-color: rgba(255, 255, 255, 0.6);
   --border-color: rgba(79, 46, 232, 0.4);
-  --second-text-color: #b4afaf;
+  --grey-text-color: #b4afaf;
   --accent-color-filter: #eac645;
   --amazon-image-filter: grayscale(100%) invert(1);
   --loader-book-color: #4f2ee8;
