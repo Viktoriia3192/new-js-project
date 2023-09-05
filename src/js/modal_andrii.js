@@ -77,14 +77,14 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
         <p class="modal__book-desc">${description}</p>
         <ul class="modal-book-image-list">
         <li>
-        <a href=${getUrl(
+        <a class="modal-book-shop" href=${getUrl(
           buy_links,
           'Amazon'
         )} target= _blank><img src="${amazon}" alt="Amazon"></a>
           
         </li>
         <li>
-        <a href=${getUrl(
+        <a class="modal-book-shop" href=${getUrl(
           buy_links,
 
           'Apple Books'
@@ -93,7 +93,7 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
 
         </li>
         <li>
-        <a href=${getUrl(
+        <a class="modal-book-shop" href=${getUrl(
           buy_links,
           'Bookshop'
         )} target= _blank> <img src="${bookshop}" alt="Book-Shop"></a>
@@ -115,6 +115,7 @@ function getUrl(buy_links, market) {
 
 document.addEventListener('DOMContentLoaded', function () {
   function closeModal() {
+    modalContent.innerHTML = '';
     document.body.style.overflow = 'auto';
     modal.classList.add('is-hidden');
   }
