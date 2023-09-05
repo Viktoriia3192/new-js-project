@@ -1,20 +1,25 @@
 import {save,load} from './localStorageService';
 import {fetchBooksData} from './best_sellers_api';
 
+showLoader();
 const list = document.querySelector(".common-list");
+const title = document.querySelector(".main-title");
+
+const allCategories = document.querySelector(".categories-list");
+
 let length = window.innerWidth < 767 ? 1 : window.innerWidth < 1439 ? 3 : 5;
 
+allCategories.firstElementChild.addEventListener("click",render);
 window.addEventListener("resize", checkResize);
 
 
-fetchBooksData()
+fetchBooksData('top-books')
 .then(data => {
-   
-  save("data",data);
+  save("data",data);  // Save data to localStorage
   renderMarkup(data);
-
 })
 .catch(error => console.log(error));
+
 
 function checkResize() {  // Check wether we should render markup or not.
          
@@ -31,8 +36,17 @@ function checkResize() {  // Check wether we should render markup or not.
 
 }
 
+function render() {
+
+  
+  const data = load("data");
+  console.log(data);
+  renderMarkup(data);
+}
+
 function renderMarkup(categories) {  //render categories
 
+  hideLoader();
      let markup = '';
        
    for( let category of categories) {
@@ -44,7 +58,7 @@ function renderMarkup(categories) {  //render categories
         <ul class="book-list">
             ${booksRender(books,length)}
         </ul>
-        <button type="button" class="showMore-btn" name=${list_name}>see more</button>
+        <button type="button" class="showMore-btn" name="${list_name}">see more</button>
     </li>`
        
     } 
@@ -54,11 +68,16 @@ function renderMarkup(categories) {  //render categories
           let bookMarkup = '';
          
          for(let i =0;i<length;i+=1) {
+          
             const {book_image,title,author,_id} = books[i];
               bookMarkup+=`
               <li class="book-item" data-id="${_id}">
-              <a href="#" class="book-link">
-              <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img" data-id="${_id}"> 
+             
+              <a href="#" class="book-link"> 
+              <div class="thumb">
+              <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img" data-id="${_id}">
+              <p class="notifications">quick view</p>
+              </div> 
               <h3 class="book-title">${title}</h3>
               <p class="book-author">${author}</p>
               </a>
@@ -72,4 +91,17 @@ function renderMarkup(categories) {  //render categories
 
      list.innerHTML=markup;
 
+}
+
+
+function showLoader() {
+
+  const loader = document.querySelector(".loader");
+  loader.style.display="block";
+}
+
+function hideLoader() {
+
+  const loader = document.querySelector(".loader");
+  loader.style.display="none";
 }

@@ -1,42 +1,25 @@
-const themeSwitch = document.getElementById('switch');
-const content = document.getElementById('content');
+const themeSliderEl = document.getElementById('slider');
 
-// Функция для переключения темы
+themeSliderEl.addEventListener('change', toggleTheme);
+
 function toggleTheme() {
-    // Проверяем текущую тему
-    const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+  const currentTheme = document.documentElement.getAttribute('data-theme');
 
-    // Меняем тему и сохраняем в localStorage
-    if (currentTheme === 'light') {
-        document.body.classList.remove('light');
-        document.body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.body.classList.remove('dark');
-        document.body.classList.add('light');
-        localStorage.setItem('theme', 'light');
-    }
-        // Переключаем тему для header
-    const header = document.querySelector('header');
-    if (header) {
-        header.classList.toggle('light', currentTheme === 'dark');
-        header.classList.toggle('dark', currentTheme === 'light');
-    }
+  if (currentTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark'); 
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light'); 
+  }
 }
 
-themeSwitch.addEventListener('change', toggleTheme);
-
-// Проверяем localStorage при загрузке страницы и устанавливаем тему
 const savedTheme = localStorage.getItem('theme');
+
+
 if (savedTheme) {
-    document.body.classList.add(savedTheme);
-    if (savedTheme === 'dark') {
-        themeSwitch.checked = true; // Установка чекбокса в "включено" для тёмной темы
-    }
-        // Устанавливаем тему для header при загрузке страницы
-    const header = document.querySelector('header');
-    if (header) {
-        header.classList.toggle('light', savedTheme === 'light');
-        header.classList.toggle('dark', savedTheme === 'dark');
-    }
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  if (savedTheme === 'light') {
+    themeSliderEl.checked = false;
+  } else themeSliderEl.checked = true;
 }

@@ -1,19 +1,23 @@
 <header class="header-container">
     <svg class="header-logo" width="24" height="24">
-        <use href="/src/images/sprite.svg#icon-logo"></use>
+        <a class="header-home" href="./index.html">
+            <use href="/src/images/sprite.svg#icon-logo"></use>
+        </a>
     </svg>
-    <svg class="header-bookshalf" width="70" height="24">
-        <use href="/src/images/sprite.svg#icon-Bookshelf"></use>
+    <svg class="header-bookshelf" width="70" height="24">
+        <a class="header-home header-bookshelf" href="./index.html">
+            <use href="/src/images/sprite.svg#icon-Bookshelf"></use>
+        </a>
     </svg>
 
     <nav class="header-nav">
         <div class="home-div">
-            <a class="header-home" href="./index.html">Home</a>
+            <a class="header-home dark" href="./index.html">Home</a>
 
         </div>
-        <button class="header-shopping-list" type="button">Shopping list</button>
-        <svg class="header-shopping-lock" width="21" height="21">
-            <use href="/src/images/sprite.svg#icon-lock-02"></use>
+        <a class="header-shopping-list" href="/src/shopping_list_olexandr.html">Shopping list</a>
+        <svg class="header-shopping-lock " width="20" height="20">
+            <use href="/src/images/sprite.svg#icon-uil_cart"></use>
         </svg>
     </nav>
 
@@ -21,14 +25,27 @@
 
         <!-- Switcher -->
 
-        <input type="checkbox" id="switch" /><label for="switch"></label>
+        <label for="slider" class="switch">
+            <input type="checkbox" id="slider" />
+            <span class="slider round"></span>
+        </label>
 
         <!-- Burger-menu -->
+        <button class="burger-btn" id="showModalBtn" type="button" aria-label="Menu" aria-expanded="false"
+            aria-controls="mobile-menu">
 
-        <button class="menu-toggle js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
-            <svg class="header-burger" width="28" height="28">
+            <svg class="header-burger burger-btn" width="28" height="28">
                 <use href="/src/images/sprite.svg#icon-align-left"></use>
-            </svg> </button>
+            </svg></button>
+
+
+        <!-- Button-close -->
+
+        <button class="close burger-close-btn" type="button">
+            <svg class="close" width="24" height="24">
+                <use href="/src/images/sprite.svg#icon-x-close"></use>
+            </svg>
+        </button>
 
         <!-- Auth-btn -->
 
@@ -36,8 +53,43 @@
             <button data-auth-open="" class="menu-btn-start-tab" type="button">Sign up
                 <svg class="header-btn-start-icon" width="20" height="20">
                     <use href="/src/images/sprite.svg#icon-arrow-narrow-right"></use>
-                </svg></button>
+                </svg>
+            </button>
         </div>
     </div>
 
 </header>
+<!-- Button -->
+
+<div id="myModal" class="header-modal">
+    <div class="header-mob-log  ">
+        <button data-auth-open="" class="menu-btn-start-tab " type="button">Stephen
+            <svg class="header-btn-start-icon" width="20" height="20">
+                <use href="/src/images/sprite.svg#icon-arrow-narrow-right"></use>
+            </svg>
+        </button>
+    </div>
+    <div class="menu-container">
+        <ul class="mobil-nav-list list">
+            <li class="mobil-nav-item-home">
+                <div class="home-div">
+                    <a class="header-home dark" href="./index.html">Home</a>
+
+                </div>
+            </li>
+            <li class="mobil-nav-item-shopping">
+                <a class="header-shopping-list mobil-shopping" href="/src/shopping_list_olexandr.html">Shopping list</a>
+                <svg class="header-shopping-lock mobil-shopping " width="20" height="20">
+                    <use href="/src/images/sprite.svg#icon-uil_cart"></use>
+                </svg>
+
+            </li>
+        </ul>
+    </div>
+    <button class="menu-login" type="button">
+        Log out
+        <svg class="header-btn-start-icon" width="20" height="20">
+            <use href="/src/images/sprite.svg#icon-arrow-narrow-right"></use>
+        </svg>
+    </button>
+</div>

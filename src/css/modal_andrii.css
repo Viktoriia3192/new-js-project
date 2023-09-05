@@ -10,21 +10,13 @@
   padding: 24px;
   background: rgba(17, 17, 17, 0.4);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  scale: 1;
   overflow: hidden;
-  overflow-y: y;
+  z-index: 100;
 }
 
 .is-hidden {
   display: none;
 }
-
-/* .is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1.2);
-} */
 
 .modal {
   position: relative;
@@ -49,8 +41,8 @@
   align-items: center;
 
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 15px;
+  right: 15px;
   background: inherit;
 
   width: 28px;
@@ -61,9 +53,6 @@
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.an-book-info-modal {
-  color: #111111;
-}
 .modal__close-img {
   stroke: #111111;
 }
@@ -101,7 +90,7 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: #111111;
+  color: var(--title-color);
 
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -162,7 +151,7 @@
 
   letter-spacing: -0.04em;
 
-  color: #111111;
+  color: var(--title-color);
 }
 
 .modal__author {
@@ -183,8 +172,9 @@
   margin: 0 0 20px 0;
   max-width: 279px;
   max-height: 70px;
-  overflow-y: scroll;
+  overflow-y: hidden;
 
+  color: var(--title-color);
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -206,7 +196,7 @@
   border: 3px solid rgb(37, 36, 36);
 }
 
-.modal__list {
+.modal-book-image-list {
   display: flex;
   gap: 20px;
   align-items: center;
