@@ -17,10 +17,7 @@ commonListRef.addEventListener('click', onClick);
 // console.log(commonListRef);
 
 //!----------
-let book = {
-  
-
-}
+let book = {};
 
 //!------------------
 
@@ -32,20 +29,34 @@ function onClick(e) {
   backDrop.classList.remove('is-hidden');
   let value = e.target.dataset.id;
   fetchBook(value).then(resp => {
-   //!-------
-   const {author, title, description, book_image, buy_links,list_name} = resp.data;
+    //!-------
+    const {
+      author,
+      title,
+      description,
+      book_image,
+      buy_links,
+      list_name,
+      _id,
+    } = resp.data;
 
-   book = {author,title,description,book_image,buy_links,list_name};
-    
-  
-   console.log(book);
+    book = {
+      author,
+      title,
+      description,
+      book_image,
+      buy_links,
+      list_name,
+      id: _id,
+    };
 
-   //!--------------------
+    // console.log(book);
+
+    //!--------------------
     modalContent.innerHTML = '';
     modalContent.insertAdjacentHTML('afterbegin', addModalMarkup(resp.data));
   });
 }
-
 
 async function fetchBook(bookId) {
   const URL = `https://books-backend.p.goit.global/books/${bookId}`;
@@ -67,7 +78,6 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
         <a href=${getUrl(
           buy_links,
           'Amazon'
-
         )} target= _blank><img src="${amazon}" alt="Amazon"></a>
           
         </li>
@@ -84,7 +94,6 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
         <a href=${getUrl(
           buy_links,
           'Bookshop'
-
         )} target= _blank> <img src="${bookshop}" alt="Book-Shop"></a>
          
 
@@ -143,15 +152,27 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //!--------------------------------
-addBtn.addEventListener("click", addToBasket);
+const PRODUCTS_LS_KEY = 'bookArr';
+addBtn.addEventListener('click', onAddButtonClick);
 
-function addToBasket()
- {
+function onAddButtonClick(e) {
+  addToBasket(book);
+}
 
-  
- 
+function addToBasket(obj) {
+  const products = JSON.parse(localStorage.getItem(PRODUCTS_LS_KEY)) ?? [];
+  if (products.length === 0) {
+    products.push(obj);
+  } else if (products.length > 0) {
+    const productId = obj.id;
+    const productsArr = JSON.parse(localStorage.getItem(PRODUCTS_LS_KEY));
+    const checkoutProductId = products.findIndex(({ id }) => id === productId);
+    if (checkoutProductId === -1) {
+      products.push(obj);
+      console.log(products);
+    }
+  }
+  localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(products));
+}
 
- }
-
-
- //!--------------------------------
+//!--------------------------------
