@@ -175,14 +175,12 @@ function addToBasket(obj) {
     const checkoutProductId = products.findIndex(({ id }) => id === productId);
     if (checkoutProductId === -1) {
       products.push(obj);
-      console.log(products);
     }
   }
   localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(products));
 }
 
 function removeFromBasket({ id }) {
-  console.log(id);
   const productsArr = JSON.parse(localStorage.getItem(PRODUCTS_LS_KEY));
   const checkoutProductId = productsArr.find(elem => elem.id === id);
   console.log(checkoutProductId);

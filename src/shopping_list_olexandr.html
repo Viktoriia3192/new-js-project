@@ -1,46 +1,66 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" />
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+    />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-        integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <include src="./partials/header_hrebinchuk.html"></include>
+      <include src="./partials/header_hrebinchuk.html"></include>
     </div>
     <main>
-        <section class="shop-list-section">
-            <!-- <div class="shop-list-section"> -->
-                <div class="container left-wrapper">
-                    <div class="left-wrapper">
-                        <include src="./partials/support_daryna.html"></include>
-                    </div>
-                </div>
-                <div class="shop-list-right-wrap">
-                    <p class="shop-list-text">Shopping <span class="shop-list-last-word">List</span></p>
-                    <div class="shop-list-empty hidden">
-                        <p class="shop-list-empty-text">This page is empty, add some books and proceed to order.</p>
-                        <img class="shop-list-empty-img" src="./images/default_image.png" alt="">
-                    </div>
-                    <include src="./partials/modal_andrii.html"></include>
-                    <include src="./partials/dark_theme_max.html"></include>
-                </div>
-        </section>
-        <include src="./partials/pagination_mariia.html"></include>
+
+      <section class="shop-list-section">
+        <!-- <div class="shop-list-section"> -->
+        <div class="container">
+          <div class="left-wrapper">
+            <include src="./partials/support_daryna.html"></include>
+          </div>
+
+          <div class="shop-list-right-wrap">
+            <p class="shop-list-text">
+              Shopping <span class="shop-list-last-word">List</span>
+            </p>
+            <div class="shop-list-empty">
+              <p class="shop-list-empty-text">
+                This page is empty, add some books and proceed to order.
+              </p>
+              <img
+                class="shop-list-empty-img"
+                src="./images/default_image.jpg"
+                alt=""
+              />
+            </div>
+            <ul class="shop-list-container"></ul>
+            <include src="./partials/modal_andrii.html"></include>
+            <include src="./partials/dark_theme_max.html"></include>
+          </div>
+        </div>
+      </section>
+      <include src="./partials/pagination_mariia.html"></include>
+
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script type="module" src="./shopping_list_olexandr.js"></script>
-</body>
+  </body>
 </html>
