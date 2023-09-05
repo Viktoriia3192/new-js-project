@@ -75,7 +75,7 @@ function createMarkup(arr) {
       const card = `<li class="book-item" data-id="${_id}">
             <a href="#" class="book-link">
                 <img class="book-img" src="${
-                  book_image || '../images/default_image.jpg'
+                  book_image || '../images/default_image.png'
                 }" data-id="${_id}" alt="${title}"> 
                 <h3 class="book-title">${title}</h3>
                 <p class="book-author">${author}</p>

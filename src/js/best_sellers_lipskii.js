@@ -78,7 +78,7 @@ function renderMarkup(categories) {  //render categories
               bookMarkup+=`
               <li class="book-item" data-id="${_id}" tabindex="0">
               <div class="thumb">
-              <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img" data-id="${_id}">
+              <img src="${book_image || '../images/default_image.png'}" alt="${title}" class="book-img" data-id="${_id}">
               <p class="notifications">quick view</p>
               </div> 
               <h3 class="book-title">${title}</h3>
