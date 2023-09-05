@@ -239,8 +239,8 @@ p.book-author {
 }
 
 
-.book-link:hover .notifications,
-.book-link:focus .notifications {
+.book-item:hover .notifications,
+.book-item:focus .notifications {
 
   transform: translateY(0);
 }

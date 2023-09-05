@@ -1,6 +1,8 @@
 import {save,load} from './localStorageService';
 import {fetchBooksData} from './best_sellers_api';
 
+const firstTitlePart = "Best Sellers";
+const secondTitlePart = "Books";
 showLoader();
 const list = document.querySelector(".common-list");
 const title = document.querySelector(".main-title");
@@ -48,6 +50,9 @@ function renderMarkup(categories) {  //render categories
 
   hideLoader();
      let markup = '';
+
+     title.textContent = `${firstTitlePart}`;
+     title.insertAdjacentHTML('beforeend',`&nbsp;<span class="main-title main-title-wrapper">${secondTitlePart}</span>`);
        
    for( let category of categories) {
       
@@ -71,16 +76,13 @@ function renderMarkup(categories) {  //render categories
           
             const {book_image,title,author,_id} = books[i];
               bookMarkup+=`
-              <li class="book-item" data-id="${_id}">
-             
-              <a href="#" class="book-link"> 
+              <li class="book-item" data-id="${_id}" tabindex="0">
               <div class="thumb">
               <img src="${book_image || '../images/default_image.jpg'}" alt="${title}" class="book-img" data-id="${_id}">
               <p class="notifications">quick view</p>
               </div> 
               <h3 class="book-title">${title}</h3>
               <p class="book-author">${author}</p>
-              </a>
               </li>
             `
          }
