@@ -5,12 +5,15 @@
   padding-left: 20px;
   padding-right: 20px;
   height: 64px;
-  border-bottom: 1px solid var(--title-color);
+  border-bottom: 2px solid var(--title-color);
   border-radius: 0 0 8px 8px;
 }
+
 .header-bookshelf {
   fill: currentColor;
-  stroke: currentColor;
+
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 .header-burger {
   margin-top: 24px;
@@ -41,7 +44,10 @@
   border: none;
   background: transparent;
   text-transform: uppercase;
-  margin-right: 4px;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .header-shopping-lock {
   fill: currentColor;
@@ -92,6 +98,9 @@
   .home-div {
     margin-right: 24px;
   }
+}
+
+.header-btn-list {
 }
 .header-switcher {
   display: inline-block;
@@ -203,6 +212,11 @@ input:checked + .slider:before {
   border-radius: 18px;
   background-color: #4f2ee8;
 }
+
+.stephen {
+  margin-left: 20px;
+  margin-top: 20px;
+}
 .header-btn-start-icon {
   stroke: #eac645;
   fill: currentColor;
@@ -211,11 +225,20 @@ input:checked + .slider:before {
   stroke: var(--title-color);
   fill: var(--header-white-color);
 }
-.burger-btn {
-  border: none;
-  background: transparent;
-  text-transform: uppercase;
+@media only screen and (max-width: 767px) {
+  .burger-btn {
+    border: none;
+    background: transparent;
+    text-transform: uppercase;
+  }
 }
+
+@media only screen and (min-width: 768px) {
+  .burger-btn {
+    display: none;
+  }
+}
+
 .burger-close-btn {
   border: none;
   background: transparent;
@@ -224,6 +247,11 @@ input:checked + .slider:before {
   fill: var(--header-white-color);
 }
 /* Modal */
+
+.header-burger {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 .header-modal {
   position: relative;
   background-color: var(--accent-blue-color);
@@ -231,7 +259,8 @@ input:checked + .slider:before {
   width: inherit;
   z-index: 1;
 
-  background-image: url(/src/images/Group\ 6.png);
+  background-image: url(/src/images/Group\ 6.png),
+    linear-gradient(32deg, rgba(200, 192, 247, 1) 0%, rgba(79, 46, 232, 1) 90%);
   background-repeat: no-repeat;
   background-size: contain, auto;
   background-position: bottom, center;
@@ -278,7 +307,7 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   width: 184px;
-  height: 45px;
+
   /* font-size: 22px;
   font-weight: 700; */
   /* color: var(--white-color); */
@@ -286,7 +315,7 @@ input:checked + .slider:before {
 }
 .menu-container {
   padding-top: 126px;
-  padding-bottom: 40vh;
+  padding-bottom: 45vh;
   display: flex;
   justify-content: center;
   font-size: 14px;
