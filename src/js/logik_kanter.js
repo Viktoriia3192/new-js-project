@@ -72,16 +72,16 @@ async function searchService(categoryValue) {
 function createMarkup(arr) {
   return arr
     .map(({ book_image, author, title, _id }) => {
-      const card = `<li class="book-item" data-id="${_id}">
-            <a href="#" class="book-link">
-                <img class="book-img" src="${
-                  book_image || '../images/default_image.png'
-                }" data-id="${_id}" alt="${title}"> 
-                <h3 class="book-title">${title}</h3>
-                <p class="book-author">${author}</p>
-            </a>
-        </li>`;
-
+      const card = `<li class="book-item" data-id="${_id}" tabindex="0">
+              <div class="thumb">
+              <img src="${
+                book_image || '../images/default_image.png'
+              }" alt="${title}" class="book-img" data-id="${_id}">
+              <p class="notifications">quick view</p>
+              </div> 
+              <h3 class="book-title">${title}</h3>
+              <p class="book-author">${author}</p>
+              </li>`;
       return card;
     })
     .join('');
