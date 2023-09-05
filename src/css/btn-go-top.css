@@ -3,15 +3,23 @@
   height: 64px;
   position: fixed;
   background-color: var(--accent-blue-color);
-  right: 25px;
+  right: 30px;
   bottom: 90px;
   border-radius: 50%;
   cursor: pointer;
   padding: 15px;
-  z-index: 10000;
+  z-index: 1;
   border: 5px solid transparent;
   opacity: 0.8;
   transition: border-color 200ms ease-in, border-radius 200ms ease-in;
+}
+@media only screen and (max-width: 767px) {
+  .btn-up {
+    width: 54px;
+    height: 54px;
+    padding: 10px;
+    opacity: 0.7;
+  }
 }
 .btn-up > use > svg {
   display: flex;
