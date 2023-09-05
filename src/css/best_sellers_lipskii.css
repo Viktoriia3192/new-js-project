@@ -89,6 +89,7 @@
 .book-item {
 
   position: relative;
+  cursor: pointer;
 }
 
 
