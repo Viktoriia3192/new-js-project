@@ -12,6 +12,8 @@ const addBtn = document.querySelector('.add-bookBtn');
 const addNotification = document.querySelector('.addNotification');
 const removeNotification = document.querySelector('.removeNotification');
 const notification = document.querySelector('.notification');
+const removeBook = document.querySelector('.remove-book');
+const modalWindow = document.querySelector('.modal');
 
 commonListRef.addEventListener('click', onClick);
 // console.log(commonListRef);
@@ -140,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function () {
   function toggleButtonText() {
     if (addBtn.textContent === 'Add to shopping list') {
       addBtn.textContent = 'Remove from the shopping list';
-      removeNotification.classList.remove('hidden');
+      // removeNotification.classList.remove('hidden');
       notification.classList.remove('hidden');
-    } else {
+    } else if ((addBtn.textContent = 'Remove from the shopping list')) {
       addBtn.textContent = 'Add to shopping list';
-      removeNotification.classList.add('hidden');
+      // removeNotification.classList.add('hidden');
       notification.classList.add('hidden');
     }
   }
@@ -153,10 +155,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //!--------------------------------
 const PRODUCTS_LS_KEY = 'bookArr';
-addBtn.addEventListener('click', onAddButtonClick);
+modalWindow.addEventListener('click', onAddButtonClick);
 
 function onAddButtonClick(e) {
-  addToBasket(book);
+  if (e.target === addBtn) {
+    addToBasket(book);
+  } else if (e.target === removeBook) {
+    removeFromBasket(book);
+  }
 }
 
 function addToBasket(obj) {
@@ -175,4 +181,16 @@ function addToBasket(obj) {
   localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(products));
 }
 
+function removeFromBasket({ id }) {
+  console.log(id);
+  const productsArr = JSON.parse(localStorage.getItem(PRODUCTS_LS_KEY));
+  const checkoutProductId = productsArr.find(elem => elem.id === id);
+  console.log(checkoutProductId);
+  const indexRemoveBook = productsArr.findIndex(
+    checkoutProductId => checkoutProductId.id === id
+  );
+  console.log(indexRemoveBook);
+  productsArr.splice(indexRemoveBook, 1);
+  localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(productsArr));
+}
 //!--------------------------------
