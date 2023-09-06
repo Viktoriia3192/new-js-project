@@ -7,7 +7,7 @@
 @media screen and (min-width: 768px) {
   .common-list {
     flex-wrap: wrap;
-    column-gap: 25px;
+    column-gap: 20px;
     flex-direction: row;
   }
 }
