@@ -197,11 +197,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 /* Auth-btn */
-.header-btn-user-wrap {
-  /* margin-top: 12px;
-  margin-bottom: 12px; */
-  /* height: 45px; */
-}
 
 .menu-btn-start-tab {
   display: flex;
@@ -256,6 +251,7 @@ input:checked + .slider:before {
   stroke: var(--title-color);
   fill: var(--header-white-color);
 }
+
 /* Modal */
 
 .header-burger {
@@ -274,6 +270,10 @@ input:checked + .slider:before {
   background-repeat: no-repeat;
   background-size: contain, auto;
   background-position: bottom, center;
+}
+
+.close {
+  margin-top: 6px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -297,11 +297,7 @@ input:checked + .slider:before {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-}
-
-.close:focus,
-.close:hover {
-  color: var(--accent-blue-color);
+  padding: 0;
 }
 
 .mobil-shopping {
@@ -365,11 +361,6 @@ input:checked + .slider:before {
 
 .mobil-nav-item-home {
   margin-bottom: 17px;
-}
-
-.header-mob-log {
-  /* margin-left: 20px;
-  margin-top: 20px; */
 }
 
 .stephenImg {
