@@ -99,13 +99,13 @@ function renderMarkup(data) {  //render categories
 
 function showLoader() {
 
-  const loader = document.querySelector(".loader");
+  const loader = document.querySelector(".loader-besteseller");
   loader.style.display="block";
 }
 
 function hideLoader() {
 
-  const loader = document.querySelector(".loader");
+  const loader = document.querySelector(".loader-besteseller");
   loader.style.display="none";
 }
 
