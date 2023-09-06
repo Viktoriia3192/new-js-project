@@ -1,26 +1,26 @@
-
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
-
- // Конфігурація Firebase
+// Конфігурація Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyAt0t0gqY2cwwnnmHCmmlq6c2d_Q7sG2wI",
-  authDomain: "boocks-f43bd.firebaseapp.com",
-  projectId: "boocks-f43bd",
-  storageBucket: "boocks-f43bd.appspot.com",
-  messagingSenderId: "679284035166",
-  appId: "1:679284035166:web:7c3e330ead5760e6196ecf",
-  measurementId: "G-MRP841QGMJ"
+  apiKey: 'AIzaSyAt0t0gqY2cwwnnmHCmmlq6c2d_Q7sG2wI',
+  authDomain: 'boocks-f43bd.firebaseapp.com',
+  projectId: 'boocks-f43bd',
+  storageBucket: 'boocks-f43bd.appspot.com',
+  messagingSenderId: '679284035166',
+  appId: '1:679284035166:web:7c3e330ead5760e6196ecf',
+  measurementId: 'G-MRP841QGMJ',
 };
 
 // Ініціалізація Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
+const auth = getAuth();
 
 document.addEventListener('DOMContentLoaded', function () {
   const openButton = document.querySelector('[data-auth-open]');
@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const signUpButton = document.querySelector('.auth-button-signup');
   const userNameInput = signUpForm.querySelector('input[name="user_name"]');
   const userEmailInput = signUpForm.querySelector('input[name="user_email"]');
-  const userPasswordInput = signUpForm.querySelector('input[name="user_password"]');
-  
-  
-  
+  const userPasswordInput = signUpForm.querySelector(
+    'input[name="user_password"]'
+  );
+
   // Відкриття/закриття вікна
   function openModal() {
     modal.style.display = 'block';
@@ -50,55 +50,63 @@ document.addEventListener('DOMContentLoaded', function () {
   openButton.addEventListener('click', openModal);
   closeButton.addEventListener('click', closeModal);
 
- // Реєстрація користувача при натисканні кнопки SIGN UP
+  // Реєстрація користувача при натисканні кнопки SIGN UP
 
-
-  signUpButton.addEventListener('click', async (event) => {
+  signUpButton.addEventListener('click', async event => {
     event.preventDefault();
 
     const userName = userNameInput.value;
     const userEmail = userEmailInput.value;
     const userPassword = userPasswordInput.value;
-    
+
     const userData = {
       userName: userName,
       userEmail: userEmail,
       userPassword: userPassword,
     };
-    async function addUserToFirebase(userData) {
-      const usersCol = collection(db, 'user_data');
 
-      try {
-       await addDoc(usersCol, userData);
-       console.log('Дані користувача успішно додано в базу даних');
-       updateUI(userData.userName, userData.userEmail, userData.userPassword);
-       closeModal()
-      } catch (error) {
-        console.error('Помилка при додаванні даних користувача:', error);
-        Notiflix.Notify.Failure('Помилка при реєстрації');
-      }
-    }
-    await addUserToFirebase(userData, analytics);
-    
- });
-     function updateUI(userName) {
-       const signUpButtonUp = document.querySelector('[data-auth-open]');
-       signUpButtonUp.textContent = `Hello, ${userName}`;
-  
-    }
+    createUserWithEmailAndPassword(
+      auth,
+      userData.userEmail,
+      userData.userPassword
+    )
+      .then(userCredential => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+    // async function addUserToFirebase(userData) {
+    //   const usersCol = collection(db, 'user_data');
+
+    //   try {
+    //     await addDoc(usersCol, userData);
+    //     console.log('Дані користувача успішно додано в базу даних');
+    //     updateUI(userData.userName, userData.userEmail, userData.userPassword);
+    //     closeModal();
+    //   } catch (error) {
+    //     console.error('Помилка при додаванні даних користувача:', error);
+    //     Notiflix.Notify.Failure('Помилка при реєстрації');
+    //   }
+    // }
+    // await addUserToFirebase(userData, analytics);
+  });
+  function updateUI(userName) {
+    const signUpButtonUp = document.querySelector('[data-auth-open]');
+    signUpButtonUp.textContent = `Hello, ${userName}`;
+  }
 });
-
-
 
 // Кнопка "SIGN IN"
 var signInButton = document.querySelector('.auth-button-in');
 var userNameInput = document.querySelector('.auth-input');
 
-signInButton.addEventListener('click', function() {
-     if (userNameInput) {
-         userNameInput.remove();
-    }
+signInButton.addEventListener('click', function () {
+  if (userNameInput) {
+    userNameInput.remove();
+  }
 });
-
-
-  
