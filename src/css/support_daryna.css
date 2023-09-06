@@ -4,9 +4,16 @@
     background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, var(--accent-blue-color) 18.03%, var(--white-color) 100%);
     box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.10);
 }
+@media screen and (max-width: 375px){
+    .fond-box{
+        max-width: 274px;
+       }   
+}
+
+
 @media screen and (max-width: 767px){
    .fond-box{
-    max-width: 335px;
+    width: 335px;
    }
 }
 

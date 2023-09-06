@@ -49,6 +49,12 @@
   align-items: center;
   gap: 4px;
 }
+.burger-btn {
+  padding: 0;
+}
+.switch {
+  margin-right: 14px;
+}
 .header-shopping-lock {
   fill: currentColor;
 }
@@ -73,9 +79,7 @@
   .header-burger {
     display: none;
   }
-  .burger-close-btn {
-    display: none;
-  }
+
   .header-nav {
     margin-left: 40px;
     margin-right: auto;
@@ -85,6 +89,16 @@
   }
   .home-div {
     margin-right: 16px;
+  }
+  .switch {
+    margin-right: 24px;
+  }
+  .burger-btn {
+    visibility: hidden;
+  }
+  .header-container {
+    padding: 0 32px 0 32px;
+    height: 72px;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -98,10 +112,11 @@
   .home-div {
     margin-right: 24px;
   }
+  .header-container {
+    padding: 0 20px 0 20px;
+  }
 }
 
-.header-btn-list {
-}
 .header-switcher {
   display: inline-block;
   width: 1em;
@@ -126,7 +141,7 @@
   display: inline-block;
   width: 40px;
   height: 20px;
-  margin-right: 14px;
+  /* margin-right: 14px; */
 }
 
 .switch input {
@@ -192,16 +207,12 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 /* Auth-btn */
-.header-btn-user-wrap {
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
 
 .menu-btn-start-tab {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 48px;
+  height: 45px;
   width: 184px;
   padding: 14px;
   font-weight: 500;
@@ -234,9 +245,6 @@ input:checked + .slider:before {
 }
 
 @media only screen and (min-width: 768px) {
-  .burger-btn {
-    display: none;
-  }
 }
 
 .burger-close-btn {
@@ -246,6 +254,7 @@ input:checked + .slider:before {
   stroke: var(--title-color);
   fill: var(--header-white-color);
 }
+
 /* Modal */
 
 .header-burger {
@@ -287,11 +296,7 @@ input:checked + .slider:before {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-}
-
-.close:focus,
-.close:hover {
-  color: var(--accent-blue-color);
+  padding: 0;
 }
 
 .mobil-shopping {
@@ -315,7 +320,7 @@ input:checked + .slider:before {
 }
 .menu-container {
   padding-top: 126px;
-  padding-bottom: 43vh;
+
   display: flex;
   justify-content: center;
   font-size: 14px;
@@ -324,7 +329,7 @@ input:checked + .slider:before {
 .menu-login {
   min-width: 118px;
   min-height: 48px;
-  padding: 14px 24px;
+  padding: 12px 24px;
   font-family: inherit;
   font-weight: 700;
   font-size: 14px;
@@ -335,13 +340,15 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(-100%);
 }
 .header-modal {
   display: none;
   animation-name: slideIn;
   animation-duration: 0.5s;
+  padding: 20px;
 }
 
 @keyframes slideIn {
@@ -355,11 +362,6 @@ input:checked + .slider:before {
 
 .mobil-nav-item-home {
   margin-bottom: 17px;
-}
-
-.header-mob-log {
-  /* margin-left: 20px;
-  margin-top: 20px; */
 }
 
 .stephenImg {
@@ -380,6 +382,13 @@ input:checked + .slider:before {
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.44px;
-  margin-top: 20px;
+
   margin-left: 9px;
+}
+.stephen {
+  margin: 0;
+}
+
+.close {
+  margin-top: 6px;
 }

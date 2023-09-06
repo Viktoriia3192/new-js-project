@@ -153,6 +153,10 @@
             </path>
         </symbol>
 
+        <symbol id="icon-x-close2" viewBox="0 0 32 32">
+        <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="5.3333" d="M28.444 3.556l-24.889 24.889M3.556 3.556l24.889 24.889"></path>
+        </symbol>
+
         <symbol id="icon-x-close" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4286"
                 d="M24 8l-16 16M8 8l16 16"></path>
