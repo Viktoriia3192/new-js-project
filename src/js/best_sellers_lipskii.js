@@ -1,5 +1,6 @@
 import {save,load} from './localStorageService';
 import {fetchBooksData} from './best_sellers_api';
+import {Notify} from 'notiflix';
 
 const firstTitlePart = "Best Sellers";
 const secondTitlePart = "Books";
@@ -20,7 +21,7 @@ fetchBooksData('top-books')
   save("data",data);  // Save data to localStorage
   renderMarkup(data);
 })
-.catch(error => console.log(error));
+.catch(error => Notify.failure(error));
 
 
 function checkResize() {  // Check wether we should render markup or not.
@@ -40,9 +41,7 @@ function checkResize() {  // Check wether we should render markup or not.
 
 function render() {
 
-  
   const data = load("data");
-  console.log(data);
   renderMarkup(data);
 }
 
@@ -79,12 +78,12 @@ function renderMarkup(data) {  //render categories
             const {book_image,title,author,_id} = books[i];
               bookMarkup+=`
               <li class="book-item" data-id="${_id}" tabindex="0">
-              <div class="thumb">
+              <div class="thumb" data-id="${_id}">
               <img src="${book_image || '../images/default_image.png'}" alt="${title}" class="book-img" data-id="${_id}">
-              <p class="notifications">quick view</p>
+              <p class="notifications" data-id="${_id}">quick view</p>
               </div> 
-              <h3 class="book-title">${title}</h3>
-              <p class="book-author">${author}</p>
+              <h3 class="book-title" data-id="${_id}">${title}</h3>
+              <p class="book-author" data-id="${_id}">${author}</p>
               </li>
             `
          }
