@@ -25,11 +25,11 @@ function onCategoriesClick(event) {
   if (event.target.className !== 'categories-link') {
     return;
   }
-
   categoryActiveColorChange(event.target);
   currentCategory = event.target.textContent.replaceAll(' ', '%20');
 
   if (event.target !== refs.categories.firstElementChild.firstElementChild) {
+    Loading.pulse({ svgColor: '#eac645' });
     searchService(currentCategory)
       .then(resp => {
         if (resp.data.length === 0) {
@@ -53,7 +53,8 @@ function onCategoriesClick(event) {
         } else if (error.request) {
           Notify.failure(fechError);
         }
-      });
+      })
+      .finally(() => Loading.remove());
   }
 }
 
@@ -86,7 +87,7 @@ function onSeeMoreBtnClick(event) {
   if (event.target.className !== 'showMore-btn') {
     return;
   }
-
+  Loading.pulse({ svgColor: '#eac645' });
   buttonCategory = event.target.name.replaceAll(' ', '%20');
 
   const categoriesChildrensArr = Array.from(refs.categories.children);
@@ -123,7 +124,8 @@ function onSeeMoreBtnClick(event) {
       } else if (error.request) {
         Notify.failure(fechError);
       }
-    });
+    })
+    .finally(() => Loading.remove());
 }
 
 function firstPartTitleSplit(title) {
