@@ -85,7 +85,7 @@ body.dark header {
   --border-color: rgba(79, 46, 232, 0.4);
   --grey-text-color: #b4afaf;
   --accent-color-filter: #eac645;
-  --amazon-image-filter: grayscale(100%) invert(1);
+  --amazon-image-filter: brightness(0) invert(1);
   --loader-book-color: #4f2ee8;
   --pagination-btn-text: #fff;
   --pagination-btn-bcg: #202024;
