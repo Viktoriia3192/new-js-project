@@ -68,14 +68,14 @@ function createMarkup(arr) {
   return arr
     .map(({ book_image, author, title, _id }) => {
       const card = `<li class="book-item" data-id="${_id}" tabindex="0">
-              <div class="thumb">
+              <div class="thumb" data-id="${_id}">
               <img src="${
                 book_image || '../images/default_image.png'
               }" alt="${title}" class="book-img" data-id="${_id}">
-              <p class="notifications">quick view</p>
+              <p class="notifications" data-id="${_id}">quick view</p>
               </div> 
-              <h3 class="book-title">${title}</h3>
-              <p class="book-author">${author}</p>
+              <h3 class="book-title" data-id="${_id}">${title}</h3>
+              <p class="book-author" data-id="${_id}">${author}</p>
               </li>`;
       return card;
     })
