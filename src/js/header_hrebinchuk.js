@@ -23,3 +23,16 @@ window.addEventListener('click', event => {
     closeBtn.style.display = 'none';
   }
 });
+
+// ////////////////
+
+const currentURL = window.location.href;
+
+const link1 = document.getElementById('link1');
+const link2 = document.getElementById('link2');
+
+if (currentURL.includes('index.html')) {
+  link1.style.fontWeight = 'bold';
+} else if (currentURL.includes('shopping_list_olexandr.html')) {
+  link2.style.fontWeight = 'bold';
+}

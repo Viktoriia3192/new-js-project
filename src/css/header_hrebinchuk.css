@@ -27,18 +27,39 @@
 .home-div {
   display: flex;
   width: 72px;
-  height: 34px;
+
   padding: 10px;
   border-radius: 36px;
-  background-color: var(--accent-yellow-color);
-  color: var(--black-text-color);
+
   font-family: var(--main-text-font);
   text-transform: uppercase;
-  font-weight: 700;
+
   align-items: center;
   justify-content: center;
   margin-right: 24px;
 }
+.flex {
+  display: flex;
+}
+/* Current page styles */
+
+.page1:hover,
+.page1:active {
+  height: 34px;
+  background-color: var(--accent-yellow-color);
+  font-weight: 700;
+  color: var(--black-text-color);
+}
+.page2:hover,
+.page2:active {
+  display: flex;
+  height: 34px;
+  border-radius: 36px;
+  background-color: var(--accent-yellow-color);
+  align-items: center;
+  font-weight: 700;
+}
+/* ////////////// */
 
 .header-shopping-list {
   border: none;
@@ -303,7 +324,10 @@ input:checked + .slider:before {
   color: white;
 }
 .dark {
-  color: black;
+  height: 34px;
+  background-color: var(--accent-yellow-color);
+  font-weight: 700;
+  color: var(--black-text-color);
 }
 .mobile {
   color: white;
