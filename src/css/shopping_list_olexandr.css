@@ -1,8 +1,16 @@
-/* @media screen and (max-widht: 1439px) {
+.left-wrapper-shoppig-list {
+    margin-right: 40px;
+    margin-left: 0;
+    /* justify-content: flex-start;
+    align-items: flex-start;
+    gap: 86px; */
+}
+
+@media screen and (max-widht: 1439px) {
   .left-wrapper-shoppig-list {
     display: none;
   }
-} */
+}
 
 .shop-list-section {
   display: flex;
@@ -20,11 +28,11 @@
   color: var(--black-text-color);
   letter-spacing: -1.28px;
   width: 100%;
-  margin-left: 20px;
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
-  line-height: 38px;  
+  line-height: 38px; 
+  margin-top: 40px; 
 }
 
 @media screen and (min-widht: 768px) {
@@ -71,6 +79,7 @@
     letter-spacing: -0.36px;
     font-size: 18px;
     line-height: 24px;
+    width: 349px;
   }
 }
 
@@ -80,7 +89,7 @@
 
 .shop-list-item {
   background: #fff;
-  border: 2px solid #4f2ee866;
+  border: 2px solid rgba(79, 46, 232, 0.40);
   border-radius: 16px;
   align-items: flex-start;
   width: 335px;
@@ -88,6 +97,15 @@
   margin-top: 40px;
   padding: 14px;
   display: flex;
+}
+
+@media screen and (min-widht: 768px) {
+  .shop-list-item {
+    width: 704px;
+    height: 213px;
+    padding: 30px 24px;
+    gap: 48px;
+  }
 }
 
 .shop-list-img {
@@ -159,8 +177,13 @@
   border: none;
   align-items: center;
   gap: 8px;
-  width: 80px;
+  /* width: 80px;
+  height: 16px; */
   display: flex;
+}
+
+.shop-link {
+  height: 16px;
 }
 
 .shop-button-book-remove {
@@ -175,6 +198,6 @@
 }
 
 .shop-remove-btn {
-  /* fill: #fff; */
+  fill: #fff;
   stroke: #fff;
 }
