@@ -51,17 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
   closeButton.addEventListener('click', closeModal);
 
  // Реєстрація користувача при натисканні кнопки SIGN UP
-async function addUserToFirebase(userData) {
-  const usersCol = collection(db, 'user_data');
 
-  try {
-    await addDoc(usersCol, userData);
-    console.log('Данные пользователя успешно добавлены в базу данных');
-    updateUI(userData.userName);
-  } catch (error) {
-    console.error('Ошибка при добавлении данных пользователя:', error);
-  }
-}
 
   signUpButton.addEventListener('click', async (event) => {
     event.preventDefault();
@@ -69,24 +59,36 @@ async function addUserToFirebase(userData) {
     const userName = userNameInput.value;
     const userEmail = userEmailInput.value;
     const userPassword = userPasswordInput.value;
-
+    
     const userData = {
       userName: userName,
       userEmail: userEmail,
       userPassword: userPassword,
     };
+    async function addUserToFirebase(userData) {
+      const usersCol = collection(db, 'user_data');
 
-  
+      try {
+       await addDoc(usersCol, userData);
+       console.log('Дані користувача успішно додано в базу даних');
+       updateUI(userData.userName, userData.userEmail, userData.userPassword);
+       closeModal()
+      } catch (error) {
+        console.error('Помилка при додаванні даних користувача:', error);
+        Notiflix.Notify.Failure('Помилка при реєстрації');
+      }
+    }
     await addUserToFirebase(userData, analytics);
+    
+ });
      function updateUI(userName) {
        const signUpButtonUp = document.querySelector('[data-auth-open]');
-       const signInButton = document.querySelector('.auth-button-in');
        signUpButtonUp.textContent = `Hello, ${userName}`;
-       signInButton.textContent = `Hello, ${userName}`;
+  
     }
-  });
-
 });
+
+
 
 // Кнопка "SIGN IN"
 var signInButton = document.querySelector('.auth-button-in');
