@@ -348,6 +348,7 @@ input:checked + .slider:before {
   display: none;
   animation-name: slideIn;
   animation-duration: 0.5s;
+  padding: 20px;
 }
 
 @keyframes slideIn {
