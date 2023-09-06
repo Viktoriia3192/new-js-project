@@ -21,10 +21,7 @@ const modalWindow = document.querySelector('.modal');
 
 commonListRef.addEventListener('click', onClick);
 
-//!----------
 let book = {};
-
-//!------------------
 
 function onClick(e) {
   if (!e.target.closest('.book-item')) {
@@ -59,6 +56,11 @@ function onClick(e) {
     document.body.style.overflow = 'hidden';
     backDrop.classList.remove('is-hidden');
     addBtn.textContent = `${check(resp.data._id)}`;
+    if (addBtn.textContent === 'Remove from the shopping list') {
+      notification.classList.remove('hidden');
+    } else if (addBtn.textContent === 'Add to shopping list') {
+      notification.classList.add('hidden');
+    }
   });
 }
 
@@ -141,21 +143,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  function toggleButtonText() {
-    if (addBtn.textContent === 'Add to shopping list') {
-      // addBtn.textContent = 'Remove from the shopping list';
-      // removeNotification.classList.remove('hidden');
-      notification.classList.remove('hidden');
-    } else if ((addBtn.textContent = 'Remove from the shopping list')) {
-      // addBtn.textContent = 'Add to shopping list';
-      // removeNotification.classList.add('hidden');
-      notification.classList.add('hidden');
-    }
-  }
-  addBtn.addEventListener('click', toggleButtonText);
-});
-
 //!--------------------------------
 const PRODUCTS_LS_KEY = 'bookArr';
 modalWindow.addEventListener('click', onAddButtonClick);
@@ -182,6 +169,7 @@ function addToBasket(obj) {
   }
   localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(products));
   addBtn.textContent = `${check(obj.id)}`;
+  addClassHiddenToNotification(obj.id);
 }
 
 function removeFromBasket({ id }) {
@@ -193,6 +181,7 @@ function removeFromBasket({ id }) {
   productsArr.splice(indexRemoveBook, 1);
   localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(productsArr));
   addBtn.textContent = `${check(id)}`;
+  addClassHiddenToNotification(id);
 }
 //!--------------------------------
 
@@ -213,3 +202,18 @@ function check(id) {
     : 'Remove from the shopping list';
 }
 //!--------------------------------------------------------
+
+function addClassHiddenToNotification(id) {
+  const booksStorage = JSON.parse(localStorage.getItem(PRODUCTS_LS_KEY));
+
+  if (!booksStorage) {
+    return;
+  }
+  const index = booksStorage.findIndex(book => book.id === id);
+
+  if (index !== -1) {
+    notification.classList.remove('hidden');
+  } else {
+    notification.classList.add('hidden');
+  }
+}
