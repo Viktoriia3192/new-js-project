@@ -1,4 +1,4 @@
-
+import { Notify } from "notiflix";
 export const save = (key,value) => {
 
 try {
@@ -8,7 +8,7 @@ try {
     
 } catch(error) {
 
-    console.error("Set state error: ", error.message);
+    Notify.error("Set state error: ", error.message);
 }
 
 };
@@ -23,7 +23,7 @@ export const load = key => {
 
  } catch (error) {
 
-    console.error("Get state error: ", error.message);
+    Notify.error("Get state error: ", error.message);
 
  }
 
