@@ -1,3 +1,7 @@
+
+localStorage.setItem('theme', 'light');
+
+
 const themeSliderEl = document.getElementById('slider');
 
 themeSliderEl.addEventListener('change', toggleTheme);
