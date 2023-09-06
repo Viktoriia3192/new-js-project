@@ -8,7 +8,7 @@ import './js/header_hrebinchuk';
 import './js/support_daryna';
 import './js/dark_theme_max';
 import './js/pagination_mariia';
-import trashshop from './images/sprite.svg#icon-shop-trash2'
+import trashshop from '/src/images/sprite.svg';
 
 const rightWrapper = document.querySelector('.shop-list-container');
 const defaultMessage = document.querySelector('.shop-list-empty');
@@ -52,32 +52,34 @@ function shopingListBookMarkup(arr) {
                 <h3 class="shop-book-title">${title}</h3>
                 <p class="shop-category">${list_name}</p>
                 <p class="shop-description">${description}</p>
+                <div class="shop-autor-links">
                 <p class="shop-book-author">${author}</p>
-                </div>
                 <ul class="shop-links-img">
-        <li class="shop-link">
-        <a href=${getUrl(
+        <li class="shop-link shop-link-amazon">
+        <a class="item-link" href=${getUrl(
           buy_links,
           'Amazon'
-        )} target= _blank><img src="${amazon}" alt="Amazon"></a>
+        )} target= _blank><img src="${amazon}" alt="Amazon" width="32px" height="11px"></a>
         </li>
         <li>
-        <a href=${getUrl(
+        <a class="item-link" href=${getUrl(
           buy_links,
           'Apple Books'
-        )} target= _blank><img src="${applebooks}" alt="Apple-Books"></a>
+        )} target= _blank><img src="${applebooks}" alt="Apple-Books" width="16px"></a>
         </li>
         <li>
-        <a href=${getUrl(
+        <a class="item-link" href=${getUrl(
           buy_links,
           'Bookshop'
-        )} target= _blank> <img src="${bookshop}" alt="Book-Shop"></a>
+        )} target= _blank> <img src="${bookshop}" alt="Book-Shop" width="16px"></a>
         </li>
-      </ul> 
+      </ul>
+      </div>
+                </div>
       <button class="shop-button-book-remove" type="button">
-      <svg class="shop-remove-btn" widht="12" height="12">
-      <use xlink:href="${trashshop}"></use>
-      </svg>
+      <svg class="shop-remove-btn" width="20" height="20">
+                    <use href="${trashshop}#icon-shop-trash"></use>
+                </svg>
       </button>
         </li>`;
 
