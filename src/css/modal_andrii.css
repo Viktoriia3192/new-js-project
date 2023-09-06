@@ -10,7 +10,7 @@
   padding: 24px;
   background: rgba(17, 17, 17, 0.4);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  overflow: auto;
   z-index: 100;
 }
 
@@ -22,15 +22,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 579px;
-  max-height: 100%;
+  width: 579px;
+  
   z-index: 5;
 
   padding: 40px 24px;
 
   border: 2px solid #111111;
   border-radius: 18px;
-  background: #fcfcfc;
+  background-color: var(--bg-color);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -39,7 +39,13 @@
 @media only screen and (max-width: 767px) {
   .modal {
     max-width: 335px;
-    max-height: 100%;
+    top: 16%;
+  }
+}
+
+@media only screen and (max-width: 334px) {
+  .modal {
+   width: 320px;
   }
 }
 
@@ -85,7 +91,6 @@
 
 .modal__content {
   display: flex;
-  /* justify-content: center; */
   gap: 24px;
   margin-bottom: 30px;
 }
@@ -94,6 +99,12 @@
   .modal__content {
     gap: 14px;
     flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 334px) {
+  .modal__content {
+   justify-content: center;
   }
 }
 
@@ -107,7 +118,7 @@
 
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 24px;
 
   letter-spacing: -0.01em;
@@ -170,10 +181,6 @@
 .hidden {
   display: none;
 }
-.an-book-info-modal {
-  background-color: var(--bg-color);
-  position: relative;
-}
 
 .modal__img {
   max-width: 192px;
@@ -230,8 +237,8 @@
 .modal__book-desc {
   margin-bottom: 14px;
   max-width: 279px;
-  max-height: 100%;
-  overflow-y: hidden;
+  max-height: 57px;
+  overflow-y: auto;
 
   color: var(--title-color);
   font-family: 'DM Sans', sans-serif;
