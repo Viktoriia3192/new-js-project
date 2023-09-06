@@ -340,8 +340,9 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(-100%);
 }
 .header-modal {
   display: none;
