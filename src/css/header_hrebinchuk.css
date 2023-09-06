@@ -389,6 +389,6 @@ input:checked + .slider:before {
   margin: 0;
 }
 
-.mobile-menu-open {
-  overflow: hidden;
+.close {
+  margin-top: 6px;
 }
