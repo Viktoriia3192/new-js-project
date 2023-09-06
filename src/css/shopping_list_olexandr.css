@@ -24,6 +24,12 @@
   display: flex;
 }
 
+@media screen and (min-width: 768px) {
+  .shop-list-right-wrap {
+    width: 704px;
+  }
+}
+
 .shop-list-text {
   color: var(--black-text-color);
   letter-spacing: -1.28px;
@@ -32,7 +38,6 @@
   font-style: normal;
   font-weight: 700;
   line-height: 38px; 
-  margin-top: 40px; 
 }
 
 @media screen and (min-width: 768px) {
@@ -104,8 +109,8 @@
   .shop-list-item {
     width: 704px;
     height: 213px;
-    padding: 30px 24px;
-    gap: 48px;
+    padding: 24px;
+    /* gap: 48px; */
   }
 }
 
@@ -116,37 +121,73 @@
   margin-right: 14px;
 }
 
+@media screen and (min-width: 768px) {
+  .shop-list-img {
+    width: 116px;
+    height: 165px;
+    margin-right: 24px;
+  }
+}
+
 .shop-list-info {
   height: 142px;
 }
 
+@media screen and (min-width: 768px) {
+  .shop-list-info {
+    height: 165px;
+  }
+}
+
 .shop-book-title {
   white-space: nowrap;
-  text-overflow: ellipsis;
   color: #111;
   letter-spacing: -0.64px;
   text-transform: uppercase;
-  max-width: 144px;
+  width: 144px;
   height: 18px;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
-  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .shop-book-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .shop-book-title {
+    width: 100%;
+  }
 }
 
 .shop-category {
   white-space: nowrap;
-  text-overflow: ellipsis;
   color: #b4afaf;
   letter-spacing: 0.36px;
-  max-width: 165px;
+  width: 165px;
   margin-top: 4px;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
-  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .shop-category {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .shop-category {
+    width: 100%;
+  }
 }
 
 .shop-description {
@@ -164,15 +205,34 @@
   overflow: hidden;
 }
 
+@media screen and (max-width: 767px) {
+  .shop-description {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .shop-description {
+    /* width: 100%; */
+    margin-top: 14px;
+    margin-right: 8px;
+  }
+}
+
 .shop-book-author {
+  white-space: normal;
+  text-overflow: ellipsis;
   color: #b4afaf;
-  letter-spacing: -0.48px;
   margin-top: 28px;
   font-style: italic;
   font-weight: 400;
   line-height: 14px;
   font-size: 12px;
   letter-spacing: -0.04em;
+  overflow: hidden;
+  max-height: 1em;
+
 }
 
 .shop-links-img {
@@ -215,7 +275,7 @@
 
 .shop-link-amazon {
   width: 32px;
-  height: 11px;
+  height: 6px;
 }
 
 .item-link {
