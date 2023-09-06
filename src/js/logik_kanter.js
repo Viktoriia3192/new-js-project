@@ -8,11 +8,6 @@ const refs = {
   list: document.querySelector('.common-list'),
 };
 
-// let categoriesArr = refs.categories.children;
-// const b = [...refs.categories.children];
-// console.log(b);
-// console.log(refs.categories.children);
-
 const arrayError =
   'Sorry, there are no books matching the selected category. Please select something else.';
 const fechError = 'Sorry, something went wrong. Try again!';
@@ -73,14 +68,14 @@ function createMarkup(arr) {
   return arr
     .map(({ book_image, author, title, _id }) => {
       const card = `<li class="book-item" data-id="${_id}" tabindex="0">
-              <div class="thumb">
+              <div class="thumb" data-id="${_id}">
               <img src="${
                 book_image || '../images/default_image.png'
               }" alt="${title}" class="book-img" data-id="${_id}">
-              <p class="notifications">quick view</p>
+              <p class="notifications" data-id="${_id}">quick view</p>
               </div> 
-              <h3 class="book-title">${title}</h3>
-              <p class="book-author">${author}</p>
+              <h3 class="book-title" data-id="${_id}">${title}</h3>
+              <p class="book-author" data-id="${_id}">${author}</p>
               </li>`;
       return card;
     })
@@ -92,8 +87,18 @@ function onSeeMoreBtnClick(event) {
     return;
   }
 
-  console.log(event.target);
   buttonCategory = event.target.name.replaceAll(' ', '%20');
+
+  const categoriesChildrensArr = Array.from(refs.categories.children);
+  categoriesChildrensArr.forEach(category => {
+    const categoryName = category.firstElementChild.textContent.replaceAll(
+      ' ',
+      '%20'
+    );
+    if (categoryName === buttonCategory) {
+      categoryActiveColorChange(category);
+    }
+  });
 
   searchService(buttonCategory)
     .then(resp => {

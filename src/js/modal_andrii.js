@@ -27,11 +27,10 @@ let book = {};
 //!------------------
 
 function onClick(e) {
-  if (e.target.className !== 'book-img') {
+  if (!e.target.closest('.book-item')) {
     return;
   }
-  document.body.style.overflow = 'hidden';
-  backDrop.classList.remove('is-hidden');
+
   let value = e.target.dataset.id;
   fetchBook(value).then(resp => {
     const {
@@ -57,6 +56,8 @@ function onClick(e) {
     //!--------------------
     modalContent.innerHTML = '';
     modalContent.insertAdjacentHTML('afterbegin', addModalMarkup(resp.data));
+    document.body.style.overflow = 'hidden';
+    backDrop.classList.remove('is-hidden');
     addBtn.textContent = `${check(resp.data._id)}`;
   });
 }
