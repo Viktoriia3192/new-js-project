@@ -8,7 +8,7 @@ import './js/header_hrebinchuk';
 import './js/support_daryna';
 import './js/dark_theme_max';
 import './js/pagination_mariia';
-// import './js/helper';
+import trashshop from './images/sprite.svg#icon-shop-trash2'
 
 const rightWrapper = document.querySelector('.shop-list-container');
 const defaultMessage = document.querySelector('.shop-list-empty');
@@ -55,7 +55,7 @@ function shopingListBookMarkup(arr) {
                 <p class="shop-book-author">${author}</p>
                 </div>
                 <ul class="shop-links-img">
-        <li>
+        <li class="shop-link">
         <a href=${getUrl(
           buy_links,
           'Amazon'
@@ -76,7 +76,7 @@ function shopingListBookMarkup(arr) {
       </ul> 
       <button class="shop-button-book-remove" type="button">
       <svg class="shop-remove-btn" widht="12" height="12">
-      <use xlink:href="./images/sprite.svg#icon-shop-trash"></use>
+      <use xlink:href="${trashshop}"></use>
       </svg>
       </button>
         </li>`;
