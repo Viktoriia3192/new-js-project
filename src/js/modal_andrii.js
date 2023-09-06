@@ -21,10 +21,7 @@ const modalWindow = document.querySelector('.modal');
 
 commonListRef.addEventListener('click', onClick);
 
-//!----------
 let book = {};
-
-//!------------------
 
 function onClick(e) {
   if (!e.target.closest('.book-item')) {

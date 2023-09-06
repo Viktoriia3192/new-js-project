@@ -8,13 +8,12 @@ import './js/header_hrebinchuk';
 import './js/support_daryna';
 import './js/dark_theme_max';
 import './js/pagination_mariia';
-import trashshop from './images/sprite.svg#icon-shop-trash2'
+import trashshop from './images/sprite.svg#icon-shop-trash2';
 
 const rightWrapper = document.querySelector('.shop-list-container');
 const defaultMessage = document.querySelector('.shop-list-empty');
-let bookShopRemove = null;
-// const bookShopRemove = document.querySelector('.shop-button-book-remove');
 const PRODUCTS_LS_KEY = 'bookArr';
+let bookShopRemove = null;
 
 window.addEventListener('DOMContentLoaded', shopingListMarkupAdd);
 
@@ -108,55 +107,9 @@ function onBtnBookRemoveClick(event) {
 function removeFromBasket(id) {
   const productsArr = JSON.parse(localStorage.getItem(PRODUCTS_LS_KEY));
   const checkoutProductId = productsArr.find(elem => elem.id === id);
-  console.log(checkoutProductId);
   const indexRemoveBook = productsArr.findIndex(
     checkoutProductId => checkoutProductId.id === id
   );
   productsArr.splice(indexRemoveBook, 1);
   localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(productsArr));
 }
-
-// const addBoock = document.querySelector(".addNotification");
-// const removeBoock = document.querySelector(".removeNotification");
-// const emptyList = document.querySelector(".shop-list-empty")
-// const LOCALSTORAGE_KEY = "storageKey";
-
-// updateAddBoock();
-// addBoock.addEventListener("submit", saveAddBook);
-
-// function saveAddBook(evt) {
-//     evt.preventDefault();
-//     localStorage.setItem(LOCALSTORAGE_KEY, addBoock.elements.value);
-//         updateAddBoock();
-//         addBoock.reset();
-// }
-// console.log(updateAddBoock);
-
-// function updateAddBoock() {
-//     removeBoock.textContent =
-//     localStorage.getItem(LOCALSTORAGE_KEY) || (emptyList);
-// }
-// console.log(updateAddBoock);
-
-// const save = (key, value) => {
-//     try {
-//       const serializedState = JSON.stringify(value);
-//       localStorage.setItem(key, serializedState);
-//     } catch (error) {
-//       console.error("Set state error: ", error.message);
-//     }
-//   };
-
-//   const load = key => {
-//     try {
-//       const serializedState = localStorage.getItem(key);
-//       return serializedState === null ? undefined : JSON.parse(serializedState);
-//     } catch (error) {
-//       console.error("Get state error: ", error.message);
-//     }
-//   };
-
-//   export default {
-//     save,
-//     load,
-//   };
