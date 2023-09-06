@@ -341,7 +341,7 @@ input:checked + .slider:before {
   align-items: center;
   gap: 4px;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   transform: translateY(-100%);
 }
 .header-modal {
