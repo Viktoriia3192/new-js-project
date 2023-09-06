@@ -93,6 +93,13 @@
   .switch {
     margin-right: 24px;
   }
+  .burger-btn {
+    visibility: hidden;
+  }
+  .header-container {
+    padding: 0 32px 0 32px;
+    height: 72px;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .header-nav {
@@ -104,6 +111,9 @@
   }
   .home-div {
     margin-right: 24px;
+  }
+  .header-container {
+    padding: 0 20px 0 20px;
   }
 }
 
@@ -235,13 +245,6 @@ input:checked + .slider:before {
 }
 
 @media only screen and (min-width: 768px) {
-  .burger-btn {
-    visibility: hidden;
-  }
-  .header-container {
-    padding: 0 32px 0 32px;
-    height: 72px;
-  }
 }
 
 .burger-close-btn {
@@ -270,10 +273,6 @@ input:checked + .slider:before {
   background-repeat: no-repeat;
   background-size: contain, auto;
   background-position: bottom, center;
-}
-
-.close {
-  margin-top: 6px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -321,7 +320,7 @@ input:checked + .slider:before {
 }
 .menu-container {
   padding-top: 126px;
-  padding-bottom: 43vh;
+  padding-bottom: 47vh;
   display: flex;
   justify-content: center;
   font-size: 14px;
@@ -383,4 +382,8 @@ input:checked + .slider:before {
   letter-spacing: -0.44px;
   margin-top: 20px;
   margin-left: 9px;
+}
+
+.mobile-menu-open {
+  overflow: hidden;
 }
