@@ -8,11 +8,6 @@ const refs = {
   list: document.querySelector('.common-list'),
 };
 
-// let categoriesArr = refs.categories.children;
-// const b = [...refs.categories.children];
-// console.log(b);
-// console.log(refs.categories.children);
-
 const arrayError =
   'Sorry, there are no books matching the selected category. Please select something else.';
 const fechError = 'Sorry, something went wrong. Try again!';
@@ -92,8 +87,18 @@ function onSeeMoreBtnClick(event) {
     return;
   }
 
-  console.log(event.target);
   buttonCategory = event.target.name.replaceAll(' ', '%20');
+
+  const categoriesChildrensArr = Array.from(refs.categories.children);
+  categoriesChildrensArr.forEach(category => {
+    const categoryName = category.firstElementChild.textContent.replaceAll(
+      ' ',
+      '%20'
+    );
+    if (categoryName === buttonCategory) {
+      categoryActiveColorChange(category);
+    }
+  });
 
   searchService(buttonCategory)
     .then(resp => {
