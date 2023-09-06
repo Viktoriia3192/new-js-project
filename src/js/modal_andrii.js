@@ -4,7 +4,7 @@ import applebooks from '../images/book-shop/apple-books.png';
 import bookshop from '../images/book-shop/bookshop.png';
 //!------------------------------------
 
-import {save,load} from './localStorageService';
+import { save, load } from './localStorageService';
 
 //!------------------------------------------
 const commonListRef = document.querySelector('.common-list');
@@ -20,7 +20,6 @@ const removeBook = document.querySelector('.remove-book');
 const modalWindow = document.querySelector('.modal');
 
 commonListRef.addEventListener('click', onClick);
-// console.log(commonListRef);
 
 //!----------
 let book = {};
@@ -35,7 +34,6 @@ function onClick(e) {
   backDrop.classList.remove('is-hidden');
   let value = e.target.dataset.id;
   fetchBook(value).then(resp => {
-
     const {
       author,
       title,
@@ -56,16 +54,12 @@ function onClick(e) {
       id: _id,
     };
 
-    // console.log(book);
-
     //!--------------------
     modalContent.innerHTML = '';
     modalContent.insertAdjacentHTML('afterbegin', addModalMarkup(resp.data));
     addBtn.textContent = `${check(resp.data._id)}`;
   });
 }
-
-
 
 async function fetchBook(bookId) {
   const URL = `https://books-backend.p.goit.global/books/${bookId}`;
@@ -146,16 +140,14 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
   function toggleButtonText() {
     if (addBtn.textContent === 'Add to shopping list') {
-      addBtn.textContent = 'Remove from the shopping list';
+      // addBtn.textContent = 'Remove from the shopping list';
       // removeNotification.classList.remove('hidden');
       notification.classList.remove('hidden');
     } else if ((addBtn.textContent = 'Remove from the shopping list')) {
-      addBtn.textContent = 'Add to shopping list';
+      // addBtn.textContent = 'Add to shopping list';
       // removeNotification.classList.add('hidden');
       notification.classList.add('hidden');
     }
@@ -168,9 +160,9 @@ const PRODUCTS_LS_KEY = 'bookArr';
 modalWindow.addEventListener('click', onAddButtonClick);
 
 function onAddButtonClick(e) {
-  if (e.target === addBtn) {
+  if (e.target.textContent === 'Add to shopping list') {
     addToBasket(book);
-  } else if (e.target === removeBook) {
+  } else if (e.target.textContent === 'Remove from the shopping list') {
     removeFromBasket(book);
   }
 }
@@ -188,39 +180,35 @@ function addToBasket(obj) {
     }
   }
   localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(products));
+  addBtn.textContent = `${check(obj.id)}`;
 }
 
 function removeFromBasket({ id }) {
   const productsArr = JSON.parse(localStorage.getItem(PRODUCTS_LS_KEY));
   const checkoutProductId = productsArr.find(elem => elem.id === id);
-  console.log(checkoutProductId);
   const indexRemoveBook = productsArr.findIndex(
     checkoutProductId => checkoutProductId.id === id
   );
-  console.log(indexRemoveBook);
   productsArr.splice(indexRemoveBook, 1);
   localStorage.setItem(PRODUCTS_LS_KEY, JSON.stringify(productsArr));
+  addBtn.textContent = `${check(id)}`;
 }
 //!--------------------------------
-
 
 //! Check if the book has alredy been in LS
 //!-------------------------------------------------------
 
 function check(id) {
-     
-      
-  const booksStorage = load(PRODUCTS_LS_KEY);
-     
-   if(!booksStorage) {
+  const booksStorage = JSON.parse(localStorage.getItem(PRODUCTS_LS_KEY));
 
-    return "Add to shopping list";
+  if (!booksStorage) {
+    return 'Add to shopping list';
+  }
 
-   }
+  const index = booksStorage.findIndex(book => book.id === id);
 
-   const index = booksStorage.findIndex(book => book.id === id);
-   
-    return index === -1 ? "Add to shopping list" : "Remove from shopping list";
-
+  return index === -1
+    ? 'Add to shopping list'
+    : 'Remove from the shopping list';
 }
 //!--------------------------------------------------------
