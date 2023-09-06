@@ -51,9 +51,10 @@ function shopingListBookMarkup(arr) {
                 <div class="shop-list-info">
                 <h3 class="shop-book-title">${title}</h3>
                 <p class="shop-category">${list_name}</p>
+                <p class="shop-description">${description}</p>
                 <p class="shop-book-author">${author}</p>
-                <p class="shop-description">${description}</p></div>
-                <ul class="modal-book-image-list">
+                </div>
+                <ul class="shop-links-img">
         <li>
         <a href=${getUrl(
           buy_links,

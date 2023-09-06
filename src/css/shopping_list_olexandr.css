@@ -1,21 +1,38 @@
-/* @import url('./support_daryna.css'); */
+/* @media screen and (max-widht: 1439px) {
+  .left-wrapper-shoppig-list {
+    display: none;
+  }
+} */
 
 .shop-list-section {
   display: flex;
 }
 
 .shop-list-right-wrap {
-  min-width: 1060px;
-  margin: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  display: flex;
 }
 
 .shop-list-text {
-  color: var(--title-color);
-  font-size: 48px;
+  color: var(--black-text-color);
+  letter-spacing: -1.28px;
+  width: 100%;
+  margin-left: 20px;
+  font-size: 32px;
   font-style: normal;
   font-weight: 700;
-  line-height: 52px;
-  letter-spacing: -1.92px;
+  line-height: 38px;  
+}
+
+@media screen and (min-widht: 768px) {
+  .shop-list-text {
+    letter-spacing: -1.92px;
+    font-size: 48px;
+    line-height: 52px;
+  }
 }
 
 .shop-list-last-word {
@@ -25,26 +42,123 @@
 .shop-list-empty {
   width: 349px;
   height: 309px;
-  /* margin-right: 356px;
-    margin-left: 355px; */
   display: flex;
   justify-content: center;
-  margin-top: 140px;
+  margin-top: 120px;
   flex-direction: column;
 }
 
+@media screen and (min-widht: 768px) {
+  .shop-list-empty {
+    margin-top: 140px;
+  }
+}
+
 .shop-list-empty-text {
-  color: var(--pagination-btn-text);
+  color: rgba(0, 0, 0, 0.60);
+  width: 244px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  font-family: DM Sans;
-  font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
-  letter-spacing: -0.36px;
-  opacity: 60%;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+}
+
+@media screen and (min-widht: 768px) {
+  .shop-list-empty-text {
+    letter-spacing: -0.36px;
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
 
 .shoping-hidden {
   display: none;
+}
+
+.shop-list-item {
+  background: #fff;
+  border: 2px solid #4f2ee866;
+  border-radius: 16px;
+  align-items: flex-start;
+  width: 335px;
+  height: 170px;
+  margin-top: 40px;
+  padding: 14px;
+  display: flex;
+}
+
+.shop-list-img {
+  border-radius: 8px;
+  width: 100px;
+  height: 142px;
+  margin-right: 14px;
+}
+
+.shop-list-info {
+  height: 142px;
+}
+
+.shop-book-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #111;
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+  max-width: 144px;
+  height: 18px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  overflow: hidden;
+}
+
+.shop-category {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #b4afaf;
+  letter-spacing: 0.36px;
+  max-width: 165px;
+  margin-top: 4px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  overflow: hidden;
+}
+
+.shop-description {
+  white-space: normal;
+  text-overflow: ellipsis;
+  color: #111;
+  letter-spacing: -0.56px;
+  /* min-width: 193px; */
+  max-height: 4em;
+  margin-top: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  overflow: hidden;
+}
+
+.shop-book-author {
+  color: #b4afaf;
+  letter-spacing: -0.48px;
+  height: 14px;
+  margin-top: 28px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.shop-links-img {
+  border: none;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+  display: flex;
 }
