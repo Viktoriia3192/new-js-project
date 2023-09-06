@@ -162,3 +162,19 @@
   width: 80px;
   display: flex;
 }
+
+.shop-button-book-remove {
+  width: 28px;
+  height: 28px;
+  background-color: #4f2ee8;
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.shop-remove-btn {
+  /* fill: #fff; */
+  stroke: #fff;
+}

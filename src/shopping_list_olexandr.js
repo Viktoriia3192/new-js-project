@@ -74,7 +74,11 @@ function shopingListBookMarkup(arr) {
         )} target= _blank> <img src="${bookshop}" alt="Book-Shop"></a>
         </li>
       </ul> 
-      <button class="shop-button-book-remove" type="button">-</button>
+      <button class="shop-button-book-remove" type="button">
+      <svg class="shop-remove-btn" widht="12" height="12">
+      <use xlink:href="./images/sprite.svg#icon-shop-trash"></use>
+      </svg>
+      </button>
         </li>`;
 
         return card;
