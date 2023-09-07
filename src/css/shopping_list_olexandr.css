@@ -60,7 +60,14 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
+  .shop-list-empty {
+    margin-top: 120px;
+    margin-left: 355px;
+  }
+} */
+
+@media screen and (min-width: 1440px) {
   .shop-list-empty {
     margin-top: 120px;
     margin-left: 355px;
