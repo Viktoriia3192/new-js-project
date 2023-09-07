@@ -37,7 +37,7 @@
   transition: color var(--anim-fast);
   align-items: center;
   justify-content: center;
-  margin-right: 24px;
+  margin-left: 17px;
 }
 .header-home {
   transition: color var(--anim-fast);
@@ -303,7 +303,9 @@ input:checked + .slider:before {
   margin-top: 0;
   margin-bottom: 0;
 }
+
 .header-modal {
+
   position: relative;
   background-color: var(--accent-blue-color);
   height: 100vh;
