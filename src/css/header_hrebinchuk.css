@@ -77,6 +77,11 @@
   align-items: center;
   gap: 4px;
 }
+
+.header-shopping-list-hidden{
+  display: none;
+}
+
 .burger-btn {
   padding: 0;
 }
