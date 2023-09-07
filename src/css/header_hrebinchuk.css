@@ -270,6 +270,10 @@ input:checked + .slider:before {
   fill: currentColor;
 }
 
+.header-btn-start-icon1 {
+  fill: currentColor;
+}
+
 .header-burger {
   stroke: var(--title-color);
   fill: var(--header-white-color);

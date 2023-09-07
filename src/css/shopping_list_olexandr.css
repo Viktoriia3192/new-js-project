@@ -62,7 +62,8 @@
 
 @media screen and (min-width: 768px) {
   .shop-list-empty {
-    margin-top: 140px;
+    margin-top: 120px;
+    margin-left: 355px;
   }
 }
 
