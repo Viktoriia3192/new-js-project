@@ -320,3 +320,12 @@
 
   filter: grayscale();
 }
+@media screen and (max-width: 767px) {
+  .card-image {
+    width: 16px;
+  }
+  .card-imge-amazon {
+    width: 32px;
+  }
+}
+

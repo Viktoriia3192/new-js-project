@@ -60,7 +60,7 @@ function shopingListBookMarkup(arr) {
         <a class="item-link" href=${getUrl(
           buy_links,
           'Amazon'
-        )} target= _blank><img src="${amazon}" alt="Amazon" width="48px" height="15px"class="card-image"></a>
+        )} target= _blank><img src="${amazon}" alt="Amazon" width="48px" height="15px"class="card-image card-imge-amazon"></a>
         </li>
         <li>
         <a class="item-link" href=${getUrl(
