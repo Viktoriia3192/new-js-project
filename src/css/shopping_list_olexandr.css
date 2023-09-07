@@ -15,7 +15,7 @@
 
 .shop-list-right-wrap {
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   margin-bottom: 40px;
   display: flex;
@@ -301,8 +301,8 @@
 }
 
 .shop-link-amazon {
-  width: 32px;
-  height: 6px;
+  width: 48px;
+  height: 15px;
 }
 
 .item-link {
