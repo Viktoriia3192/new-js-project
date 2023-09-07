@@ -249,23 +249,27 @@ input:checked + .slider:before {
   height: 45px;
   width: 184px;
   padding: 14px;
-  font-weight: 500;
+  font-weight: 700;
+ font-size: 22px;
   line-height: 1.28em;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.44px;
   color: white;
-  border: 1.5px solid black;
+  border: none;
   border-radius: 36px;
   background-color: #4f2ee8;
+  padding: 8px 12px;
 }
 
 .stephen {
   margin-left: 20px;
   margin-top: 20px;
 }
+
 .header-btn-start-icon {
-  stroke: #eac645;
+  /* stroke: #eac645; */
   fill: currentColor;
 }
+
 .header-burger {
   stroke: var(--title-color);
   fill: var(--header-white-color);
