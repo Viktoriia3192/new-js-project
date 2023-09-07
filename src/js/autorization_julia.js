@@ -100,7 +100,7 @@ if(changeLogOutBtn.textContent === 'Sign in'){
       })
       closeModal();
       Notiflix.Notify.success('User is signed in!')
-      shoppingListLink.classList.remove("header-shopping-list-hidden")
+      // shoppingListLink.classList.remove("header-shopping-list-hidden")
   })
   .catch((error) => {
       const errorCode = error.code;
@@ -132,7 +132,7 @@ if(changeLogOutBtn.textContent === 'Sign in'){
             console.log("After")
             closeModal();
             Notiflix.Notify.success('User is signed up!');
-            shoppingListLink.classList.remove("header-shopping-list-hidden")
+            // shoppingListLink.classList.remove("header-shopping-list-hidden")
         })
         .catch((error) => {
             const errorCode = error.code;
