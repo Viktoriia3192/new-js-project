@@ -81,7 +81,7 @@ function addModalMarkup({ author, title, description, book_image, buy_links }) {
         <p class="modal__book-desc">${description}</p>
         <ul class="modal-book-image-list">
         <li>
-        <a class="modal-book-shop" href=${getUrl(
+        <a class="modal-book-shop-amazon" href=${getUrl(
           buy_links,
           'Amazon'
         )} target= _blank><img src="${amazon}" alt="Amazon"></a>

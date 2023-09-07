@@ -1,8 +1,24 @@
-
-localStorage.setItem('theme', 'light');
-
+const savedTheme = localStorage.getItem('theme');
 
 const themeSliderEl = document.getElementById('slider');
+
+// Функция для установки темы
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  if (theme === 'light') {
+    themeSliderEl.checked = false;
+  } else {
+    themeSliderEl.checked = true;
+  }
+}
+
+
+if (savedTheme) {
+  setTheme(savedTheme);
+} else {
+  
+  setTheme('light'); 
+}
 
 themeSliderEl.addEventListener('change', toggleTheme);
 
@@ -16,14 +32,4 @@ function toggleTheme() {
     document.documentElement.setAttribute('data-theme', 'light');
     localStorage.setItem('theme', 'light'); 
   }
-}
-
-const savedTheme = localStorage.getItem('theme');
-
-
-if (savedTheme) {
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  if (savedTheme === 'light') {
-    themeSliderEl.checked = false;
-  } else themeSliderEl.checked = true;
 }

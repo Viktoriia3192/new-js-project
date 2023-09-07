@@ -28,7 +28,7 @@
 
   padding: 40px 24px;
 
-  border: 2px solid #111111;
+  border: 2px solid var(--title-color);
   border-radius: 18px;
   background-color: var(--bg-color);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
@@ -75,7 +75,7 @@
 }
 
 .modal__close-img {
-  stroke: #111111;
+  stroke: var(--title-color);
 }
 
 .modal__close-img:hover,
@@ -156,7 +156,8 @@
   text-align: center;
   letter-spacing: -0.04em;
 
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--title-color);
+  opacity: 50%;
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -263,4 +264,12 @@
   border: none;
   padding: 0;
   margin: 0;
+}
+
+.modal-book-shop-amazon{
+  filter: var(--amazon-image-filter);
+}
+
+.modal-book-shop{
+  filter: grayscale(100%);
 }
