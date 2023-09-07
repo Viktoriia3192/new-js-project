@@ -2,6 +2,9 @@ const showModalBtn = document.getElementById('showModalBtn');
 const modal = document.getElementById('myModal');
 const closeBtn = document.querySelector('.close');
 
+window.addEventListener("resize", checkResize);
+
+
 showModalBtn.addEventListener('click', () => {
   modal.style.display = 'block';
   showModalBtn.style.display = 'none';
@@ -43,4 +46,19 @@ if (currentURL.includes('shopping_list_olexandr.html')) {
   link2.classList.add('page2');
 } else {
   link1.classList.remove('page2');
+}
+
+
+function checkResize(e) {
+
+   if(window.innerWidth>767) {
+
+    modal.style.display="none";
+    closeBtn.style.display = 'none';
+   }
+
+   if(window.innerWidth<767) {
+
+    showModalBtn.style.display = 'block';
+   }
 }
