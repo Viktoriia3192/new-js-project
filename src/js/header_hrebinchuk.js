@@ -32,7 +32,7 @@ const link1 = document.getElementById('link1');
 const link2 = document.getElementById('link2');
 
 if (currentURL.includes('index.html')) {
-  link1.style.fontWeight = 'bold';
+  link1.classList.add('page1');
 } else if (currentURL.includes('shopping_list_olexandr.html')) {
-  link2.style.fontWeight = 'bold';
+  link2.classList.add('page2');
 }

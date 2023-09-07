@@ -33,31 +33,37 @@
 
   font-family: var(--main-text-font);
   text-transform: uppercase;
-
+  transition: color var(--anim-fast);
   align-items: center;
   justify-content: center;
   margin-right: 24px;
+}
+.header-home {
+  transition: color var(--anim-fast);
 }
 .flex {
   display: flex;
 }
 /* Current page styles */
+.header-home:hover,
+.header-shopping-list:hover {
+  font-weight: 700;
+}
 
-.page1:hover,
-.page1:active {
+.page1 {
   height: 34px;
   background-color: var(--accent-yellow-color);
   font-weight: 700;
   color: var(--black-text-color);
 }
-.page2:hover,
-.page2:active {
+.page2 {
   display: flex;
   height: 34px;
   border-radius: 36px;
   background-color: var(--accent-yellow-color);
   align-items: center;
   font-weight: 700;
+  color: black;
 }
 /* ////////////// */
 
