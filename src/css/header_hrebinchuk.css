@@ -28,18 +28,45 @@
 .home-div {
   display: flex;
   width: 72px;
-  height: 34px;
+
   padding: 10px;
   border-radius: 36px;
-  background-color: var(--accent-yellow-color);
-  color: var(--black-text-color);
+
   font-family: var(--main-text-font);
   text-transform: uppercase;
-  font-weight: 700;
+  transition: color var(--anim-fast);
   align-items: center;
   justify-content: center;
   margin-right: 24px;
 }
+.header-home {
+  transition: color var(--anim-fast);
+}
+.flex {
+  display: flex;
+}
+/* Current page styles */
+.header-home:hover,
+.header-shopping-list:hover {
+  font-weight: 700;
+}
+
+.page1 {
+  height: 34px;
+  background-color: var(--accent-yellow-color);
+  font-weight: 700;
+  color: var(--black-text-color);
+}
+.page2 {
+  display: flex;
+  height: 34px;
+  border-radius: 36px;
+  background-color: var(--accent-yellow-color);
+  align-items: center;
+  font-weight: 700;
+  color: black;
+}
+/* ////////////// */
 
 .header-shopping-list {
   border: none;
@@ -304,7 +331,10 @@ input:checked + .slider:before {
   color: white;
 }
 .dark {
-  color: black;
+  height: 34px;
+  background-color: var(--accent-yellow-color);
+  font-weight: 700;
+  color: var(--black-text-color);
 }
 .mobile {
   color: white;

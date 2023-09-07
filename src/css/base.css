@@ -1,5 +1,6 @@
 :root {
   --main-text-font: 'DM Sans', sans-serif;
+  --anim-fast: 250ms ease-in;
 }
 
 html {
@@ -48,7 +49,7 @@ body.dark header {
 
   --skroll-color: #e0e0e0;
 
-  --modal-signup-color: #F3F3F3;
+  --modal-signup-color: #f3f3f3;
   --modal-font-color: #111111;
   --main-font-color: #9a9a9a;
   --font-card-color: #f6f6f6;
@@ -78,7 +79,7 @@ body.dark header {
   --skroll-color: rgba(17, 17, 17, 0.6);
 
   --modal-signup-color: #202024;
-  --modal-font-color: #F6F6F6;
+  --modal-font-color: #f6f6f6;
   --main-font-color: #9a9a9a;
   --font-card-color: #f6f6f6;
   --light-font-color: rgba(255, 255, 255, 0.6);
@@ -91,7 +92,6 @@ body.dark header {
   --pagination-btn-bcg: #202024;
   --pagination-btn-border: #000;
   --pagination-arrow-left: #fff;
-
 }
 
 /* dark/light */
@@ -117,18 +117,16 @@ section {
   max-width: 320px;
   padding-left: 10px;
   padding-right: 10px;
-  
 }
 
 @media screen and (min-width: 375px) {
-    .container {
-        max-width: 375px;
-        padding-left: 20px;
-        padding-right: 20px;
-        margin-left: auto;
-        margin-right: auto;
-
-    }
+  .container {
+    max-width: 375px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
