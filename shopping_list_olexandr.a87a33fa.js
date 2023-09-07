@@ -1,4 +1,4 @@
-function e(e,t,o,n){Object.defineProperty(e,t,{get:o,set:n,enumerable:!0,configurable:!0})}function t(e){return e&&e.__esModule?e.default:e}var o="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},n={},r={},i=o.parcelRequired7c6;null==i&&((i=function(e){if(e in n)return n[e].exports;if(e in r){var t=r[e];delete r[e];var o={id:e,exports:{}};return n[e]=o,t.call(o.exports,o,o.exports),o.exports}var i=Error("Cannot find module '"+e+"'");throw i.code="MODULE_NOT_FOUND",i}).register=function(e,t){r[e]=t},o.parcelRequired7c6=i),i.register("kyEFX",function(t,o){e(t.exports,"register",function(){return n},function(e){return n=e}),e(t.exports,"resolve",function(){return r},function(e){return r=e});var n,r,i={};n=function(e){for(var t=Object.keys(e),o=0;o<t.length;o++)i[t[o]]=e[t[o]]},r=function(e){var t=i[e];if(null==t)throw Error("Could not resolve bundle with id "+e);return t}}),i("kyEFX").register(JSON.parse('{"eUPFY":"shopping_list_olexandr.3b63cb02.js","8XY7q":"amazon.a0223db0.png","3WxNb":"apple-books.5a9f17e3.png","lJIFT":"bookshop.801e98bc.png","lp5u4":"sprite.34e09d89.svg","1XZ4K":"index.0b994302.js","eWzHU":"index.657b5491.js"}')),i("7Y9D8");var s={};s=new URL(i("kyEFX").resolve("8XY7q"),import.meta.url).toString();var l={};l=new URL(i("kyEFX").resolve("3WxNb"),import.meta.url).toString();var a={};a=new URL(i("kyEFX").resolve("lJIFT"),import.meta.url).toString(),i("5Szup"),i("fewGv"),i("dGLOO");// import Pagination from 'tui-pagination';
+function e(e,t,o,n){Object.defineProperty(e,t,{get:o,set:n,enumerable:!0,configurable:!0})}function t(e){return e&&e.__esModule?e.default:e}var o="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},n={},r={},i=o.parcelRequired7c6;null==i&&((i=function(e){if(e in n)return n[e].exports;if(e in r){var t=r[e];delete r[e];var o={id:e,exports:{}};return n[e]=o,t.call(o.exports,o,o.exports),o.exports}var i=Error("Cannot find module '"+e+"'");throw i.code="MODULE_NOT_FOUND",i}).register=function(e,t){r[e]=t},o.parcelRequired7c6=i),i.register("kyEFX",function(t,o){e(t.exports,"register",function(){return n},function(e){return n=e}),e(t.exports,"resolve",function(){return r},function(e){return r=e});var n,r,i={};n=function(e){for(var t=Object.keys(e),o=0;o<t.length;o++)i[t[o]]=e[t[o]]},r=function(e){var t=i[e];if(null==t)throw Error("Could not resolve bundle with id "+e);return t}}),i("kyEFX").register(JSON.parse('{"eUPFY":"shopping_list_olexandr.a87a33fa.js","8XY7q":"amazon.a0223db0.png","3WxNb":"apple-books.5a9f17e3.png","lJIFT":"bookshop.801e98bc.png","lp5u4":"sprite.34e09d89.svg","1XZ4K":"index.0b994302.js","eWzHU":"index.657b5491.js"}')),i("7Y9D8");var s={};s=new URL(i("kyEFX").resolve("8XY7q"),import.meta.url).toString();var l={};l=new URL(i("kyEFX").resolve("3WxNb"),import.meta.url).toString();var a={};a=new URL(i("kyEFX").resolve("lJIFT"),import.meta.url).toString(),i("5Szup"),i("fewGv"),i("dGLOO");// import Pagination from 'tui-pagination';
 // // Отримати дані з localStorage
 // const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
 // // Задати розмір порції на сторінці
@@ -44,13 +44,13 @@ var c={};c=new URL(i("kyEFX").resolve("lp5u4"),import.meta.url).toString();const
                 <p class="shop-book-author">${e}</p>
                 <ul class="shop-links-img">
         <li class="shop-link shop-link-amazon">
-        <a class="item-link" href=${h(i,"Amazon")} target= _blank><img src="${/*@__PURE__*/t(s)}" alt="Amazon" width="32px" height="11px"class="card-image"></a>
+        <a class="item-link" href=${h(i,"Amazon")} target= _blank><img src="${/*@__PURE__*/t(s)}" alt="Amazon" width="48px" height="15px"class="card-image"></a>
         </li>
         <li>
-        <a class="item-link" href=${h(i,"Apple Books")} target= _blank><img src="${/*@__PURE__*/t(l)}" alt="Apple-Books" width="16px"class="card-image"></a>
+        <a class="item-link" href=${h(i,"Apple Books")} target= _blank><img src="${/*@__PURE__*/t(l)}" alt="Apple-Books" width="30px"class="card-image"></a>
         </li>
         <li>
-        <a class="item-link" href=${h(i,"Bookshop")} target= _blank> <img src="${/*@__PURE__*/t(a)}" alt="Book-Shop" width="16px"class="card-image"></a>
+        <a class="item-link" href=${h(i,"Bookshop")} target= _blank> <img src="${/*@__PURE__*/t(a)}" alt="Book-Shop" width="30px"class="card-image"></a>
         </li>
       </ul>
       </div>
@@ -60,6 +60,6 @@ var c={};c=new URL(i("kyEFX").resolve("lp5u4"),import.meta.url).toString();const
                     <use href="${/*@__PURE__*/t(c)}#icon-shop-trash"></use>
                 </svg>
       </button>
-        </li>`;return u}).join("")}function h(e,t){for(let{name:o,url:n}of e)if(o===t)return n}window.addEventListener("DOMContentLoaded",f),d.addEventListener("click",function(e){if("shop-button-book-remove"!==e.target.className)return;let t=e.target.parentNode.dataset.id;(function(e){let t=JSON.parse(localStorage.getItem(u));t.find(t=>t.id===e);let o=t.findIndex(t=>t.id===e);t.splice(o,1),localStorage.setItem(u,JSON.stringify(t))}//# sourceMappingURL=shopping_list_olexandr.3b63cb02.js.map
+        </li>`;return u}).join("")}function h(e,t){for(let{name:o,url:n}of e)if(o===t)return n}window.addEventListener("DOMContentLoaded",f),d.addEventListener("click",function(e){if("shop-button-book-remove"!==e.target.className)return;let t=e.target.parentNode.dataset.id;(function(e){let t=JSON.parse(localStorage.getItem(u));t.find(t=>t.id===e);let o=t.findIndex(t=>t.id===e);t.splice(o,1),localStorage.setItem(u,JSON.stringify(t))}//# sourceMappingURL=shopping_list_olexandr.a87a33fa.js.map
 )(t),f()});
-//# sourceMappingURL=shopping_list_olexandr.3b63cb02.js.map
+//# sourceMappingURL=shopping_list_olexandr.a87a33fa.js.map
