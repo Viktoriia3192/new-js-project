@@ -5,7 +5,8 @@ import Notiflix from 'notiflix';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 import { getDatabase } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { ref, set, update } from "firebase/database";
 
 // Конфігурація Firebase
 // const firebaseConfig = {
@@ -18,15 +19,25 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 //   measurementId: 'G-MRP841QGMJ',
 // };
 
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAt0t0gqY2cwwnnmHCmmlq6c2d_Q7sG2wI",
+//   authDomain: "boocks-f43bd.firebaseapp.com",
+//   projectId: "boocks-f43bd",
+//   storageBucket: "boocks-f43bd.appspot.com",
+//   messagingSenderId: "679284035166",
+//   appId: "1:679284035166:web:7c3e330ead5760e6196ecf",
+//   measurementId: "G-MRP841QGMJ"
+// };
+
+// The right config
 const firebaseConfig = {
-  apiKey: "AIzaSyBbyJ1YQ4-GD4N0lhO_z3BVagmCNn0IKFk",
-  authDomain: "bookshelf-ee661.firebaseapp.com",
-  databaseURL: "https://bookshelf-ee661-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "bookshelf-ee661",
-  storageBucket: "bookshelf-ee661.appspot.com",
-  messagingSenderId: "956258341440",
-  appId: "1:956258341440:web:ca611f9dfc8a224323c5a5",
-  measurementId: "G-WDP0VVBWDK"
+  apiKey: "AIzaSyDYvmClYDnczss8bLGIfXbzybVXNclm_eo",
+  authDomain: "books-bf04b.firebaseapp.com",
+  projectId: "books-bf04b",
+  storageBucket: "books-bf04b.appspot.com",
+  messagingSenderId: "89062929009",
+  appId: "1:89062929009:web:8cb92664b2e27c70a321d0",
+  measurementId: "G-9SSZKB8KZ1"
 };
 
 // Ініціалізація Firebase
@@ -46,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const userPasswordInput = signUpForm.querySelector(
     'input[name="user_password"]'
   );
+
+const changeLogOutBtn = document.querySelector(".menu-btn-start-tab")
 
   // Відкриття/закриття вікна
   function openModal() {
@@ -72,28 +85,67 @@ document.addEventListener('DOMContentLoaded', function () {
     const userEmail = userEmailInput.value;
     const userPassword = userPasswordInput.value;
 
-    const userData = {
-      userName: userName,
-      userEmail: userEmail,
-      userPassword: userPassword,
-    };
+    // const userData = {
+    //   userName: userName,
+    //   userEmail: userEmail,
+    //   userPassword: userPassword,
+    // };
 
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then((userCredential) => {
             const user = userCredential.user;
+            console.log("Before")
             set(ref(database, 'users/' + user.uid), {
               userName,
               userEmail,
             })
-            onCloseModalLogin();
-            Notify.success('Користувач зареєстрован!');
+            console.log("After")
+            closeModal();
+            Notiflix.Notify.success('Користувач зареєстрован!');
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message; 
+            Notiflix.Notify.failure(errorMessage)
         });
 
 
+        const user = auth.currentUser;
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            const uid = user.uid;
+            changeLogOutBtn.textContent = 'Log out';
+          } else {
+          }
+        }
+      );
+        
+// _____________SIGN IN __________________
+    //   if(changeLogOutBtn.textContent === 'Sign in'){
+    //     const signUpForm = document.querySelector('.auth-form');
+
+
+    //     const email = signUpForm.querySelector('input[name="user_email"]').value
+    //     const password = signUpForm.querySelector('input[name="user_email"]').value
+
+    //     signInWithEmailAndPassword(auth, email, password)
+    //     .then((userCredential) => {
+    //         const user = userCredential.user;
+
+    //         const dt = new Date();
+    //         update(ref(database, 'users/' + user.uid), {
+    //         last_login: dt,
+    //         })
+    //         onCloseModalLogin();
+    //         Notiflix.Notify.successs('Користувач увійшов!')
+    //     })
+    //     .catch((error) => {
+    //         const errorCode = error.code;
+    //         const errorMessage = error.message;
+    //         console.log(errorMessage);
+    //     });
+    // }
+// ___________________________________________
 
 
     // async function addUserToFirebase(userData) {
@@ -118,12 +170,46 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+// -------------------------------
+
+// if(refs.btnGoogle.textContent === 'SIGN IN'){
+//   const email = document.querySelector('[name="email"]').value
+//   const password = document.querySelector('[name="password"]').value
+
+//   signInWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//       const user = userCredential.user;
+
+//       const dt = new Date();
+//       update(ref(database, 'users/' + user.uid), {
+//       last_login: dt,
+//       })
+//       onCloseModalLogin();
+//       Notify.success('Користувач увійшов!')
+//   })
+//   .catch((error) => {
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+
+//       Notify.failure(errorMessage);
+//   });
+// }
+
+
+
+
+// -----------------------------
+
+
 // Кнопка "SIGN IN"
 var signInButton = document.querySelector('.auth-button-in');
 var userNameInput = document.querySelector('.auth-input');
+const changeLogOutBtn = document.querySelector(".menu-btn-start-tab")
+
 
 signInButton.addEventListener('click', function () {
   if (userNameInput) {
     userNameInput.remove();
+    changeLogOutBtn.textContent = 'Sign in'
   }
 });
