@@ -1,156 +1,156 @@
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-import axios from 'axios';
-import Notiflix from 'notiflix';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+// import { initializeApp } from 'firebase/app';
+// import { getAnalytics } from 'firebase/analytics';
+// import axios from 'axios';
+// import Notiflix from 'notiflix';
+// import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
-import { getDatabase } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
-import { ref, set, update } from "firebase/database";
+// import { getDatabase } from "firebase/database";
+// import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+// import { ref, set, update } from "firebase/database";
 
-// Конфігурація Firebase
+// // Конфігурація Firebase
+// // const firebaseConfig = {
+// //   apiKey: 'AIzaSyAt0t0gqY2cwwnnmHCmmlq6c2d_Q7sG2wI',
+// //   authDomain: 'boocks-f43bd.firebaseapp.com',
+// //   projectId: 'boocks-f43bd',
+// //   storageBucket: 'boocks-f43bd.appspot.com',
+// //   messagingSenderId: '679284035166',
+// //   appId: '1:679284035166:web:7c3e330ead5760e6196ecf',
+// //   measurementId: 'G-MRP841QGMJ',
+// // };
+
+// // const firebaseConfig = {
+// //   apiKey: "AIzaSyAt0t0gqY2cwwnnmHCmmlq6c2d_Q7sG2wI",
+// //   authDomain: "boocks-f43bd.firebaseapp.com",
+// //   projectId: "boocks-f43bd",
+// //   storageBucket: "boocks-f43bd.appspot.com",
+// //   messagingSenderId: "679284035166",
+// //   appId: "1:679284035166:web:7c3e330ead5760e6196ecf",
+// //   measurementId: "G-MRP841QGMJ"
+// // };
+
+// // The right config
 // const firebaseConfig = {
-//   apiKey: 'AIzaSyAt0t0gqY2cwwnnmHCmmlq6c2d_Q7sG2wI',
-//   authDomain: 'boocks-f43bd.firebaseapp.com',
-//   projectId: 'boocks-f43bd',
-//   storageBucket: 'boocks-f43bd.appspot.com',
-//   messagingSenderId: '679284035166',
-//   appId: '1:679284035166:web:7c3e330ead5760e6196ecf',
-//   measurementId: 'G-MRP841QGMJ',
+//   apiKey: "AIzaSyDYvmClYDnczss8bLGIfXbzybVXNclm_eo",
+//   authDomain: "books-bf04b.firebaseapp.com",
+//   projectId: "books-bf04b",
+//   storageBucket: "books-bf04b.appspot.com",
+//   messagingSenderId: "89062929009",
+//   appId: "1:89062929009:web:8cb92664b2e27c70a321d0",
+//   measurementId: "G-9SSZKB8KZ1"
 // };
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAt0t0gqY2cwwnnmHCmmlq6c2d_Q7sG2wI",
-//   authDomain: "boocks-f43bd.firebaseapp.com",
-//   projectId: "boocks-f43bd",
-//   storageBucket: "boocks-f43bd.appspot.com",
-//   messagingSenderId: "679284035166",
-//   appId: "1:679284035166:web:7c3e330ead5760e6196ecf",
-//   measurementId: "G-MRP841QGMJ"
-// };
+// // Ініціалізація Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+// const database = getDatabase(app);
+// const auth = getAuth();
 
-// The right config
-const firebaseConfig = {
-  apiKey: "AIzaSyDYvmClYDnczss8bLGIfXbzybVXNclm_eo",
-  authDomain: "books-bf04b.firebaseapp.com",
-  projectId: "books-bf04b",
-  storageBucket: "books-bf04b.appspot.com",
-  messagingSenderId: "89062929009",
-  appId: "1:89062929009:web:8cb92664b2e27c70a321d0",
-  measurementId: "G-9SSZKB8KZ1"
-};
+// document.addEventListener('DOMContentLoaded', function () {
+//   const openButton = document.querySelector('[data-auth-open]');
+//   const closeButton = document.querySelector('.auth-btn-close');
+//   const modal = document.querySelector('.auth-backdrop');
+//   const signUpForm = document.querySelector('.auth-form');
+//   const signUpButton = document.querySelector('.auth-button-signup');
+//   const userNameInput = signUpForm.querySelector('input[name="user_name"]');
+//   const userEmailInput = signUpForm.querySelector('input[name="user_email"]');
+//   const userPasswordInput = signUpForm.querySelector(
+//     'input[name="user_password"]'
+//   );
 
-// Ініціалізація Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const database = getDatabase(app);
-const auth = getAuth();
+// const changeLogOutBtn = document.querySelector(".menu-btn-start-tab")
+// const shoppingListLink = document.querySelector(".header-shopping-list")
 
-document.addEventListener('DOMContentLoaded', function () {
-  const openButton = document.querySelector('[data-auth-open]');
-  const closeButton = document.querySelector('.auth-btn-close');
-  const modal = document.querySelector('.auth-backdrop');
-  const signUpForm = document.querySelector('.auth-form');
-  const signUpButton = document.querySelector('.auth-button-signup');
-  const userNameInput = signUpForm.querySelector('input[name="user_name"]');
-  const userEmailInput = signUpForm.querySelector('input[name="user_email"]');
-  const userPasswordInput = signUpForm.querySelector(
-    'input[name="user_password"]'
-  );
+//   // Відкриття/закриття вікна
+//   function openModal() {
+//     modal.style.display = 'block';
+//     document.querySelector('.auth').style.visibility = 'visible';
+//     userNameInput.value = '';
+//     userEmailInput.value = '';
+//     userPasswordInput.value = '';
+//   }
 
-const changeLogOutBtn = document.querySelector(".menu-btn-start-tab")
-const shoppingListLink = document.querySelector(".header-shopping-list")
+//   function closeModal() {
+//     modal.style.display = 'none';
+//   }
 
-  // Відкриття/закриття вікна
-  function openModal() {
-    modal.style.display = 'block';
-    document.querySelector('.auth').style.visibility = 'visible';
-    userNameInput.value = '';
-    userEmailInput.value = '';
-    userPasswordInput.value = '';
-  }
+//   openButton.addEventListener('click', openModal);
+//   closeButton.addEventListener('click', closeModal);
 
-  function closeModal() {
-    modal.style.display = 'none';
-  }
+//   // Реєстрація користувача при натисканні кнопки SIGN UP
 
-  openButton.addEventListener('click', openModal);
-  closeButton.addEventListener('click', closeModal);
-
-  // Реєстрація користувача при натисканні кнопки SIGN UP
-
-  signUpButton.addEventListener('click', async event => {
-    event.preventDefault();
+//   signUpButton.addEventListener('click', async event => {
+//     event.preventDefault();
              
-// _____________SIGN IN __________________
-if(changeLogOutBtn.textContent === 'Sign in'){
-  const signUpForm = document.querySelector('.auth-form');
+// // _____________SIGN IN __________________
+// if(changeLogOutBtn.textContent === 'Sign in'){
+//   const signUpForm = document.querySelector('.auth-form');
 
 
-  const email = userEmailInput.value;
-  const password = userPasswordInput.value;
+//   const email = userEmailInput.value;
+//   const password = userPasswordInput.value;
 
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-      const user = userCredential.user;
+//   signInWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//       const user = userCredential.user;
 
-      const dt = new Date();
-      update(ref(database, 'users/' + user.uid), {
-      last_login: dt,
-      })
-      closeModal();
-      Notiflix.Notify.success('User is signed in!')
-      // shoppingListLink.classList.remove("header-shopping-list-hidden")
-  })
-  .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage);
-  });
-}else{
-// ___________________________________________
+//       const dt = new Date();
+//       update(ref(database, 'users/' + user.uid), {
+//       last_login: dt,
+//       })
+//       closeModal();
+//       Notiflix.Notify.success('User is signed in!')
+//       // shoppingListLink.classList.remove("header-shopping-list-hidden")
+//   })
+//   .catch((error) => {
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       console.log(errorMessage);
+//   });
+// }else{
+// // ___________________________________________
 
-    console.log(changeLogOutBtn.textContent)  
-    const userName = userNameInput.value;
-    const userEmail = userEmailInput.value;
-    const userPassword = userPasswordInput.value;
+//     console.log(changeLogOutBtn.textContent)  
+//     const userName = userNameInput.value;
+//     const userEmail = userEmailInput.value;
+//     const userPassword = userPasswordInput.value;
 
-    // const userData = {
-    //   userName: userName,
-    //   userEmail: userEmail,
-    //   userPassword: userPassword,
-    // };
+//     // const userData = {
+//     //   userName: userName,
+//     //   userEmail: userEmail,
+//     //   userPassword: userPassword,
+//     // };
 
-    createUserWithEmailAndPassword(auth, userEmail, userPassword)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            console.log("Before")
-            set(ref(database, 'users/' + user.uid), {
-              userName,
-              userEmail,
-            })
-            console.log("After")
-            closeModal();
-            Notiflix.Notify.success('User is signed up!');
-            // shoppingListLink.classList.remove("header-shopping-list-hidden")
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message; 
-            Notiflix.Notify.failure(errorMessage)
-        });
-      }
+//     createUserWithEmailAndPassword(auth, userEmail, userPassword)
+//         .then((userCredential) => {
+//             const user = userCredential.user;
+//             console.log("Before")
+//             set(ref(database, 'users/' + user.uid), {
+//               userName,
+//               userEmail,
+//             })
+//             console.log("After")
+//             closeModal();
+//             Notiflix.Notify.success('User is signed up!');
+//             // shoppingListLink.classList.remove("header-shopping-list-hidden")
+//         })
+//         .catch((error) => {
+//             const errorCode = error.code;
+//             const errorMessage = error.message; 
+//             Notiflix.Notify.failure(errorMessage)
+//         });
+//       }
 
-        const user = auth.currentUser;
-        onAuthStateChanged(auth, (user) => {
-          if (user) {
-            const uid = user.uid;
-            changeLogOutBtn.textContent = 'Log out';
-            // updateUI(userName)
-          } else {
-          }
-        }
-      );
+//         const user = auth.currentUser;
+//         onAuthStateChanged(auth, (user) => {
+//           if (user) {
+//             const uid = user.uid;
+//             changeLogOutBtn.textContent = 'Log out';
+//             // updateUI(userName)
+//           } else {
+//           }
+//         }
+//       );
       
 
     // async function addUserToFirebase(userData) {
@@ -167,13 +167,13 @@ if(changeLogOutBtn.textContent === 'Sign in'){
     //   }
     // }
     // await addUserToFirebase(userData, analytics);
-  });
+  // });
   
-  function updateUI(userName) {
-    const signUpButtonUp = document.querySelector('[data-auth-open]');
-    signUpButtonUp.textContent = `Hello, ${userName}`;
-  }
-});
+//   function updateUI(userName) {
+//     const signUpButtonUp = document.querySelector('[data-auth-open]');
+//     signUpButtonUp.textContent = `Hello, ${userName}`;
+//   }
+// });
 
 // -------------------------------
 
@@ -207,16 +207,16 @@ if(changeLogOutBtn.textContent === 'Sign in'){
 
 
 // Кнопка "SIGN IN"
-var signInButton = document.querySelector('.auth-button-in');
-var userNameInput = document.querySelector('.auth-input');
-const changeLogOutBtn = document.querySelector(".menu-btn-start-tab");
-const signUpButton = document.querySelector('.auth-button-signup');
+// var signInButton = document.querySelector('.auth-button-in');
+// var userNameInput = document.querySelector('.auth-input');
+// const changeLogOutBtn = document.querySelector(".menu-btn-start-tab");
+// const signUpButton = document.querySelector('.auth-button-signup');
 
 
-signInButton.addEventListener('click', function () {
-  if (userNameInput) {
-    userNameInput.remove();
-    changeLogOutBtn.textContent = 'Sign in'
-    signUpButton.textContent = 'Sign in'
-  }
-});
+// signInButton.addEventListener('click', function () {
+//   if (userNameInput) {
+//     userNameInput.remove();
+//     changeLogOutBtn.textContent = 'Sign in'
+//     signUpButton.textContent = 'Sign in'
+//   }
+// });
