@@ -152,6 +152,8 @@
 @media screen and (min-width: 768px) {
   .shop-list-info {
     height: 165px;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -292,11 +294,14 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  align-items: flex-end;
 }
 
 @media screen and (min-width: 768px) {
   .shop-autor-links {
     height: 30px;
+    margin-top: auto;
+
   }
 }
 
