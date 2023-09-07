@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
   );
 
 const changeLogOutBtn = document.querySelector(".menu-btn-start-tab")
+const shoppingListLink = document.querySelector(".header-shopping-list")
 
   // Відкриття/закриття вікна
   function openModal() {
@@ -80,7 +81,36 @@ const changeLogOutBtn = document.querySelector(".menu-btn-start-tab")
 
   signUpButton.addEventListener('click', async event => {
     event.preventDefault();
+             
+// _____________SIGN IN __________________
+if(changeLogOutBtn.textContent === 'Sign in'){
+  const signUpForm = document.querySelector('.auth-form');
 
+
+  const email = userEmailInput.value;
+  const password = userPasswordInput.value;
+
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+      const user = userCredential.user;
+
+      const dt = new Date();
+      update(ref(database, 'users/' + user.uid), {
+      last_login: dt,
+      })
+      closeModal();
+      Notiflix.Notify.success('User is signed in!')
+      shoppingListLink.classList.remove("header-shopping-list-hidden")
+  })
+  .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+  });
+}else{
+// ___________________________________________
+
+    console.log(changeLogOutBtn.textContent)  
     const userName = userNameInput.value;
     const userEmail = userEmailInput.value;
     const userPassword = userPasswordInput.value;
@@ -101,52 +131,27 @@ const changeLogOutBtn = document.querySelector(".menu-btn-start-tab")
             })
             console.log("After")
             closeModal();
-            Notiflix.Notify.success('Користувач зареєстрован!');
+            Notiflix.Notify.success('User is signed up!');
+            shoppingListLink.classList.remove("header-shopping-list-hidden")
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message; 
             Notiflix.Notify.failure(errorMessage)
         });
-
+      }
 
         const user = auth.currentUser;
         onAuthStateChanged(auth, (user) => {
           if (user) {
             const uid = user.uid;
             changeLogOutBtn.textContent = 'Log out';
+            // updateUI(userName)
           } else {
           }
         }
       );
-        
-// _____________SIGN IN __________________
-    //   if(changeLogOutBtn.textContent === 'Sign in'){
-    //     const signUpForm = document.querySelector('.auth-form');
-
-
-    //     const email = signUpForm.querySelector('input[name="user_email"]').value
-    //     const password = signUpForm.querySelector('input[name="user_email"]').value
-
-    //     signInWithEmailAndPassword(auth, email, password)
-    //     .then((userCredential) => {
-    //         const user = userCredential.user;
-
-    //         const dt = new Date();
-    //         update(ref(database, 'users/' + user.uid), {
-    //         last_login: dt,
-    //         })
-    //         onCloseModalLogin();
-    //         Notiflix.Notify.successs('Користувач увійшов!')
-    //     })
-    //     .catch((error) => {
-    //         const errorCode = error.code;
-    //         const errorMessage = error.message;
-    //         console.log(errorMessage);
-    //     });
-    // }
-// ___________________________________________
-
+      
 
     // async function addUserToFirebase(userData) {
     //   const usersCol = collection(db, 'user_data');
@@ -204,12 +209,14 @@ const changeLogOutBtn = document.querySelector(".menu-btn-start-tab")
 // Кнопка "SIGN IN"
 var signInButton = document.querySelector('.auth-button-in');
 var userNameInput = document.querySelector('.auth-input');
-const changeLogOutBtn = document.querySelector(".menu-btn-start-tab")
+const changeLogOutBtn = document.querySelector(".menu-btn-start-tab");
+const signUpButton = document.querySelector('.auth-button-signup');
 
 
 signInButton.addEventListener('click', function () {
   if (userNameInput) {
     userNameInput.remove();
     changeLogOutBtn.textContent = 'Sign in'
+    signUpButton.textContent = 'Sign in'
   }
 });
