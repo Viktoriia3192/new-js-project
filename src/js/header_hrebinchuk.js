@@ -24,7 +24,7 @@ window.addEventListener('click', event => {
   }
 });
 
-// ////////////////
+// /////////////////////
 
 const currentURL = window.location.href;
 
