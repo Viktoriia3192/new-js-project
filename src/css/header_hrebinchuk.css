@@ -254,7 +254,7 @@ input:checked + .slider:before {
   letter-spacing: -0.04em;
   color: white;
   border: 1.5px solid black;
-  border-radius: 18px;
+  border-radius: 36px;
   background-color: #4f2ee8;
 }
 
