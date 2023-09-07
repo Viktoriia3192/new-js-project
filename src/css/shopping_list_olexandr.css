@@ -1,9 +1,6 @@
 .left-wrapper-shoppig-list {
     margin-right: 40px;
     margin-left: 0;
-    /* justify-content: flex-start;
-    align-items: flex-start;
-    gap: 86px; */
 }
 
 @media screen and (max-width: 1439px) {
@@ -22,9 +19,10 @@
   align-items: center;
   margin-bottom: 40px;
   display: flex;
+  width: 100%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1439px) {
   .shop-list-right-wrap {
     width: 704px;
   }
@@ -37,7 +35,8 @@
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
-  line-height: 38px; 
+  line-height: 38px;
+  margin-bottom: 40px; 
 }
 
 @media screen and (min-width: 768px) {
@@ -57,7 +56,7 @@
   height: 309px;
   display: flex;
   justify-content: center;
-  margin-top: 120px;
+  margin-top: 80px;
   flex-direction: column;
 }
 
@@ -99,7 +98,7 @@
   align-items: flex-start;
   width: 335px;
   height: 170px;
-  margin-top: 40px;
+  margin-bottom: 20px;
   padding: 14px;
   display: flex;
   position: relative;
@@ -110,7 +109,14 @@
     width: 704px;
     height: 213px;
     padding: 24px;
-    /* gap: 48px; */
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .shop-list-item {
+    width: 996px;
+    height: 213px;
+    padding: 24px;
   }
 }
 
@@ -131,6 +137,7 @@
 
 .shop-list-info {
   height: 142px;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -214,7 +221,6 @@
 
 @media screen and (min-width: 768px) {
   .shop-description {
-    /* width: 100%; */
     margin-top: 14px;
     margin-right: 8px;
   }
@@ -224,7 +230,7 @@
   white-space: normal;
   text-overflow: ellipsis;
   color: #b4afaf;
-  margin-top: 28px;
+  /* margin-top: 28px; */
   font-style: italic;
   font-weight: 400;
   line-height: 14px;
@@ -241,6 +247,12 @@
   gap: 8px;
   display: flex;
   align-self: flex-end;
+}
+
+@media screen and (min-width: 768px) {
+  .shop-links-img {
+    gap: 16px;
+  }
 }
 
 .shop-link {
@@ -271,6 +283,12 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+
+@media screen and (min-width: 768px) {
+  .shop-autor-links {
+    height: 30px;
+  }
 }
 
 .shop-link-amazon {
