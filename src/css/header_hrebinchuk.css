@@ -266,7 +266,7 @@ input:checked + .slider:before {
 }
 
 .header-btn-start-icon {
-  /* stroke: #eac645; */
+  stroke: #eac645;
   fill: currentColor;
 }
 
