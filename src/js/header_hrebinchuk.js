@@ -57,4 +57,8 @@ function checkResize(e) {
     closeBtn.style.display = 'none';
    }
 
+   if(window.innerWidth<767) {
+
+    showModalBtn.style.display = 'block';
+   }
 }
