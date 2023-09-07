@@ -60,19 +60,19 @@ function shopingListBookMarkup(arr) {
         <a class="item-link" href=${getUrl(
           buy_links,
           'Amazon'
-        )} target= _blank><img src="${amazon}" alt="Amazon" width="32px" height="11px"></a>
+        )} target= _blank><img src="${amazon}" alt="Amazon" width="32px" height="11px"class="card-image"></a>
         </li>
         <li>
         <a class="item-link" href=${getUrl(
           buy_links,
           'Apple Books'
-        )} target= _blank><img src="${applebooks}" alt="Apple-Books" width="16px"></a>
+        )} target= _blank><img src="${applebooks}" alt="Apple-Books" width="16px"class="card-image"></a>
         </li>
         <li>
         <a class="item-link" href=${getUrl(
           buy_links,
           'Bookshop'
-        )} target= _blank> <img src="${bookshop}" alt="Book-Shop" width="16px"></a>
+        )} target= _blank> <img src="${bookshop}" alt="Book-Shop" width="16px"class="card-image"></a>
         </li>
       </ul>
       </div>
