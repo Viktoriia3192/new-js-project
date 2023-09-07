@@ -31,8 +31,16 @@ const currentURL = window.location.href;
 const link1 = document.getElementById('link1');
 const link2 = document.getElementById('link2');
 
-if (currentURL.includes('index.html')) {
-  link1.classList.add('page1');
-} else if (currentURL.includes('shopping_list_olexandr.html')) {
+// if (currentURL.includes('index.html')) {
+//   link1.classList.add('page1');
+// } else if (currentURL.includes('shopping_list_olexandr.html')) {
+//   link2.classList.add('page2');
+// }
+
+
+if (currentURL.includes('shopping_list_olexandr.html')) {
+  link1.classList.remove('page1');
   link2.classList.add('page2');
+} else {
+  link1.classList.remove('page2');
 }
