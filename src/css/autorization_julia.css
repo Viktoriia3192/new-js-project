@@ -214,3 +214,8 @@
     margin-top: 20px;
   }
 }
+
+
+.auth-input-hidden{
+  display: none;
+}
