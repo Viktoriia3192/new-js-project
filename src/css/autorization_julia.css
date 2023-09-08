@@ -146,6 +146,10 @@
   }
 }
 
+.auth-input-hidden{
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .auth {
     top: calc(50% - 258px);
@@ -213,9 +217,4 @@
     font-weight: 700;
     margin-top: 20px;
   }
-}
-
-
-.auth-input-hidden{
-  display: none;
 }

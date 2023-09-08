@@ -1,6 +1,7 @@
 const showModalBtn = document.getElementById('showModalBtn');
 const modal = document.getElementById('myModal');
 const closeBtn = document.querySelector('.close');
+const modalOpenBtn = document.querySelector(".menu-btn-start-tab")
 
 window.addEventListener("resize", checkResize);
 
@@ -44,8 +45,11 @@ const link2 = document.getElementById('link2');
 if (currentURL.includes('shopping_list_olexandr.html')) {
   link1.classList.remove('page1');
   link2.classList.add('page2');
+  modalOpenBtn.classList.add("header-modal-btn-hidden")
+  
 } else {
   link1.classList.remove('page2');
+  modalOpenBtn.classList.remove("header-modal-btn-hidden")
 }
 
 
