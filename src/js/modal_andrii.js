@@ -18,6 +18,8 @@ const removeNotification = document.querySelector('.removeNotification');
 const notification = document.querySelector('.notification');
 const removeBook = document.querySelector('.remove-book');
 const modalWindow = document.querySelector('.modal');
+const logNotification = document.querySelector(".notification-log")
+
 
 commonListRef.addEventListener('click', onClick);
 
@@ -56,6 +58,7 @@ function onClick(e) {
     document.body.style.overflow = 'hidden';
     backDrop.classList.remove('is-hidden');
     addBtn.textContent = `${check(resp.data._id)}`;
+    
     if (addBtn.textContent === 'Remove from the shopping list') {
       notification.classList.remove('hidden');
     } else if (addBtn.textContent === 'Add to shopping list') {

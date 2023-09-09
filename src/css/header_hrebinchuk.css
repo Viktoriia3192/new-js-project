@@ -79,9 +79,9 @@
   gap: 4px;
 }
 
-/* .header-shopping-list-hidden{
+.header-shopping-list-hidden{
   display: none;
-} */
+}
 
 .burger-btn {
   padding: 0;
@@ -298,6 +298,10 @@ input:checked + .slider:before {
 }
 
 /* Modal */
+.header-modal-btn-hidden{
+  display: none;
+}
+
 
 .header-burger {
   margin-top: 0;
