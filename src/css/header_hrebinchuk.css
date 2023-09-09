@@ -392,7 +392,7 @@ input:checked + .slider:before {
   align-items: center;
   gap: 4px;
   position: absolute;
-  bottom: 35px;
+  bottom: 120px;
   transform: translateY(-100%);
 }
 .header-modal {
