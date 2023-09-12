@@ -1,78 +1,244 @@
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    max-width: 446px;
-    max-height: 44px;
-    }
-    
-    .pagination-block {
-        display: flex;
-        gap: 10px;
-    }
-    
-    .pagination-list {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .pagination-list-number {
-        gap: 10px;
-    }
-    
-    .pagination-list-slider {
-        gap: 8px;
-    }
-    
-    .pagination-item {
-        display: flex;
-        align-items: center;
-    }
-    
-    .pagination-btn {
-        margin-left: auto;
-        margin-bottom: 0;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        border: 1px solid var(--black-text-color);
-        cursor: pointer;
-    }
-    
-    .pagination-btn-previous {
-        background-color: var(--black-text-color);
-        fill: var(--pagination-arrow-left);
-    }
-    
-    .pagination-icon-previous {
-        display: block;
-        margin-left: 0;
-    }
-    
-    .pagination-icon { 
-        display: block;
-        margin: 0 auto;
-    }
-    
-    .pagination-number {
-        color: #111;
-    font-family: DM Sans;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 22px;
-    }
-    
-    .pagination-btn-next {
-        background-color: var(--accent-yellow-color);
-        fill: var(--logo-color);
-    }
-    
-    .pagination-icon-next {
-        display: block;
-        margin-right: 0;
-    }
+/* .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  max-width: 446px;
+  max-height: 44px;
+}
+
+.pagination-block {
+  display: flex;
+  gap: 10px;
+}
+
+.pagination-list {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination-list-number {
+  gap: 10px;
+}
+
+.pagination-list-slider {
+  gap: 8px;
+}
+
+.pagination-item {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-btn {
+  margin-left: auto;
+  margin-bottom: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--black-text-color);
+  cursor: pointer;
+}
+
+.pagination-btn-previous {
+  background-color: var(--black-text-color);
+  fill: var(--pagination-arrow-left);
+}
+
+.pagination-icon-previous {
+  display: block;
+  margin-left: 0;
+}
+
+.pagination-icon {
+  display: block;
+  margin: 0 auto;
+}
+
+.pagination-number {
+  color: #111;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.pagination-btn-next {
+  background-color: var(--accent-yellow-color);
+  fill: var(--logo-color);
+}
+
+.pagination-icon-next {
+  display: block;
+  margin-right: 0;
+} */
+/*  ----------*/
+.tui-pagination {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 374px) {
+  .tui-pagination {
+    gap: 4px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .tui-pagination {
+    gap: 10px;
+  }
+}
+
+.tui-pagination .tui-first,
+.tui-pagination .tui-prev {
+  padding: 8px;
+  width: 38px;
+  height: 38px;
+  background-color: var(--black-text-color);
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 374px) {
+  .tui-pagination .tui-first,
+  .tui-pagination .tui-prev {
+    width: 34px;
+    height: 34px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .tui-pagination .tui-first,
+  .tui-pagination .tui-prev {
+    width: 44px;
+    height: 44px;
+  }
+}
+.tui-pagination .tui-first:is(:hover, :focus),
+.tui-pagination .tui-prev:is(:hover, :focus) {
+  background-color: var(--accent-yellow-color);
+  border-color: var(--black-text-color);
+}
+
+.tui-pagination .tui-next,
+.tui-pagination .tui-last {
+  padding: 14px;
+  width: 38px;
+  height: 38px;
+  background-color: var(--accent-yellow-color);
+  border-color: var(--black-text-color);
+}
+@media only screen and (max-width: 374px) {
+  .tui-pagination .tui-next,
+  .tui-pagination .tui-last {
+    width: 34px;
+    height: 34px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .tui-pagination .tui-next,
+  .tui-pagination .tui-last {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.tui-pagination .tui-next:is(:hover, :focus),
+.tui-pagination .tui-last:is(:hover, :focus) {
+  background-color: var(--black-text-color);
+  border-color: transparent;
+}
+.tui-ico-first {
+  fill: var(--pagination-arrow-left);
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+}
+@media only screen and (min-width: 768px) {
+  .tui-ico-first {
+    width: 25px;
+    height: 25px;
+  }
+}
+/* .tui-pagination .tui-next {
+  gap: 8px;
+}
+.tui-pagination .tui-first {
+  gap: 8px;
+} */
+
+.tui-page-btn {
+  border-radius: 50%;
+  border: 1px solid var(--black-text-color);
+  background-color: transparent;
+}
+.tui-pagination a.tui-page-btn {
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.22px;
+}
+@media only screen and (max-width: 374px) {
+  .tui-pagination a.tui-page-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .tui-pagination a.tui-page-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.tui-page-btn.tui-next-is-ellip.tui-last-child,
+.tui-page-btn.tui-prev-is-ellip.tui-first-child {
+  width: 38px;
+  height: 38px;
+}
+@media only screen and (max-width: 374px) {
+  .tui-page-btn.tui-next-is-ellip.tui-last-child,
+  .tui-page-btn.tui-prev-is-ellip.tui-first-child {
+    width: 34px;
+    height: 34px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .tui-page-btn.tui-next-is-ellip.tui-last-child,
+  .tui-page-btn.tui-prev-is-ellip.tui-first-child {
+    width: 44px;
+    height: 44px;
+  }
+}
+/* Стилізація активної сторінки */
+.tui-page-btn.tui-is-selected {
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.22px;
+  background-color: var(--black-text-color);
+  border-color: transparent;
+}
+@media only screen and (max-width: 374px) {
+  .tui-page-btn.tui-is-selected {
+    width: 34px;
+    height: 34px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .tui-page-btn.tui-is-selected {
+    width: 44px;
+    height: 44px;
+  }
+}
+strong.tui-page-btn.tui-is-selected:is(:hover, :focus) {
+  background-color: var(--black-text-color);
+}
