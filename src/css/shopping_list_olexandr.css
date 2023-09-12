@@ -1,6 +1,6 @@
 .left-wrapper-shoppig-list {
-    margin-right: 40px;
-    margin-left: 0;
+  margin-right: 40px;
+  margin-left: 0;
 }
 
 @media screen and (max-width: 1439px) {
@@ -15,9 +15,9 @@
 
 .shop-list-right-wrap {
   flex-direction: column;
-  /* justify-content: center; */
+  /* justify-content: flex-end; */
+  gap: 40px;
   align-items: center;
-  margin-bottom: 40px;
   display: flex;
   width: 100%;
 }
@@ -41,7 +41,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 38px;
-  margin-bottom: 40px; 
+  margin-bottom: 40px;
 }
 
 @media screen and (min-width: 768px) {
@@ -53,7 +53,7 @@
 }
 
 .shop-list-last-word {
-  color: #4F2EE8;
+  color: #4f2ee8;
 }
 
 .shop-list-empty {
@@ -107,17 +107,18 @@
 
 .shop-list-item {
   background: var(--header-white-color);
-  border: 2px solid rgba(79, 46, 232, 0.40);
+  border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
   align-items: flex-start;
   width: 335px;
   height: 170px;
-  margin-bottom: 20px;
   padding: 14px;
   display: flex;
   position: relative;
 }
-
+.shop-list-item:not(:last-child) {
+  margin-bottom: 20px;
+}
 @media screen and (min-width: 768px) {
   .shop-list-item {
     width: 704px;
@@ -254,7 +255,6 @@
   letter-spacing: -0.04em;
   overflow: hidden;
   max-height: 1em;
-
 }
 
 .shop-links-img {
@@ -292,7 +292,6 @@
 .shop-remove-btn {
   fill: currentColor;
   stroke: currentColor;
-
 }
 
 .shop-autor-links {
@@ -306,7 +305,6 @@
   .shop-autor-links {
     height: 30px;
     margin-top: auto;
-
   }
 }
 
@@ -322,7 +320,6 @@
 }
 
 .card-image {
-
   filter: grayscale();
 }
 @media screen and (max-width: 767px) {
@@ -333,4 +330,3 @@
     width: 32px;
   }
 }
-

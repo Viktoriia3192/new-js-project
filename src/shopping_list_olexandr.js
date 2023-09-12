@@ -3,6 +3,8 @@ import Notiflix from 'notiflix';
 import amazon from './images/book-shop/amazon.png';
 import applebooks from './images/book-shop/apple-books.png';
 import bookshop from './images/book-shop/bookshop.png';
+//===========
+import { addPagination } from './js/pagination_mariia';
 
 import './js/header_hrebinchuk';
 import './js/support_daryna';
@@ -10,7 +12,6 @@ import './js/dark_theme_max';
 import './js/pagination_mariia';
 
 import trashshop from '/src/images/sprite.svg';
-
 
 const rightWrapper = document.querySelector('.shop-list-container');
 const defaultMessage = document.querySelector('.shop-list-empty');
@@ -27,13 +28,14 @@ function shopingListMarkupAdd(event) {
     return;
   }
   defaultMessage.classList.add('shoping-hidden');
-  rightWrapper.insertAdjacentHTML('beforeend', shopingListBookMarkup(booksArr));
+  // rightWrapper.insertAdjacentHTML('beforeend', shopingListBookMarkup(booksArr));
+  addPagination();
   bookShopRemove = document.querySelector('.shop-button-book-remove');
-  rightWrapper.innerHTML = shopingListBookMarkup(booksArr);
+  // rightWrapper.innerHTML = shopingListBookMarkup(booksArr);
 }
 rightWrapper.addEventListener('click', onBtnBookRemoveClick);
 
-function shopingListBookMarkup(arr) {
+export function shopingListBookMarkup(arr) {
   return arr
     .map(
       ({
@@ -105,7 +107,7 @@ function onBtnBookRemoveClick(event) {
   const bookRemoveId = event.target.parentNode.dataset.id;
 
   removeFromBasket(bookRemoveId);
-  shopingListMarkupAdd();
+  addPagination();
 }
 
 function removeFromBasket(id) {
